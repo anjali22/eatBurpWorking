@@ -1,0 +1,49 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _ActionTypes = require('./ActionTypes');
+
+var _ActionTypes2 = _interopRequireDefault(_ActionTypes);
+
+var _Records = require('./Records');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CurrentUserReducer = function () {
+  function CurrentUserReducer() {
+    _classCallCheck(this, CurrentUserReducer);
+  }
+
+  _createClass(CurrentUserReducer, null, [{
+    key: 'reduce',
+    value: function reduce() {
+      var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _Records.User();
+      var action = arguments[1];
+
+      if (CurrentUserReducer[action.type]) {
+        return CurrentUserReducer[action.type](state, action);
+      } else {
+        return state;
+      }
+    }
+  }, {
+    key: _ActionTypes2.default.SET_CURRENT_USER,
+    value: function value(state, action) {
+      return action.user;
+    }
+  }, {
+    key: _ActionTypes2.default.RESET,
+    value: function value(state, action) {
+      return new _Records.User();
+    }
+  }]);
+
+  return CurrentUserReducer;
+}();
+
+exports.default = CurrentUserReducer.reduce;

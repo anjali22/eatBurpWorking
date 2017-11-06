@@ -1,0 +1,22 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = updateVisitedCacheAsync;
+
+var _LocalStorage = require('../state/LocalStorage');
+
+var _LocalStorage2 = _interopRequireDefault(_LocalStorage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function updateVisitedCacheAsync(_ref) {
+  var getState = _ref.getState;
+
+  var _getState = getState(),
+      breweries = _getState.breweries;
+
+  var visited = breweries.visited;
+
+
+  _LocalStorage2.default.saveVisitedBreweriesAsync(visited.toJS());
+}

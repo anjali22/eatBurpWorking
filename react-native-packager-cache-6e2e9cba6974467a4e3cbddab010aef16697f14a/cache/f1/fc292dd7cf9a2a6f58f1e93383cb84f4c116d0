@@ -1,0 +1,142 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = '/home/anjali/growler-prowler-master/node_modules/@expo/react-native-touchable-native-feedback-safe/TouchableNativeFeedbackSafe.js';
+
+var _reactNative = require('react-native');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  TouchableNativeFeedbackSafe: {
+    displayName: 'TouchableNativeFeedbackSafe'
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/node_modules/@expo/react-native-touchable-native-feedback-safe/TouchableNativeFeedbackSafe.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var TouchableComponent = void 0;
+
+if (_reactNative.Platform.OS === 'android') {
+  TouchableComponent = _reactNative.Platform.Version <= 20 ? _reactNative.TouchableOpacity : _reactNative.TouchableNativeFeedback;
+} else {
+  TouchableComponent = _reactNative.TouchableOpacity;
+}
+
+if (TouchableComponent !== _reactNative.TouchableNativeFeedback) {
+  TouchableComponent.SelectableBackground = function () {
+    return {};
+  };
+  TouchableComponent.SelectableBackgroundBorderless = function () {
+    return {};
+  };
+  TouchableComponent.Ripple = function (color, borderless) {
+    return {};
+  };
+}
+
+var TouchableNativeFeedbackSafe = _wrapComponent('TouchableNativeFeedbackSafe')((_temp = _class = function (_React$Component) {
+  _inherits(TouchableNativeFeedbackSafe, _React$Component);
+
+  function TouchableNativeFeedbackSafe() {
+    _classCallCheck(this, TouchableNativeFeedbackSafe);
+
+    return _possibleConstructorReturn(this, (TouchableNativeFeedbackSafe.__proto__ || Object.getPrototypeOf(TouchableNativeFeedbackSafe)).apply(this, arguments));
+  }
+
+  _createClass(TouchableNativeFeedbackSafe, [{
+    key: 'render',
+    value: function render() {
+      if (TouchableComponent === _reactNative.TouchableNativeFeedback) {
+        var _props = this.props,
+            children = _props.children,
+            style = _props.style,
+            props = _objectWithoutProperties(_props, ['children', 'style']);
+
+        return _react3.default.createElement(
+          TouchableComponent,
+          _extends({}, props, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 34
+            }
+          }),
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: style, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 35
+              }
+            },
+            children
+          )
+        );
+      } else {
+        var _props3 = this.props,
+            _children = _props3.children,
+            fallback = _props3.fallback,
+            _style = _props3.style,
+            _props2 = _objectWithoutProperties(_props3, ['children', 'fallback', 'style']);
+
+        var TouchableFallback = fallback || TouchableComponent;
+
+        return _react3.default.createElement(
+          TouchableFallback,
+          _extends({}, _props2, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 45
+            }
+          }),
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: _style, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 46
+              }
+            },
+            _children
+          )
+        );
+      }
+    }
+  }]);
+
+  return TouchableNativeFeedbackSafe;
+}(_react3.default.Component), _class.SelectableBackground = TouchableComponent.SelectableBackground, _class.SelectableBackgroundBorderless = TouchableComponent.SelectableBackgroundBorderless, _class.Ripple = TouchableComponent.Ripple, _temp));
+
+exports.default = TouchableNativeFeedbackSafe;

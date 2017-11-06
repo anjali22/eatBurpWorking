@@ -1,0 +1,145 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/anjali/growler-prowler-master/components/ImageGalleryPortal.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _reactNativeTouchableNativeFeedbackSafe = require('@expo/react-native-touchable-native-feedback-safe');
+
+var _reactNativeTouchableNativeFeedbackSafe2 = _interopRequireDefault(_reactNativeTouchableNativeFeedbackSafe);
+
+var _reactNativeImageGallery = require('@expo/react-native-image-gallery');
+
+var _reactNativeImageGallery2 = _interopRequireDefault(_reactNativeImageGallery);
+
+var _vectorIcons = require('@expo/vector-icons');
+
+var _StyledText = require('./StyledText');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  ImageGalleryPortal: {
+    displayName: 'ImageGalleryPortal'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/components/ImageGalleryPortal.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var ImageGalleryPortal = _wrapComponent('ImageGalleryPortal')(function (_React$Component) {
+  _inherits(ImageGalleryPortal, _React$Component);
+
+  function ImageGalleryPortal() {
+    _classCallCheck(this, ImageGalleryPortal);
+
+    return _possibleConstructorReturn(this, (ImageGalleryPortal.__proto__ || Object.getPrototypeOf(ImageGalleryPortal)).apply(this, arguments));
+  }
+
+  _createClass(ImageGalleryPortal, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(_reactNativeImageGallery2.default, {
+        renderHeaderRight: function renderHeaderRight(onPress) {
+          return _react3.default.createElement(
+            _reactNativeTouchableNativeFeedbackSafe2.default,
+            { onPress: onPress, hitSlop: { top: 20, right: 20, left: 20 }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 17
+              }
+            },
+            _react3.default.createElement(_vectorIcons.MaterialIcons, { name: 'close', size: 20, color: 'rgba(0,0,0,0.9)', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 18
+              }
+            })
+          );
+        },
+        renderDescription: function renderDescription(description) {
+          return _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.descriptionContainer, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 22
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.ScrollView,
+              {
+                bounces: false,
+                alwaysBounceVertical: false,
+                style: styles.descriptionScrollView,
+                contentContainerStyle: styles.descriptionContentContainer, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 23
+                }
+              },
+              _react3.default.createElement(
+                _StyledText.RegularText,
+                { style: { color: 'rgba(0,0,0,0.9)' }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 28
+                  }
+                },
+                description
+              )
+            )
+          );
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        }
+      });
+    }
+  }]);
+
+  return ImageGalleryPortal;
+}(_react3.default.Component));
+
+exports.default = ImageGalleryPortal;
+
+
+var styles = _reactNative.StyleSheet.create({
+  descriptionContainer: {
+    flex: 1,
+    backgroundColor: '#fff'
+  },
+  descriptionScrollView: {
+    flex: 1,
+    borderTopWidth: _reactNative.StyleSheet.hairlineWidth,
+    borderTopColor: '#b2b2b2'
+  },
+  descriptionContentContainer: {
+    backgroundColor: '#fff',
+    padding: 15
+  }
+});

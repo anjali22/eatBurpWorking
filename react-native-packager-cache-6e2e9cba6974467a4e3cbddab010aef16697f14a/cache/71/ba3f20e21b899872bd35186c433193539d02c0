@@ -1,0 +1,229 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec,
+    _class,
+    _jsxFileName = '/home/anjali/growler-prowler-master/screens/SettingsScreen.js';
+
+var _reactNative = require('react-native');
+
+var _reactNativeTouchableNativeFeedbackSafe = require('@expo/react-native-touchable-native-feedback-safe');
+
+var _reactNativeTouchableNativeFeedbackSafe2 = _interopRequireDefault(_reactNativeTouchableNativeFeedbackSafe);
+
+var _vectorIcons = require('@expo/vector-icons');
+
+var _reactRedux = require('react-redux');
+
+var _Actions = require('../state/Actions');
+
+var _Actions2 = _interopRequireDefault(_Actions);
+
+var _StyledText = require('../components/StyledText');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  SettingsScreen: {
+    displayName: 'SettingsScreen'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/screens/SettingsScreen.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var SettingsScreen = _wrapComponent('SettingsScreen')((_dec = (0, _reactRedux.connect)(function (data) {
+  return SettingsScreen.getDataProps(data);
+}), _dec(_class = function (_React$Component) {
+  _inherits(SettingsScreen, _React$Component);
+
+  function SettingsScreen() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, SettingsScreen);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SettingsScreen.__proto__ || Object.getPrototypeOf(SettingsScreen)).call.apply(_ref, [this].concat(args))), _this), _this._handlePressSignOut = function () {
+      _this.props.dispatch(_Actions2.default.signOut());
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(SettingsScreen, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        _reactNative.ScrollView,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          }
+        },
+        this._renderAccountSection()
+      );
+    }
+  }, {
+    key: '_renderAccountSection',
+    value: function _renderAccountSection() {
+      var currentUser = this.props.currentUser;
+
+      var signOutText = void 0;
+
+      if (currentUser.isGuest) {
+        signOutText = 'Sign out (you are currently a guest)';
+      } else {
+        signOutText = 'Sign out';
+      }
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 43
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.cardLabel, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 44
+            }
+          },
+          _react3.default.createElement(
+            _StyledText.BoldText,
+            { style: styles.cardLabelText, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 45
+              }
+            },
+            'Your account'
+          )
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.card, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 50
+            }
+          },
+          _react3.default.createElement(
+            _reactNativeTouchableNativeFeedbackSafe2.default,
+            {
+              onPress: this._handlePressSignOut,
+              fallback: _reactNative.TouchableHighlight,
+              underlayColor: '#eee', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 51
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: [styles.cardBody, { flexDirection: 'row' }], __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 55
+                }
+              },
+              _react3.default.createElement(_vectorIcons.MaterialIcons, {
+                name: 'exit-to-app',
+                size: 25,
+                style: { transform: [{ rotate: '180deg' }] },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 56
+                }
+              }),
+              _react3.default.createElement(
+                _StyledText.RegularText,
+                { style: styles.signOutText, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 62
+                  }
+                },
+                signOutText
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(_reactNative.StatusBar, { barStyle: 'default', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 69
+          }
+        })
+      );
+    }
+  }], [{
+    key: 'getDataProps',
+    value: function getDataProps(data) {
+      return {
+        currentUser: data.currentUser
+      };
+    }
+  }]);
+
+  return SettingsScreen;
+}(_react3.default.Component)) || _class));
+
+exports.default = SettingsScreen;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FBFBFB'
+  },
+  card: {
+    borderWidth: _reactNative.StyleSheet.hairlineWidth,
+    borderColor: '#E8E8E8',
+    backgroundColor: '#fff'
+  },
+  cardBody: {
+    paddingVertical: 12,
+    paddingHorizontal: 10
+  },
+  cardLabel: {
+    marginTop: 20,
+    paddingLeft: 8,
+    paddingBottom: 5
+  },
+  cardLabelText: {
+    fontSize: 15,
+    color: '#313131'
+  },
+  signOutText: {
+    fontSize: 15,
+    marginLeft: 8,
+    marginTop: 1
+  }
+});

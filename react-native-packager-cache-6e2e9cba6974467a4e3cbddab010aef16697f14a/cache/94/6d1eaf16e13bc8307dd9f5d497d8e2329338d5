@@ -1,0 +1,136 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.BoldText = exports.LightText = exports.RegularText = undefined;
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _jsxFileName = '/home/anjali/growler-prowler-master/components/StyledText.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _expo = require('expo');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  RegularText: {
+    displayName: 'RegularText'
+  },
+  LightText: {
+    displayName: 'LightText'
+  },
+  BoldText: {
+    displayName: 'BoldText'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/components/StyledText.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var RegularText = exports.RegularText = _wrapComponent('RegularText')(function (_React$Component) {
+  _inherits(RegularText, _React$Component);
+
+  function RegularText() {
+    _classCallCheck(this, RegularText);
+
+    return _possibleConstructorReturn(this, (RegularText.__proto__ || Object.getPrototypeOf(RegularText)).apply(this, arguments));
+  }
+
+  _createClass(RegularText, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(_reactNative.Text, _extends({}, this.props, { style: [this.props.style, styles.regular], __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      }));
+    }
+  }]);
+
+  return RegularText;
+}(_react3.default.Component));
+
+var LightText = exports.LightText = _wrapComponent('LightText')(function (_React$Component2) {
+  _inherits(LightText, _React$Component2);
+
+  function LightText() {
+    _classCallCheck(this, LightText);
+
+    return _possibleConstructorReturn(this, (LightText.__proto__ || Object.getPrototypeOf(LightText)).apply(this, arguments));
+  }
+
+  _createClass(LightText, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(_reactNative.Text, _extends({}, this.props, { style: [this.props.style, styles.light], __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        }
+      }));
+    }
+  }]);
+
+  return LightText;
+}(_react3.default.Component));
+
+var BoldText = exports.BoldText = _wrapComponent('BoldText')(function (_React$Component3) {
+  _inherits(BoldText, _React$Component3);
+
+  function BoldText() {
+    _classCallCheck(this, BoldText);
+
+    return _possibleConstructorReturn(this, (BoldText.__proto__ || Object.getPrototypeOf(BoldText)).apply(this, arguments));
+  }
+
+  _createClass(BoldText, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(_reactNative.Text, _extends({}, this.props, { style: [this.props.style, styles.bold], __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        }
+      }));
+    }
+  }]);
+
+  return BoldText;
+}(_react3.default.Component));
+
+var styles = _reactNative.StyleSheet.create({
+  regular: {
+    fontFamily: 'OpenSans'
+  },
+  light: {
+    fontFamily: 'OpenSans-Light'
+  },
+  bold: {
+    fontFamily: 'OpenSans-Bold'
+  }
+});

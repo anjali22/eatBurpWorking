@@ -1,0 +1,38 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Actions = require('../state/Actions');
+
+var _Actions2 = _interopRequireDefault(_Actions);
+
+var _LocalStorage = require('../state/LocalStorage');
+
+var _LocalStorage2 = _interopRequireDefault(_LocalStorage);
+
+var _Records = require('../state/Records');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+exports.default = function signOutAsync(_ref) {
+  var action = _ref.action,
+      dispatch = _ref.dispatch;
+  return regeneratorRuntime.async(function signOutAsync$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return regeneratorRuntime.awrap(_LocalStorage2.default.clearAllAsync());
+
+        case 2:
+          dispatch(_Actions2.default.setCurrentUser(new _Records.User()));
+
+        case 3:
+        case 'end':
+          return _context.stop();
+      }
+    }
+  }, null, this);
+};

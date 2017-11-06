@@ -1,0 +1,8 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var OPENING_ANIMATION_IN_PROGRESS = exports.OPENING_ANIMATION_IN_PROGRESS = 'opening-animation-in-progress';
+var OPEN_AND_IDLE = exports.OPEN_AND_IDLE = 'open-and-idle';
+var DRAG_IN_PROGRESS = exports.DRAG_IN_PROGRESS = 'drag-in-progess';
+var CLOSED_AND_IDLE = exports.CLOSED_AND_IDLE = 'closed-and-idle';
+var CLOSING_ANIMATION_IN_PROGRESS = exports.CLOSING_ANIMATION_IN_PROGRESS = 'closing-animation-in-progress';

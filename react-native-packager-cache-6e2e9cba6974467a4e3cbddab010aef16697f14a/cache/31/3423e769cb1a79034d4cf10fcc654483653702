@@ -1,0 +1,104 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _ActionTypes = require('./ActionTypes');
+
+var _ActionTypes2 = _interopRequireDefault(_ActionTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Actions = function () {
+  function Actions() {
+    _classCallCheck(this, Actions);
+  }
+
+  _createClass(Actions, null, [{
+    key: 'setCurrentUser',
+    value: function setCurrentUser(user) {
+      return {
+        type: _ActionTypes2.default.SET_CURRENT_USER,
+        user: user
+      };
+    }
+  }, {
+    key: 'signIn',
+    value: function signIn(user) {
+      return {
+        type: _ActionTypes2.default.SIGN_IN,
+        user: user
+      };
+    }
+  }, {
+    key: 'signOut',
+    value: function signOut() {
+      return {
+        type: _ActionTypes2.default.SIGN_OUT
+      };
+    }
+  }, {
+    key: 'setBreweries',
+    value: function setBreweries(breweries) {
+      return {
+        type: _ActionTypes2.default.SET_BREWERIES,
+        breweries: breweries
+      };
+    }
+  }, {
+    key: 'setNearbyBreweries',
+    value: function setNearbyBreweries(breweryIds) {
+      return {
+        type: _ActionTypes2.default.SET_NEARBY_BREWERIES,
+        breweryIds: breweryIds
+      };
+    }
+  }, {
+    key: 'setVisitedBreweries',
+    value: function setVisitedBreweries(breweryIds) {
+      return {
+        type: _ActionTypes2.default.SET_VISITED_BREWERIES,
+        breweryIds: breweryIds
+      };
+    }
+  }, {
+    key: 'toggleVisitedBrewery',
+    value: function toggleVisitedBrewery(breweryId) {
+      return {
+        type: _ActionTypes2.default.TOGGLE_VISITED_BREWERY,
+        breweryId: breweryId
+      };
+    }
+  }, {
+    key: 'addVisitedBrewery',
+    value: function addVisitedBrewery(breweryId) {
+      return {
+        type: _ActionTypes2.default.ADD_VISITED_BREWERY,
+        breweryId: breweryId
+      };
+    }
+  }, {
+    key: 'removeVisitedBrewery',
+    value: function removeVisitedBrewery(breweryId) {
+      return {
+        type: _ActionTypes2.default.REMOVE_VISITED_BREWERY,
+        breweryId: breweryId
+      };
+    }
+  }, {
+    key: 'computeDistances',
+    value: function computeDistances() {
+      return {
+        type: _ActionTypes2.default.COMPUTE_DISTANCES
+      };
+    }
+  }]);
+
+  return Actions;
+}();
+
+exports.default = Actions;

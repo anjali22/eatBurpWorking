@@ -1,0 +1,103 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec,
+    _class,
+    _class2,
+    _temp,
+    _jsxFileName = '/home/anjali/growler-prowler-master/screens/BreweryDetailsScreen.js';
+
+var _reactRedux = require('react-redux');
+
+var _Actions = require('../state/Actions');
+
+var _Actions2 = _interopRequireDefault(_Actions);
+
+var _BreweryDetails = require('../components/BreweryDetails');
+
+var _BreweryDetails2 = _interopRequireDefault(_BreweryDetails);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  BreweryDetailsScreen: {
+    displayName: 'BreweryDetailsScreen'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/screens/BreweryDetailsScreen.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var BreweryDetailsScreen = _wrapComponent('BreweryDetailsScreen')((_dec = (0, _reactRedux.connect)(function (data, props) {
+  return BreweryDetailsScreen.getDataProps(data, props);
+}), _dec(_class = (_temp = _class2 = function (_React$Component) {
+  _inherits(BreweryDetailsScreen, _React$Component);
+
+  function BreweryDetailsScreen() {
+    _classCallCheck(this, BreweryDetailsScreen);
+
+    return _possibleConstructorReturn(this, (BreweryDetailsScreen.__proto__ || Object.getPrototypeOf(BreweryDetailsScreen)).apply(this, arguments));
+  }
+
+  _createClass(BreweryDetailsScreen, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(_BreweryDetails2.default, {
+        brewery: this.props.brewery,
+        isVisited: this.props.isVisited,
+        onToggleVisited: this._onToggleVisited,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        }
+      });
+    }
+  }], [{
+    key: 'getDataProps',
+    value: function getDataProps(data, props) {
+      var breweryId = props.navigation.state.params.breweryId;
+      var brewery = data.breweries.all.find(function (brewery) {
+        return brewery.id === breweryId;
+      });
+
+      return {
+        brewery: brewery
+      };
+    }
+  }]);
+
+  return BreweryDetailsScreen;
+}(_react3.default.Component), _class2.route = {
+  navigationBar: {
+    visible: false
+  }
+}, _temp)) || _class));
+
+exports.default = BreweryDetailsScreen;

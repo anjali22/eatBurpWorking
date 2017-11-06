@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "EatBurp",
+    "description": "Find best food near you!",
+    "slug": "growler-prowler",
+    "sdkVersion": "22.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#f6bd94",
+    "privacy": "public",
+    "icon": "./icon.jpeg",
+    "splash": {
+      "backgroundColor": "#ff8342",
+      "image": "./splash.jpeg",
+      "resizeMode": "contain"
+    },
+    "android": {
+      "icon": "./icon.jpeg",
+      "package": "xyz.bront.coldone",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyD6TAyiTkI3nULh6-JhZJqRxJ0S734dw6E"
+        }
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "xyz.bront.coldone"
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf", "mp4"]
+    }
+  }
+}

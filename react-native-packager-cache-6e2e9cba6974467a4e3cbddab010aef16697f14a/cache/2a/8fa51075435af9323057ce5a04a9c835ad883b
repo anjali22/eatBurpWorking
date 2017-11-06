@@ -1,0 +1,232 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = '/home/anjali/growler-prowler-master/node_modules/@expo/react-native-image-gallery/lib/ImageGalleryImage.js';
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require('react-native');
+
+var _ImageGalleryPlaceholder = require('./ImageGalleryPlaceholder');
+
+var _ImageGalleryPlaceholder2 = _interopRequireDefault(_ImageGalleryPlaceholder);
+
+var _ShallowEquals = require('./ShallowEquals');
+
+var _calculateImageDimensions = require('./calculateImageDimensions');
+
+var _calculateImageDimensions2 = _interopRequireDefault(_calculateImageDimensions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  ImageGalleryImage: {
+    displayName: 'ImageGalleryImage'
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/node_modules/@expo/react-native-image-gallery/lib/ImageGalleryImage.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var ImageGalleryImage = _wrapComponent('ImageGalleryImage')((_temp = _class = function (_React$Component) {
+  _inherits(ImageGalleryImage, _React$Component);
+
+  function ImageGalleryImage(props, context) {
+    _classCallCheck(this, ImageGalleryImage);
+
+    var _this = _possibleConstructorReturn(this, (ImageGalleryImage.__proto__ || Object.getPrototypeOf(ImageGalleryImage)).call(this, props, context));
+
+    _this._onImageLoad = function () {
+      _this.setState({ hideThrobber: true });
+    };
+
+    _this.state = { hideThrobber: false };
+    return _this;
+  }
+
+  _createClass(ImageGalleryImage, [{
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps, nextState) {
+      return !(0, _ShallowEquals.shallowEquals)(this.props, nextProps) || !(0, _ShallowEquals.shallowEquals)(this.state, nextState);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          item = _props.item,
+          width = _props.width,
+          isVisible = _props.isVisible;
+
+
+      var imageStyle = {
+        width: width,
+        height: width,
+        opacity: isVisible ? 1 : 0,
+        borderRadius: 0.1
+      };
+
+      if (item.get('image_url')) {
+        var imageUri = item.getIn(['asset', 'url']) || item.get('image_url');
+
+        var _calculateImageDimens = (0, _calculateImageDimensions2.default)(item, width),
+            constrainedWidth = _calculateImageDimens.constrainedWidth,
+            constrainedHeight = _calculateImageDimens.constrainedHeight,
+            marginHorizontal = _calculateImageDimens.marginHorizontal,
+            marginVertical = _calculateImageDimens.marginVertical;
+
+        var imageLayout = {
+          height: constrainedHeight,
+          width: constrainedWidth,
+          marginVertical: marginVertical,
+          marginHorizontal: marginHorizontal
+        };
+
+        var isAnimatedImage = item.getIn(['asset', 'type']) === 'animated_image';
+
+        var image = void 0;
+        if (isAnimatedImage && this.props.isFocused || !isAnimatedImage) {
+          image = _react3.default.createElement(_reactNative.Image, {
+            onLoadEnd: this._onImageLoad,
+            source: { uri: imageUri },
+            style: [imageStyle, imageLayout],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 65
+            }
+          });
+        }
+
+        var coverImage = void 0;
+        if (isAnimatedImage) {
+          var coverUri = item.getIn(['asset', 'cover', 'url']);
+          coverImage = _react3.default.createElement(_reactNative.Image, {
+            source: { uri: coverUri },
+            style: [imageStyle, imageLayout],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 77
+            }
+          });
+        }
+
+        if (coverImage) {
+          image = _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.absoluteFill, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 85
+              }
+            },
+            image
+          );
+        }
+
+        return _react3.default.createElement(
+          _reactNative.View,
+          { style: imageStyle, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 89
+            }
+          },
+          this._maybeRenderThrobber(),
+          coverImage,
+          image
+        );
+      } else {
+        return _react3.default.createElement(_ImageGalleryPlaceholder2.default, { style: imageStyle, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 96
+          }
+        });
+      }
+    }
+  }, {
+    key: '_maybeRenderThrobber',
+    value: function _maybeRenderThrobber() {
+      var isVisible = this.props.isVisible;
+      var hideThrobber = this.state.hideThrobber;
+
+
+      if (hideThrobber || !isVisible) {
+        return;
+      }
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: styles.throbberContainer, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 113
+          }
+        },
+        _react3.default.createElement(_reactNative.ActivityIndicator, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 114
+          }
+        })
+      );
+    }
+  }]);
+
+  return ImageGalleryImage;
+}(_react3.default.Component), _class.propTypes = {
+  item: _propTypes2.default.object,
+  fadeInOnLoad: _propTypes2.default.bool,
+  width: _propTypes2.default.number,
+  isVisible: _propTypes2.default.bool
+}, _temp));
+
+exports.default = ImageGalleryImage;
+
+
+var styles = _reactNative.StyleSheet.create({
+  throbberContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    backgroundColor: '#e8e8ec'
+  },
+  absoluteFill: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  }
+
+});

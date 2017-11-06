@@ -1,0 +1,65 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = openImageGallery;
+
+var _Actions = require('./Actions');
+
+var _Actions2 = _interopRequireDefault(_Actions);
+
+var _DefaultStore = require('./DefaultStore');
+
+var _DefaultStore2 = _interopRequireDefault(_DefaultStore);
+
+var _immutable = require('immutable');
+
+var _immutable2 = _interopRequireDefault(_immutable);
+
+var _expo = require('expo');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function transformToInternalStructure(images) {
+  var internalImageFormat = images.map(function (info, i) {
+    var image = void 0;
+
+    if (info.image) {
+      var assetInfo = _expo.Asset.fromModule(info.image);
+      image = _extends({}, info, { imageUrl: assetInfo.uri, width: assetInfo.width, height: assetInfo.height });
+    } else {
+      image = info;
+    }
+
+    return {
+      id: image.imageUrl,
+      image_url: image.imageUrl,
+      description: image.description,
+      width: image.width,
+      height: image.height,
+      asset: {
+        type: 'static',
+        width: image.width,
+        height: image.height,
+        cover: {
+          uri: image.imageUrl
+        }
+      }
+    };
+  });
+
+  return _immutable2.default.fromJS({ items: internalImageFormat, list_id: new Date().toISOString() });
+}
+
+function openImageGallery(options) {
+  var selectedItemIndex = options.list.indexOf(options.item);
+  var list = transformToInternalStructure(options.list);
+  var item = list.get('items').get(selectedItemIndex);
+
+  _DefaultStore2.default.dispatch(_Actions2.default.openImageGallery(_extends({}, options, {
+    list: list,
+    item: item
+  })));
+}

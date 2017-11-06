@@ -1,0 +1,134 @@
+(function () {
+
+  var AM = 'am',
+      PM = 'pm',
+      periodRegex = new RegExp('([ap](\\.?)(m\\.?)?)', 'i'),
+      timeRegex = new RegExp('^(10|11|12|0?[1-9])(?::|\\.)?([0-5][0-9])?' + periodRegex.source + '?$', 'i'),
+      formatRegex = new RegExp('^(h|hh)([:|\.])?(mm)?( ?)' + periodRegex.source + '?$', 'i');
+
+  if (typeof module !== 'undefined' && module.exports) module.exports = Time;else window.Time = Time;
+
+  function Time(time) {
+    if (!(this instanceof Time)) return new Time(time);
+
+    var hours,
+        minutes,
+        period = null;
+
+    if (time) {
+      var result = timeRegex.exec(sanitize(time));
+      if (result) {
+        hours = parseInt(result[1], 10);
+        minutes = result[2] ? parseInt(result[2], 10) : 0;
+        period = parsePeriod(result[3]);
+      }
+    } else {
+      var d = new Date();
+      hours = d.getHours();
+      period = hours > 11 ? PM : AM;
+      if (hours > 12) hours -= 12;
+      if (hours === 0) hours = 12;
+      minutes = d.getMinutes();
+    }
+
+    this.hours = function (newHours) {
+      if (!newHours) return hours;
+      hours = parseInt(newHours, 10);
+    };
+
+    this.minutes = function (newMinutes) {
+      if (!newMinutes) return minutes;
+      minutes = parseInt(newMinutes, 10);
+    };
+
+    this.period = function (newPeriod) {
+      if (!newPeriod) return period;
+      period = parsePeriod(newPeriod);
+    };
+  }
+
+  Time.prototype.nextDate = function () {
+    if (!this.isValid()) return null;
+
+    var hours = this.hours() === 12 ? 0 : this.hours();
+    if (this.period() === PM) hours += 12;
+    var d = new Date();
+    d.setHours(hours);
+    d.setMinutes(this.minutes());
+    d.setSeconds(0);
+    d.setMilliseconds(0);
+
+    while (new Date() > d) {
+      d.setHours(d.getHours() + 12);
+    }
+    if (d.getHours() > 11 && this.period() === AM) d.setHours(d.getHours() + 12);else if (d.getHours() < 12 && this.period() === PM) d.setHours(d.getHours() + 12);
+
+    return d;
+  };
+
+  Time.isValid = function (time) {
+    return timeRegex.test(sanitize(time));
+  };
+
+  Time.prototype.isValid = function () {
+    return Time.isValid(toString(this));
+  };
+
+  Time.DEFAULT_TIME_FORMAT = 'h:mm am';
+
+  Time.prototype.format = function (format) {
+    format = format || Time.DEFAULT_TIME_FORMAT;
+    if (!this.isValid()) {
+      return 'invalid time';
+    } else if (!formatRegex.test(format)) {
+      return 'invalid format';
+    }
+    return toString(this, format);
+  };
+
+  Time.prototype.toString = Time.prototype.format;
+
+  function toString(time, format) {
+    format = format || Time.DEFAULT_TIME_FORMAT;
+    var bits = formatRegex.exec(format);
+    var fHour = bits[1];
+    var fMiddlebit = bits[2];
+    var fMinutes = bits[3];
+    var fPeriodSpace = bits[4];
+    var fPeriod = bits[5];
+    var fFirstPeriod = bits[6];
+    var fPeriodM = bits[7];
+
+    var hours = fHour.length == 2 ? padTime(time.hours()) : time.hours();
+
+    var minutes = fMinutes || fMiddlebit && time.minutes() !== 0 ? padTime(time.minutes()) : '';
+
+    var middlebit = minutes && fMiddlebit ? fMiddlebit : '';
+
+    var period = '';
+    if (fPeriod && time.period()) {
+      var firstPeriod = time.period().charAt(0);
+      if (fPeriod.charAt(0) === fPeriod.charAt(0).toUpperCase()) {
+        firstPeriod = firstPeriod.toUpperCase();
+      }
+      period = firstPeriod + fPeriod.slice(1);
+    }
+
+    var space = period && fPeriodSpace ? fPeriodSpace : '';
+
+    return '' + hours + middlebit + minutes + space + period;
+  }
+
+  function padTime(time) {
+    return time < 10 ? '0' + time : time;
+  }
+
+  function sanitize(time) {
+    return time.toString().replace(/\s/g, '');
+  }
+
+  function parsePeriod(period) {
+    if (!period || !period.match(periodRegex)) return null;else if (period.match(/^p/i) != null) return PM;
+    return period.match(/^a/i) != null ? AM : null;
+  }
+})();

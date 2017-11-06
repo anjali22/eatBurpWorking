@@ -1,0 +1,34 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _ActionTypes = require('../state/ActionTypes');
+
+var _ActionTypes2 = _interopRequireDefault(_ActionTypes);
+
+var _computeDistancesAsync = require('./computeDistancesAsync');
+
+var _computeDistancesAsync2 = _interopRequireDefault(_computeDistancesAsync);
+
+var _signInAsync = require('./signInAsync');
+
+var _signInAsync2 = _interopRequireDefault(_signInAsync);
+
+var _signOutAsync = require('./signOutAsync');
+
+var _signOutAsync2 = _interopRequireDefault(_signOutAsync);
+
+var _updateVisitedBreweryCacheAsync = require('./updateVisitedBreweryCacheAsync');
+
+var _updateVisitedBreweryCacheAsync2 = _interopRequireDefault(_updateVisitedBreweryCacheAsync);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function genericErrorHandler(_ref) {
+  var action = _ref.action,
+      error = _ref.error;
+
+  console.log({ error: error, action: action });
+}
+
+exports.default = [{ action: _ActionTypes2.default.SIGN_IN, effect: _signInAsync2.default, error: genericErrorHandler }, { action: _ActionTypes2.default.SIGN_OUT, effect: _signOutAsync2.default, error: genericErrorHandler }, { action: _ActionTypes2.default.ADD_VISITED_BREWERY, effect: _updateVisitedBreweryCacheAsync2.default, error: genericErrorHandler }, { action: _ActionTypes2.default.REMOVE_VISITED_BREWERY, effect: _updateVisitedBreweryCacheAsync2.default, error: genericErrorHandler }, { action: _ActionTypes2.default.COMPUTE_DISTANCES, effect: _computeDistancesAsync2.default, error: genericErrorHandler }];

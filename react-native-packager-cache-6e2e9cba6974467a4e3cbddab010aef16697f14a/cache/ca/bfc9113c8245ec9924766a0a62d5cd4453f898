@@ -1,0 +1,169 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/anjali/growler-prowler-master/navigation/RootNavigation.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _expo = require('expo');
+
+var _vectorIcons = require('@expo/vector-icons');
+
+var _reactNavigation = require('react-navigation');
+
+var _lodash = require('lodash');
+
+var _AuthenticationScreen = require('../screens/AuthenticationScreen');
+
+var _AuthenticationScreen2 = _interopRequireDefault(_AuthenticationScreen);
+
+var _BreweryDetailsScreen = require('../screens/BreweryDetailsScreen');
+
+var _BreweryDetailsScreen2 = _interopRequireDefault(_BreweryDetailsScreen);
+
+var _BreweryListScreen = require('../screens/BreweryListScreen');
+
+var _BreweryListScreen2 = _interopRequireDefault(_BreweryListScreen);
+
+var _BreweryMapScreen = require('../screens/BreweryMapScreen');
+
+var _BreweryMapScreen2 = _interopRequireDefault(_BreweryMapScreen);
+
+var _Colors = require('../constants/Colors');
+
+var _Colors2 = _interopRequireDefault(_Colors);
+
+var _Layout = require('../constants/Layout');
+
+var _Layout2 = _interopRequireDefault(_Layout);
+
+var _SettingsScreen = require('../screens/SettingsScreen');
+
+var _SettingsScreen2 = _interopRequireDefault(_SettingsScreen);
+
+var _AddRatingScreen = require('../screens/AddRatingScreen');
+
+var _AddRatingScreen2 = _interopRequireDefault(_AddRatingScreen);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ListStack = (0, _reactNavigation.StackNavigator)({
+  list: {
+    screen: _BreweryListScreen2.default
+  },
+  details: {
+    screen: _BreweryDetailsScreen2.default
+  }
+}, {
+  headerMode: 'none',
+  cardStyle: {
+    backgroundColor: '#fff'
+  }
+});
+
+var SettingsStack = (0, _reactNavigation.StackNavigator)({
+  mainSettings: {
+    screen: _SettingsScreen2.default
+  }
+}, {
+  navigationOptions: {
+    title: 'Settings',
+    headerTitleStyle: {
+      fontFamily: 'OpenSans-Bold',
+      fontSize: 17,
+      letterSpacing: -0.5,
+      fontWeight: _reactNative.Platform.OS === 'android' ? '400' : 'normal'
+    },
+    headerStyle: {
+      backgroundColor: '#fff'
+    }
+  }
+});
+
+var TabLayout = (0, _reactNavigation.TabNavigator)({
+  list: {
+    screen: ListStack
+  },
+  map: {
+    screen: _BreweryMapScreen2.default
+  },
+  addRating: {
+    screen: _AddRatingScreen2.default
+  },
+  settings: {
+    screen: SettingsStack
+  }
+}, {
+  navigationOptions: function navigationOptions(_ref) {
+    var navigation = _ref.navigation;
+    return {
+      tabBarLabel: function tabBarLabel() {
+        var routeName = navigation.state.routeName;
+
+        var label = (0, _lodash.capitalize)(routeName);
+        if (label === 'List') {
+          return 'Cafes';
+        }if (label === 'Addrating') {
+          return 'Add Rating';
+        } else {
+          return label;
+        }
+      },
+      tabBarIcon: function tabBarIcon(_ref2) {
+        var focused = _ref2.focused;
+        var routeName = navigation.state.routeName;
+
+        var iconName = void 0;
+        switch (routeName) {
+          case 'list':
+            iconName = _reactNative.Platform.OS === 'ios' ? 'ios-list' : 'md-list';
+            break;
+          case 'map':
+            iconName = _reactNative.Platform.OS === 'ios' ? 'ios-map-outline' : 'md-map';
+            break;
+          case 'settings':
+            iconName = _reactNative.Platform.OS === 'ios' ? 'ios-options-outline' : 'md-options';
+            break;
+          case 'addRating':
+            iconName = _reactNative.Platform.OS === 'ios' ? 'ion-md-star-outline' : 'md-star';
+        }
+        return _react2.default.createElement(_vectorIcons.Ionicons, {
+          name: iconName,
+          size: _reactNative.Platform.OS === 'ios' ? 30 : 27,
+          style: { marginBottom: -3 },
+          color: focused ? _Colors2.default.tabIconSelected : _Colors2.default.tabIconDefault,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 101
+          }
+        });
+      }
+    };
+  },
+  tabBarComponent: _reactNavigation.TabBarBottom,
+  tabBarPosition: 'bottom',
+  tabBarOptions: {
+    style: {
+      backgroundColor: _Colors2.default.appThemeColor
+    },
+    activeTintColor: _Colors2.default.tabIconSelected,
+    inactiveTintColor: _Colors2.default.tabIconDefault
+  },
+  animationEnabled: false,
+  swipeEnabled: false
+});
+
+exports.default = (0, _reactNavigation.StackNavigator)({
+  tabs: {
+    screen: TabLayout
+  }
+}, {
+  headerMode: 'none',
+  cardStyle: {
+    backgroundColor: '#fff'
+  }
+});

@@ -1,0 +1,21 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.openImageGallery = undefined;
+
+var _openImageGallery = require('./openImageGallery');
+
+Object.defineProperty(exports, 'openImageGallery', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_openImageGallery).default;
+  }
+});
+
+var _ImageGallery = require('./ImageGallery');
+
+var _ImageGallery2 = _interopRequireDefault(_ImageGallery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _ImageGallery2.default;

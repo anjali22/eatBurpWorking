@@ -1,0 +1,26 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = require('redux');
+
+var _reduxEffex = require('redux-effex');
+
+var _CurrentUserReducer = require('./CurrentUserReducer');
+
+var _CurrentUserReducer2 = _interopRequireDefault(_CurrentUserReducer);
+
+var _BreweriesReducer = require('./BreweriesReducer');
+
+var _BreweriesReducer2 = _interopRequireDefault(_BreweriesReducer);
+
+var _effects = require('../effects');
+
+var _effects2 = _interopRequireDefault(_effects);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _redux.createStore)((0, _redux.combineReducers)({
+  currentUser: _CurrentUserReducer2.default,
+  breweries: _BreweriesReducer2.default
+}), (0, _redux.applyMiddleware)((0, _reduxEffex.effectsMiddleware)(_effects2.default)));

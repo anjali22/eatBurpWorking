@@ -1,0 +1,46 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = transformBrewery;
+
+var _days = require('days');
+
+var _days2 = _interopRequireDefault(_days);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function transformBrewery(brewery) {
+  var currentDate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : new Date();
+  var hours = brewery.hours;
+
+  var day = _days2.default[currentDate.getDay()];
+  var currentTime = currentDate.getHours() + ':' + currentDate.getMinutes() + ':00';
+  var openingTimeToday = hours[day.toLowerCase() + '_open'];
+  var closingTimeToday = hours[day.toLowerCase() + '_close'];
+
+  var isOpeningLater = currentTime < openingTimeToday;
+
+  var isOpen = currentTime > openingTimeToday && (currentTime < closingTimeToday || closingTimeToday === '00:00:00') || closingTimeToday < openingTimeToday && currentTime > openingTimeToday;
+
+  return {
+    accentColor: brewery.accentColor || '#000',
+    address: brewery.address,
+    city: brewery.city,
+    closingTimeToday: closingTimeToday,
+    color: brewery.color || '#fff',
+    description: brewery.description,
+    hours: brewery.hours,
+    id: brewery.id,
+    instagram: brewery.social_instagram,
+    isOpen: isOpen,
+    isOpeningLater: isOpeningLater,
+    latitude: parseFloat(brewery.latitude),
+    logo: brewery.logo,
+    longitude: parseFloat(brewery.longitude),
+    name: brewery.title,
+    openingTimeToday: openingTimeToday,
+    postalCode: brewery.postal_code.split(' ').join('').toUpperCase(),
+    smallLogo: brewery.logo_small,
+    summary: brewery.summary
+  };
+}

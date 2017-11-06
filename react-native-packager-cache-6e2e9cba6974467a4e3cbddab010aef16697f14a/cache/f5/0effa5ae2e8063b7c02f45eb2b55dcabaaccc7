@@ -1,0 +1,873 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.VisitedCard = exports.MapCard = exports.InstagramPhotosCard = exports.SummaryCard = exports.DescriptionCard = undefined;
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/anjali/growler-prowler-master/components/DetailCards.js',
+    _dec,
+    _class5;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _reactRedux = require('react-redux');
+
+var _reactNativeFadeInImage = require('react-native-fade-in-image');
+
+var _reactNativeFadeInImage2 = _interopRequireDefault(_reactNativeFadeInImage);
+
+var _reactNativeReadMoreText = require('@expo/react-native-read-more-text');
+
+var _reactNativeReadMoreText2 = _interopRequireDefault(_reactNativeReadMoreText);
+
+var _reactNativeTouchableNativeFeedbackSafe = require('@expo/react-native-touchable-native-feedback-safe');
+
+var _reactNativeTouchableNativeFeedbackSafe2 = _interopRequireDefault(_reactNativeTouchableNativeFeedbackSafe);
+
+var _expo = require('expo');
+
+var _reactNativeImageGallery = require('@expo/react-native-image-gallery');
+
+var _vectorIcons = require('@expo/vector-icons');
+
+var _Actions = require('../state/Actions');
+
+var _Actions2 = _interopRequireDefault(_Actions);
+
+var _StyledText = require('./StyledText');
+
+var _Layout = require('../constants/Layout');
+
+var _Layout2 = _interopRequireDefault(_Layout);
+
+var _Colors = require('../constants/Colors');
+
+var _Colors2 = _interopRequireDefault(_Colors);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var _components = {
+  DescriptionCard: {
+    displayName: 'DescriptionCard'
+  },
+  SummaryCard: {
+    displayName: 'SummaryCard'
+  },
+  InstagramPhotosCard: {
+    displayName: 'InstagramPhotosCard'
+  },
+  InstagramPhoto: {
+    displayName: 'InstagramPhoto'
+  },
+  MapCard: {
+    displayName: 'MapCard'
+  },
+  VisitedCard: {
+    displayName: 'VisitedCard'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/components/DetailCards.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var DescriptionCard = exports.DescriptionCard = _wrapComponent('DescriptionCard')(function (_React$Component) {
+  _inherits(DescriptionCard, _React$Component);
+
+  function DescriptionCard() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, DescriptionCard);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DescriptionCard.__proto__ || Object.getPrototypeOf(DescriptionCard)).call.apply(_ref, [this].concat(args))), _this), _this._renderTruncatedFooter = function (handlePress) {
+      return _react3.default.createElement(
+        _StyledText.RegularText,
+        {
+          style: { color: _Colors2.default.tintColor, marginTop: 5 },
+          onPress: handlePress, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53
+          }
+        },
+        'Read more'
+      );
+    }, _this._renderRevealedFooter = function (handlePress) {
+      return _react3.default.createElement(
+        _StyledText.RegularText,
+        {
+          style: { color: _Colors2.default.tintColor, marginTop: 5 },
+          onPress: handlePress, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 63
+          }
+        },
+        'Show less'
+      );
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(DescriptionCard, [{
+    key: 'render',
+    value: function render() {
+      var text = this.props.text;
+
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 32
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.cardLabel, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 33
+            }
+          },
+          _react3.default.createElement(
+            _StyledText.BoldText,
+            { style: styles.cardLabelText, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 34
+              }
+            },
+            'Description'
+          )
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.card, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 37
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.cardBody, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 38
+              }
+            },
+            _react3.default.createElement(
+              _reactNativeReadMoreText2.default,
+              {
+                numberOfLines: 6,
+                renderTruncatedFooter: this._renderTruncatedFooter,
+                renderRevealedFooter: this._renderRevealedFooter, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 39
+                }
+              },
+              _react3.default.createElement(
+                _StyledText.RegularText,
+                { style: styles.cardText, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 43
+                  }
+                },
+                text
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return DescriptionCard;
+}(_react3.default.Component));
+
+var SummaryCard = exports.SummaryCard = _wrapComponent('SummaryCard')(function (_React$Component2) {
+  _inherits(SummaryCard, _React$Component2);
+
+  function SummaryCard() {
+    _classCallCheck(this, SummaryCard);
+
+    return _possibleConstructorReturn(this, (SummaryCard.__proto__ || Object.getPrototypeOf(SummaryCard)).apply(this, arguments));
+  }
+
+  _createClass(SummaryCard, [{
+    key: 'render',
+    value: function render() {
+      var text = this.props.text;
+
+
+      if (!text) {
+        return _react3.default.createElement(_reactNative.View, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 77
+          }
+        });
+      }
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: [styles.card, styles.summaryContainer], __source: {
+            fileName: _jsxFileName,
+            lineNumber: 81
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.cardBody, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 82
+            }
+          },
+          _react3.default.createElement(
+            _StyledText.RegularText,
+            { style: styles.cardText, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 83
+              }
+            },
+            text
+          )
+        )
+      );
+    }
+  }]);
+
+  return SummaryCard;
+}(_react3.default.Component));
+
+var InstagramPhotosCard = exports.InstagramPhotosCard = _wrapComponent('InstagramPhotosCard')(function (_React$Component3) {
+  _inherits(InstagramPhotosCard, _React$Component3);
+
+  function InstagramPhotosCard() {
+    var _ref2;
+
+    var _temp2, _this3, _ret2;
+
+    _classCallCheck(this, InstagramPhotosCard);
+
+    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return _ret2 = (_temp2 = (_this3 = _possibleConstructorReturn(this, (_ref2 = InstagramPhotosCard.__proto__ || Object.getPrototypeOf(InstagramPhotosCard)).call.apply(_ref2, [this].concat(args))), _this3), _this3.state = {
+      images: null
+    }, _temp2), _possibleConstructorReturn(_this3, _ret2);
+  }
+
+  _createClass(InstagramPhotosCard, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var profile, response, data, images;
+      return regeneratorRuntime.async(function componentDidMount$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              this._isMounted = true;
+              profile = this.props.profile;
+
+              if (!profile) {
+                _context.next = 10;
+                break;
+              }
+
+              _context.next = 5;
+              return regeneratorRuntime.awrap(fetch('https://www.instagram.com/' + profile + '/media/'));
+
+            case 5:
+              response = _context.sent;
+              _context.next = 8;
+              return regeneratorRuntime.awrap(response.json());
+
+            case 8:
+              data = _context.sent;
+
+              if (this._isMounted) {
+                images = data.items.map(function (item) {
+                  return {
+                    imageUrl: item.images.standard_resolution.url,
+                    width: item.images.standard_resolution.width,
+                    height: item.images.standard_resolution.height,
+                    description: item.caption && item.caption.text
+                  };
+                });
+
+                this.setState({ images: images.slice(0, 6) });
+              }
+
+            case 10:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this._isMounted = false;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 120
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.cardLabel, collapsible: false, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 121
+            }
+          },
+          _react3.default.createElement(
+            _StyledText.BoldText,
+            { style: styles.cardLabelText, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 122
+              }
+            },
+            'Photos from Instagram'
+          )
+        ),
+        this._renderInstagramPhotos()
+      );
+    }
+  }, {
+    key: '_renderInstagramPhotos',
+    value: function _renderInstagramPhotos() {
+      var images = this.state.images;
+
+
+      if (!images) {
+        return _react3.default.createElement(
+          _reactNative.View,
+          { style: [styles.card, styles.imageLoadingContainer], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 136
+            }
+          },
+          _react3.default.createElement(_reactNative.ActivityIndicator, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 137
+            }
+          })
+        );
+      }
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: styles.card, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 143
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.ScrollView,
+          { horizontal: true, showsHorizontalScrollIndicator: false, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 144
+            }
+          },
+          images.map(function (image, i) {
+            return _react3.default.createElement(InstagramPhoto, { key: i, item: image, list: images, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 146
+              }
+            });
+          })
+        )
+      );
+    }
+  }]);
+
+  return InstagramPhotosCard;
+}(_react3.default.Component));
+
+var InstagramPhoto = _wrapComponent('InstagramPhoto')(function (_React$Component4) {
+  _inherits(InstagramPhoto, _React$Component4);
+
+  function InstagramPhoto() {
+    var _ref3;
+
+    var _temp3, _this4, _ret3;
+
+    _classCallCheck(this, InstagramPhoto);
+
+    for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      args[_key3] = arguments[_key3];
+    }
+
+    return _ret3 = (_temp3 = (_this4 = _possibleConstructorReturn(this, (_ref3 = InstagramPhoto.__proto__ || Object.getPrototypeOf(InstagramPhoto)).call.apply(_ref3, [this].concat(args))), _this4), _this4._handlePress = function () {
+      var _this4$props = _this4.props,
+          item = _this4$props.item,
+          list = _this4$props.list;
+
+
+      _this4._view.measure(function (rx, ry, w, h, x, y) {
+        (0, _reactNativeImageGallery.openImageGallery)({
+          animationMeasurements: { w: w, h: h, x: x, y: y },
+          list: list,
+          item: item
+        });
+      });
+    }, _temp3), _possibleConstructorReturn(_this4, _ret3);
+  }
+
+  _createClass(InstagramPhoto, [{
+    key: 'render',
+    value: function render() {
+      var _this5 = this;
+
+      var item = this.props.item;
+
+
+      return _react3.default.createElement(
+        _reactNative.TouchableWithoutFeedback,
+        { onPress: this._handlePress, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 159
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 160
+            }
+          },
+          _react3.default.createElement(
+            _reactNativeFadeInImage2.default,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 161
+              }
+            },
+            _react3.default.createElement(_reactNative.Image, {
+              ref: function ref(view) {
+                _this5._view = view;
+              },
+              source: { uri: item.imageUrl },
+              resizeMode: 'cover',
+              style: styles.instagramImage,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 162
+              }
+            })
+          )
+        )
+      );
+    }
+  }]);
+
+  return InstagramPhoto;
+}(_react3.default.Component));
+
+var MapCard = exports.MapCard = _wrapComponent('MapCard')(function (_React$Component5) {
+  _inherits(MapCard, _React$Component5);
+
+  function MapCard() {
+    var _ref4;
+
+    var _temp4, _this6, _ret4;
+
+    _classCallCheck(this, MapCard);
+
+    for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+      args[_key4] = arguments[_key4];
+    }
+
+    return _ret4 = (_temp4 = (_this6 = _possibleConstructorReturn(this, (_ref4 = MapCard.__proto__ || Object.getPrototypeOf(MapCard)).call.apply(_ref4, [this].concat(args))), _this6), _this6.state = {
+      shouldRenderMap: false,
+      shouldRenderOverlay: true
+    }, _temp4), _possibleConstructorReturn(_this6, _ret4);
+  }
+
+  _createClass(MapCard, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this7 = this;
+
+      this._isMounted = true;
+
+      _reactNative.InteractionManager.runAfterInteractions(function () {
+        _this7._isMounted && _this7.setState({ shouldRenderMap: true });
+        setTimeout(function () {
+          _this7._isMounted && _this7.setState({ shouldRenderOverlay: false });
+        }, 700);
+      });
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this._isMounted = false;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props$brewery = this.props.brewery,
+          address = _props$brewery.address,
+          city = _props$brewery.city,
+          postalCode = _props$brewery.postalCode,
+          name = _props$brewery.name;
+
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: [styles.card, styles.mapContainer], __source: {
+            fileName: _jsxFileName,
+            lineNumber: 214
+          }
+        },
+        this._maybeRenderMap(),
+        this._maybeRenderOverlay(),
+        _react3.default.createElement(
+          _reactNativeTouchableNativeFeedbackSafe2.default,
+          { onPress: this.props.onPress, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 217
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.cardAction, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 218
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: styles.cardActionLabel, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 219
+                }
+              },
+              _react3.default.createElement(
+                _StyledText.RegularText,
+                { style: styles.cardActionText, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 220
+                  }
+                },
+                address,
+                ', ',
+                postalCode
+              ),
+              _react3.default.createElement(
+                _StyledText.RegularText,
+                { style: styles.cardActionSubtitleText, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 224
+                  }
+                },
+                city
+              )
+            ),
+            _react3.default.createElement(_vectorIcons.MaterialIcons, { name: 'chevron-right', size: 30, color: '#b8c3c9', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 229
+              }
+            })
+          )
+        )
+      );
+    }
+  }, {
+    key: '_maybeRenderOverlay',
+    value: function _maybeRenderOverlay() {
+      if (!this.state.shouldRenderOverlay) {
+        return;
+      }
+
+      if (this.state.shouldRenderMap) {
+        return _react3.default.createElement(_reactNative.View, {
+          style: [styles.map, {
+            backgroundColor: '#f9f5ed',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0
+          }],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 243
+          }
+        });
+      } else {
+        return _react3.default.createElement(_reactNative.View, { style: [styles.map, { backgroundColor: '#f9f5ed' }], __source: {
+            fileName: _jsxFileName,
+            lineNumber: 257
+          }
+        });
+      }
+    }
+  }, {
+    key: '_maybeRenderMap',
+    value: function _maybeRenderMap() {
+      if (!this.state.shouldRenderMap) {
+        return;
+      }
+
+      var _props$brewery2 = this.props.brewery,
+          name = _props$brewery2.name,
+          latitude = _props$brewery2.latitude,
+          longitude = _props$brewery2.longitude;
+
+
+      return _react3.default.createElement(
+        _expo.MapView,
+        {
+          cacheEnabled: _reactNative.Platform.OS === 'android',
+          style: styles.map,
+          loadingBackgroundColor: '#f9f5ed',
+          loadingEnabled: false,
+          initialRegion: {
+            latitude: latitude,
+            longitude: longitude,
+            latitudeDelta: 0.003,
+            longitudeDelta: 0.003
+          }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 269
+          }
+        },
+        _react3.default.createElement(_expo.MapView.Marker, { coordinate: { latitude: latitude, longitude: longitude }, title: name, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 280
+          }
+        })
+      );
+    }
+  }]);
+
+  return MapCard;
+}(_react3.default.Component));
+
+var VisitedCard = exports.VisitedCard = _wrapComponent('VisitedCard')((_dec = (0, _reactRedux.connect)(function (data, props) {
+  return VisitedCard.getDataProps(data, props);
+}), _dec(_class5 = function (_React$Component6) {
+  _inherits(VisitedCard, _React$Component6);
+
+  function VisitedCard() {
+    var _ref5;
+
+    var _temp5, _this8, _ret5;
+
+    _classCallCheck(this, VisitedCard);
+
+    for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+      args[_key5] = arguments[_key5];
+    }
+
+    return _ret5 = (_temp5 = (_this8 = _possibleConstructorReturn(this, (_ref5 = VisitedCard.__proto__ || Object.getPrototypeOf(VisitedCard)).call.apply(_ref5, [this].concat(args))), _this8), _this8._onToggleVisited = function () {
+      if (_this8.props.isVisited) {
+        _this8.props.dispatch(_Actions2.default.removeVisitedBrewery(_this8.props.breweryId));
+      } else {
+        _this8.props.dispatch(_Actions2.default.addVisitedBrewery(_this8.props.breweryId));
+      }
+    }, _temp5), _possibleConstructorReturn(_this8, _ret5);
+  }
+
+  _createClass(VisitedCard, [{
+    key: 'render',
+    value: function render() {
+      var isVisited = this.props.isVisited;
+
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: { marginTop: 15 }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 309
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.card, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 310
+            }
+          },
+          _react3.default.createElement(
+            _reactNativeTouchableNativeFeedbackSafe2.default,
+            {
+              onPress: this._onToggleVisited,
+              fallback: _reactNative.TouchableHighlight,
+              underlayColor: '#eee', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 311
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: [styles.cardBody, styles.visitedCardBody], __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 315
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.View,
+                { style: { flex: 1 }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 316
+                  }
+                },
+                _react3.default.createElement(
+                  _StyledText.RegularText,
+                  {
+                    style: [styles.visitedCardText, { opacity: isVisited ? 1 : 0.7 }], __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 317
+                    }
+                  },
+                  isVisited ? "You've been here" : 'You still need to check this one out'
+                )
+              ),
+              _react3.default.createElement(_vectorIcons.MaterialIcons, {
+                name: isVisited ? 'check-box' : 'check-box-outline-blank',
+                size: 25,
+                style: { opacity: isVisited ? 1 : 0.5 },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 328
+                }
+              })
+            )
+          )
+        )
+      );
+    }
+  }], [{
+    key: 'getDataProps',
+    value: function getDataProps(data, props) {
+      var breweryId = props.breweryId;
+
+      var isVisited = data.breweries.visited.includes(breweryId);
+
+      return {
+        isVisited: isVisited
+      };
+    }
+  }]);
+
+  return VisitedCard;
+}(_react3.default.Component)) || _class5));
+
+var styles = _reactNative.StyleSheet.create({
+  map: {
+    height: 150,
+    width: _Layout2.default.window.width
+  },
+  card: {
+    borderWidth: _reactNative.StyleSheet.hairlineWidth,
+    borderColor: '#E8E8E8',
+    backgroundColor: '#fff'
+  },
+  cardBody: {
+    paddingVertical: 12,
+    paddingHorizontal: 10
+  },
+  cardLabel: {
+    marginTop: 20,
+    paddingLeft: 8,
+    paddingBottom: 5
+  },
+  cardLabelText: {
+    fontSize: 15,
+    color: '#313131'
+  },
+  cardAction: {
+    paddingVertical: 8,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  cardActionLabel: {
+    flex: 1,
+    paddingHorizontal: 12
+  },
+  cardText: {
+    fontSize: 14,
+    color: '#424242'
+  },
+  cardActionText: {
+    fontSize: 13,
+    color: '#424242'
+  },
+  cardActionSubtitleText: {
+    fontSize: 12,
+    marginTop: -1,
+    color: '#9E9E9E'
+  },
+  mapContainer: {
+    marginTop: 15
+  },
+  imageLoadingContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    height: 125,
+    marginVertical: 10
+  },
+  instagramImage: {
+    width: 125,
+    height: 125,
+    marginVertical: 10,
+    marginHorizontal: 10,
+    borderRadius: 3,
+    borderWidth: _reactNative.StyleSheet.hairlineWidth,
+    borderColor: '#eee'
+  },
+  summaryContainer: {
+    marginTop: 15
+  },
+  visitedCardBody: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 9
+  },
+  visitedCardText: {
+    color: '#888',
+    marginLeft: 5,
+    marginBottom: 1
+  }
+});

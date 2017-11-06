@@ -1,0 +1,43 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.User = exports.Brewery = exports.BreweriesState = undefined;
+
+var _immutable = require('immutable');
+
+var BreweriesState = exports.BreweriesState = (0, _immutable.Record)({
+  all: new _immutable.List(),
+  nearby: new _immutable.List(),
+  visited: new _immutable.List()
+});
+
+var Brewery = exports.Brewery = (0, _immutable.Record)({
+  id: '',
+  accentColor: '#000',
+  address: '',
+  city: '',
+  closingTimeToday: '',
+  color: '#fff',
+  description: '',
+  hours: [],
+  instagram: '',
+  isOpen: false,
+  isOpeningLater: '',
+  latitude: 0,
+  logo: '',
+  longitude: 0,
+  name: '',
+  openingTimeToday: '',
+  postalCode: '',
+  smallLogo: '',
+  summary: '',
+  distance: null,
+  direction: null
+});
+
+var User = exports.User = (0, _immutable.Record)({
+  id: null,
+  authToken: null,
+  name: null,
+  isGuest: null
+});

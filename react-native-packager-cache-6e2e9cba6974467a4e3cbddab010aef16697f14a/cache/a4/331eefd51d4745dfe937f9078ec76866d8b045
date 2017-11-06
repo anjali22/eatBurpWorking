@@ -1,0 +1,254 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/anjali/growler-prowler-master/components/BreweryListItem.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _reactNativeFadeInImage = require('react-native-fade-in-image');
+
+var _reactNativeFadeInImage2 = _interopRequireDefault(_reactNativeFadeInImage);
+
+var _reactNativeTouchableNativeFeedbackSafe = require('@expo/react-native-touchable-native-feedback-safe');
+
+var _reactNativeTouchableNativeFeedbackSafe2 = _interopRequireDefault(_reactNativeTouchableNativeFeedbackSafe);
+
+var _vectorIcons = require('@expo/vector-icons');
+
+var _Layout = require('../constants/Layout');
+
+var _Layout2 = _interopRequireDefault(_Layout);
+
+var _StyledText = require('./StyledText');
+
+var _formatTime = require('../util/formatTime');
+
+var _formatTime2 = _interopRequireDefault(_formatTime);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  BreweryListItem: {
+    displayName: 'BreweryListItem'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/components/BreweryListItem.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var BreweryListItem = _wrapComponent('BreweryListItem')(function (_React$Component) {
+  _inherits(BreweryListItem, _React$Component);
+
+  function BreweryListItem() {
+    _classCallCheck(this, BreweryListItem);
+
+    return _possibleConstructorReturn(this, (BreweryListItem.__proto__ || Object.getPrototypeOf(BreweryListItem)).apply(this, arguments));
+  }
+
+  _createClass(BreweryListItem, [{
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps) {
+      return nextProps.brewery !== this.props.brewery;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props$brewery = this.props.brewery,
+          smallLogo = _props$brewery.smallLogo,
+          name = _props$brewery.name;
+
+
+      return _react3.default.createElement(
+        _reactNativeTouchableNativeFeedbackSafe2.default,
+        {
+          delayPressIn: 80,
+          onPress: this.props.onPress,
+          delayPressIn: 80,
+          style: styles.container,
+          fallback: _reactNative.TouchableHighlight,
+          underlayColor: '#ccc', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.logoContainer, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 34
+            }
+          },
+          _react3.default.createElement(
+            _reactNativeFadeInImage2.default,
+            {
+              placeholderStyle: {
+                backgroundColor: _reactNative.Platform.OS === 'android' ? 'transparent' : '#eee'
+              }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 35
+              }
+            },
+            _react3.default.createElement(_reactNative.Image, {
+              resizeMode: 'contain',
+              source: { uri: smallLogo },
+              style: styles.logo,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 40
+              }
+            })
+          )
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.infoContainer, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 48
+            }
+          },
+          _react3.default.createElement(
+            _StyledText.RegularText,
+            { style: styles.name, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 49
+              }
+            },
+            name
+          ),
+          _react3.default.createElement(
+            _StyledText.RegularText,
+            { style: styles.hours, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 51
+              }
+            },
+            this._renderHoursText()
+          ),
+          _react3.default.createElement(
+            _StyledText.RegularText,
+            { style: styles.address, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 55
+              }
+            },
+            this._renderAddressText()
+          )
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.buttonContainer, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 60
+            }
+          },
+          _react3.default.createElement(_vectorIcons.MaterialIcons, { name: 'chevron-right', size: 30, color: '#b8c3c9', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 61
+            }
+          })
+        )
+      );
+    }
+  }, {
+    key: '_renderHoursText',
+    value: function _renderHoursText() {
+      var _props$brewery2 = this.props.brewery,
+          isOpen = _props$brewery2.isOpen,
+          openingTimeToday = _props$brewery2.openingTimeToday,
+          closingTimeToday = _props$brewery2.closingTimeToday;
+
+
+      if (openingTimeToday && closingTimeToday) {
+        return (0, _formatTime2.default)(openingTimeToday) + ' - ' + (0, _formatTime2.default)(closingTimeToday) + ' (' + (isOpen ? 'Open' : 'Closed') + ')';
+      } else {
+        return 'Hours not available';
+      }
+    }
+  }, {
+    key: '_renderAddressText',
+    value: function _renderAddressText() {
+      var _props$brewery3 = this.props.brewery,
+          address = _props$brewery3.address,
+          distance = _props$brewery3.distance,
+          direction = _props$brewery3.direction;
+
+
+      var addressText = address;
+
+      if (distance) {
+        addressText = distance + ' ' + direction.exact + ' - ' + addressText;
+      }
+
+      return addressText;
+    }
+  }]);
+
+  return BreweryListItem;
+}(_react3.default.Component));
+
+exports.default = BreweryListItem;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    borderBottomColor: '#e5e5e5',
+    borderBottomWidth: _reactNative.Platform.OS === 'android' ? 1 : _reactNative.StyleSheet.hairlineWidth,
+    width: _Layout2.default.window.width
+  },
+  infoContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start'
+  },
+  name: {
+    fontSize: 16
+  },
+  hours: {
+    fontSize: 12
+  },
+  address: {
+    fontSize: 12
+  },
+  logoContainer: {
+    padding: 15
+  },
+  logo: {
+    width: 60,
+    height: 60
+  },
+  buttonContainer: {
+    paddingRight: 5
+  }
+});

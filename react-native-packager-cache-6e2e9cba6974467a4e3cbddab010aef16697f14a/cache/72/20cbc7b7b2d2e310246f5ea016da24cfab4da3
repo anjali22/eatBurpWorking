@@ -1,0 +1,68 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _ActionTypes = require('./ActionTypes');
+
+var _ActionTypes2 = _interopRequireDefault(_ActionTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Actions = function () {
+  function Actions() {
+    _classCallCheck(this, Actions);
+  }
+
+  _createClass(Actions, null, [{
+    key: 'preloadImageGallery',
+    value: function preloadImageGallery(_ref) {
+      var list = _ref.list;
+
+      return {
+        type: _ActionTypes2.default.PRELOAD_IMAGE_GALLERY,
+        list: list
+      };
+    }
+  }, {
+    key: 'openImageGallery',
+    value: function openImageGallery(payload) {
+      return _extends({
+        type: _ActionTypes2.default.OPEN_IMAGE_GALLERY
+      }, payload);
+    }
+  }, {
+    key: 'closeImageGallery',
+    value: function closeImageGallery() {
+      return {
+        type: _ActionTypes2.default.CLOSE_IMAGE_GALLERY
+      };
+    }
+  }, {
+    key: 'updateImageGalleryLifecycle',
+    value: function updateImageGalleryLifecycle(newState) {
+      return {
+        type: _ActionTypes2.default.UPDATE_IMAGE_GALLERY_LIFECYCLE,
+        lifecycle: newState
+      };
+    }
+  }, {
+    key: 'focusImageGalleryItem',
+    value: function focusImageGalleryItem(item) {
+      return {
+        type: _ActionTypes2.default.FOCUS_IMAGE_GALLERY_ITEM,
+        item: item
+      };
+    }
+  }]);
+
+  return Actions;
+}();
+
+exports.default = Actions;

@@ -1,0 +1,284 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _jsxFileName = '/home/anjali/growler-prowler-master/App.js',
+    _dec,
+    _class;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _expo = require('expo');
+
+var _expo2 = _interopRequireDefault(_expo);
+
+var _reactNative = require('react-native');
+
+var _vectorIcons = require('@expo/vector-icons');
+
+var _reactRedux = require('react-redux');
+
+var _immutable = require('immutable');
+
+var _Actions = require('./state/Actions');
+
+var _Actions2 = _interopRequireDefault(_Actions);
+
+var _AuthenticationScreen = require('./screens/AuthenticationScreen');
+
+var _AuthenticationScreen2 = _interopRequireDefault(_AuthenticationScreen);
+
+var _ImageGalleryPortal = require('./components/ImageGalleryPortal');
+
+var _ImageGalleryPortal2 = _interopRequireDefault(_ImageGalleryPortal);
+
+var _LocalStorage = require('./state/LocalStorage');
+
+var _LocalStorage2 = _interopRequireDefault(_LocalStorage);
+
+var _RootNavigation = require('./navigation/RootNavigation');
+
+var _RootNavigation2 = _interopRequireDefault(_RootNavigation);
+
+var _Store = require('./state/Store');
+
+var _Store2 = _interopRequireDefault(_Store);
+
+var _Records = require('./state/Records');
+
+var _data = require('./data');
+
+var _data2 = _interopRequireDefault(_data);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var _components = {
+  AppContainer: {
+    displayName: 'AppContainer'
+  },
+  App: {
+    displayName: 'App'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/App.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var AppContainer = _wrapComponent('AppContainer')(function (_React$Component) {
+  _inherits(AppContainer, _React$Component);
+
+  function AppContainer() {
+    _classCallCheck(this, AppContainer);
+
+    return _possibleConstructorReturn(this, (AppContainer.__proto__ || Object.getPrototypeOf(AppContainer)).apply(this, arguments));
+  }
+
+  _createClass(AppContainer, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        _reactRedux.Provider,
+        { store: _Store2.default, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 20
+          }
+        },
+        _react3.default.createElement(App, _extends({}, this.props, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21
+          }
+        }))
+      );
+    }
+  }]);
+
+  return AppContainer;
+}(_react3.default.Component));
+
+exports.default = AppContainer;
+
+var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (data) {
+  return App.getDataProps;
+}), _dec(_class = function (_React$Component2) {
+  _inherits(App, _React$Component2);
+
+  function App() {
+    var _ref,
+        _this3 = this;
+
+    var _temp, _this2, _ret;
+
+    _classCallCheck(this, App);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this2 = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {
+      isReady: false
+    }, _this2._loadAssetsAsync = function _callee() {
+      return regeneratorRuntime.async(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              return _context.abrupt('return', _expo.Font.loadAsync(_extends({}, _vectorIcons.Ionicons.font, {
+                'OpenSans-Light': require('./assets/fonts/OpenSans-Light.ttf'),
+                'OpenSans': require('./assets/fonts/OpenSans-Regular.ttf'),
+                'OpenSans-Bold': require('./assets/fonts/OpenSans-Semibold.ttf')
+              })));
+
+            case 1:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, null, _this3);
+    }, _this2._loadCacheAsync = function _callee2() {
+      var user, breweries, visitedBreweries;
+      return regeneratorRuntime.async(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.t0 = _Records.User;
+              _context2.next = 3;
+              return regeneratorRuntime.awrap(_LocalStorage2.default.getUserAsync());
+
+            case 3:
+              _context2.t1 = _context2.sent;
+              user = new _context2.t0(_context2.t1);
+              breweries = new _immutable.List(_data2.default.map(function (data) {
+                return new _Records.Brewery(data);
+              }));
+              _context2.t2 = _immutable.List;
+              _context2.next = 9;
+              return regeneratorRuntime.awrap(_LocalStorage2.default.getVisitedBreweriesAsync());
+
+            case 9:
+              _context2.t3 = _context2.sent;
+              visitedBreweries = new _context2.t2(_context2.t3);
+
+              _this2.props.dispatch(_Actions2.default.setCurrentUser(user));
+              _this2.props.dispatch(_Actions2.default.setBreweries(breweries));
+              _this2.props.dispatch(_Actions2.default.setVisitedBreweries(visitedBreweries));
+
+            case 14:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, null, _this3);
+    }, _this2._loadDataAndAssetsAsync = function _callee3() {
+      return regeneratorRuntime.async(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              return _context3.abrupt('return', Promise.all([_this2._loadAssetsAsync(), _this2._loadCacheAsync()]));
+
+            case 1:
+            case 'end':
+              return _context3.stop();
+          }
+        }
+      }, null, _this3);
+    }, _temp), _possibleConstructorReturn(_this2, _ret);
+  }
+
+  _createClass(App, [{
+    key: 'render',
+    value: function render() {
+      var _this4 = this;
+
+      if (!this.state.isReady) {
+        return _react3.default.createElement(_expo2.default.AppLoading, {
+          startAsync: this._loadDataAndAssetsAsync,
+          onError: function onError(e) {
+            return console.error(e);
+          },
+          onFinish: function onFinish() {
+            _this4.setState({
+              isReady: true
+            });
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 66
+          }
+        });
+      }
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 79
+          }
+        },
+        isSignedIn(this.props.currentUser) ? _react3.default.createElement(_RootNavigation2.default, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 81
+          }
+        }) : _react3.default.createElement(_AuthenticationScreen2.default, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 83
+          }
+        }),
+        _react3.default.createElement(_ImageGalleryPortal2.default, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 85
+          }
+        })
+      );
+    }
+  }], [{
+    key: 'getDataProps',
+    value: function getDataProps(data) {
+      return {
+        currentUser: data.currentUser
+      };
+    }
+  }]);
+
+  return App;
+}(_react3.default.Component)) || _class));
+
+function isSignedIn(userState) {
+  return !!userState.authToken || userState.isGuest;
+}
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});

@@ -1,0 +1,286 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../../react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = '/home/anjali/growler-prowler-master/node_modules/@expo/react-native-image-gallery/lib/ImageGalleryItem.js';
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require('react-native');
+
+var _reactRedux = require('react-redux');
+
+var _ImageGalleryConstants = require('./ImageGalleryConstants');
+
+var _Colors = require('./Colors');
+
+var _Colors2 = _interopRequireDefault(_Colors);
+
+var _ImageGalleryImage = require('./ImageGalleryImage');
+
+var _ImageGalleryImage2 = _interopRequireDefault(_ImageGalleryImage);
+
+var _ShallowEquals = require('./ShallowEquals');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  ImageGalleryItem: {
+    displayName: 'ImageGalleryItem'
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/node_modules/@expo/react-native-image-gallery/lib/ImageGalleryItem.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var ImageGalleryItem = _wrapComponent('ImageGalleryItem')((_temp = _class = function (_React$Component) {
+  _inherits(ImageGalleryItem, _React$Component);
+
+  _createClass(ImageGalleryItem, null, [{
+    key: 'getDataProps',
+    value: function getDataProps(data) {
+      var imageGallery = data.imageGallery;
+
+
+      return {
+        activeItemIndex: imageGallery.get('itemIndex'),
+        activeItem: imageGallery.get('item'),
+        initialItem: imageGallery.get('initialItem'),
+        userWantsOpen: imageGallery.get('userWantsOpen'),
+        lifecycle: imageGallery.get('lifecycle')
+      };
+    }
+  }]);
+
+  function ImageGalleryItem(props, context) {
+    _classCallCheck(this, ImageGalleryItem);
+
+    var _this = _possibleConstructorReturn(this, (ImageGalleryItem.__proto__ || Object.getPrototypeOf(ImageGalleryItem)).call(this, props, context));
+
+    _this.state = {
+      shouldRender: false
+    };
+    return _this;
+  }
+
+  _createClass(ImageGalleryItem, [{
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps, nextState) {
+      var keysToIgnore = ['list'];
+
+      if (nextProps.lifecycle === _ImageGalleryConstants.DRAG_IN_PROGRESS) {
+        if (nextProps.activeItem !== this.props.item) {
+          return false;
+        }
+      }
+
+      if (nextProps.lifecycle === _ImageGalleryConstants.OPEN_AND_IDLE) {
+        if (this.props.index === nextProps.activeItemIndex) {
+          return true;
+        }
+      }
+
+      return !(0, _ShallowEquals.shallowEqualsIgnoreKeys)(this.props, nextProps, keysToIgnore) || !(0, _ShallowEquals.shallowEquals)(this.state, nextState);
+    }
+  }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (this._shouldRender(this.props)) {
+        this.setState({ shouldRender: true });
+      }
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (!this.state.shouldRender && this._shouldRender(nextProps)) {
+        this.setState({ shouldRender: true });
+      }
+    }
+  }, {
+    key: '_shouldRender',
+    value: function _shouldRender(nextProps) {
+      if (nextProps.activeItemIndex === this.props.index) {
+        return true;
+      }
+
+      if (nextProps.lifecycle === _ImageGalleryConstants.OPEN_AND_IDLE) {
+        if (nextProps.activeItemIndex - 1 === this.props.index || nextProps.activeItemIndex + 1 === this.props.index) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          item = _props.item,
+          index = _props.index,
+          list = _props.list,
+          width = _props.width,
+          lifecycle = _props.lifecycle,
+          renderDescription = _props.renderDescription;
+
+      var description = void 0;
+
+      if (renderDescription) {
+        description = renderDescription(item.get('description'));
+      } else {
+        description = _react3.default.createElement(
+          _reactNative.View,
+          { style: { flex: 1, backgroundColor: '#fff', padding: 20 }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 112
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.Text,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 113
+              }
+            },
+            item.get('description')
+          )
+        );
+      }
+
+      if (this.state.shouldRender) {
+        return _react3.default.createElement(
+          _reactNative.View,
+          { key: index, style: [{ width: width }, styles.itemContainer], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 120
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.TouchableWithoutFeedback,
+            { onPress: this.props.onPress, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 121
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: [{ width: width, height: width }, styles.imageContainer], __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 122
+                }
+              },
+              lifecycle !== _ImageGalleryConstants.OPENING_ANIMATION_IN_PROGRESS || _reactNative.Platform.OS === 'ios' ? this._renderImage() : null
+            )
+          ),
+          description
+        );
+      } else {
+        return _react3.default.createElement(
+          _reactNative.View,
+          { key: index, style: [{ width: width }, styles.itemContainer], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 133
+            }
+          },
+          _react3.default.createElement(_reactNative.View, { style: [{ width: width, height: width }, styles.imageContainer], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 134
+            }
+          }),
+          _react3.default.createElement(_reactNative.View, { style: { flex: 1, backgroundColor: '#fff' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 135
+            }
+          })
+        );
+      }
+    }
+  }, {
+    key: '_renderImage',
+    value: function _renderImage() {
+      var _props2 = this.props,
+          activeItemIndex = _props2.activeItemIndex,
+          index = _props2.index,
+          initialItem = _props2.initialItem,
+          item = _props2.item,
+          lifecycle = _props2.lifecycle,
+          width = _props2.width;
+
+
+      return _react3.default.createElement(_ImageGalleryImage2.default, {
+        isVisible: lifecycle === _ImageGalleryConstants.OPEN_AND_IDLE,
+        isFocused: activeItemIndex === index,
+        fadeInOnLoad: initialItem !== item,
+        item: item,
+        width: width,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 152
+        }
+      });
+    }
+  }]);
+
+  return ImageGalleryItem;
+}(_react3.default.Component), _class.propTypes = {
+  item: _propTypes2.default.object,
+  index: _propTypes2.default.number,
+  activeItem: _propTypes2.default.object,
+  activeItemIndex: _propTypes2.default.number,
+  initialItem: _propTypes2.default.object,
+  list: _propTypes2.default.object,
+  lifecycle: _propTypes2.default.string,
+  width: _propTypes2.default.number,
+  userWantsOpen: _propTypes2.default.bool,
+  renderDescription: _propTypes2.default.func
+}, _temp));
+
+exports.default = (0, _reactRedux.connect)(function (data) {
+  return ImageGalleryItem.getDataProps(data);
+})(ImageGalleryItem);
+
+
+var styles = _reactNative.StyleSheet.create({
+  itemContainer: {
+    flex: 1,
+    backgroundColor: _Colors2.default.galleryBackground
+  },
+  imageContainer: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#deddde'
+  },
+  listItemContainerStyle: {
+    flex: 1,
+    backgroundColor: '#fff'
+  }
+});

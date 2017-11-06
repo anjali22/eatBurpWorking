@@ -1,0 +1,243 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = '/home/anjali/growler-prowler-master/node_modules/@expo/react-native-image-gallery/lib/ImageGalleryAnimatedImage.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require('react-native');
+
+var _reactRedux = require('react-redux');
+
+var _ImageGalleryPlaceholder = require('./ImageGalleryPlaceholder');
+
+var _ImageGalleryPlaceholder2 = _interopRequireDefault(_ImageGalleryPlaceholder);
+
+var _Layout = require('./Layout');
+
+var _Layout2 = _interopRequireDefault(_Layout);
+
+var _calculateImageDimensions = require('./calculateImageDimensions');
+
+var _calculateImageDimensions2 = _interopRequireDefault(_calculateImageDimensions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ImageGalleryAnimatedImage = (_temp = _class = function (_React$PureComponent) {
+  _inherits(ImageGalleryAnimatedImage, _React$PureComponent);
+
+  function ImageGalleryAnimatedImage() {
+    _classCallCheck(this, ImageGalleryAnimatedImage);
+
+    return _possibleConstructorReturn(this, (ImageGalleryAnimatedImage.__proto__ || Object.getPrototypeOf(ImageGalleryAnimatedImage)).apply(this, arguments));
+  }
+
+  _createClass(ImageGalleryAnimatedImage, [{
+    key: 'render',
+    value: function render() {
+      if (this.props.isDragging || this.props.isImageGalleryOpen) {
+        return this._renderDraggingState();
+      } else {
+        return this._renderAutoState();
+      }
+    }
+  }, {
+    key: '_renderDraggingState',
+    value: function _renderDraggingState() {
+      var _props = this.props,
+          item = _props.item,
+          isVisible = _props.isVisible,
+          panValue = _props.panValue;
+
+
+      var uri = item && item.get('image_url');
+      var source = uri ? { uri: uri } : null;
+      var translateY = panValue;
+      var style = [styles.image, {
+        opacity: isVisible ? 1 : 0,
+        top: _Layout2.default.headerHeight,
+        transform: [{ translateY: translateY }]
+      }];
+
+      if (uri) {
+        var _calculateImageDimens = (0, _calculateImageDimensions2.default)(item, _Layout2.default.window.width),
+            constrainedWidth = _calculateImageDimens.constrainedWidth,
+            constrainedHeight = _calculateImageDimens.constrainedHeight,
+            marginHorizontal = _calculateImageDimens.marginHorizontal,
+            marginVertical = _calculateImageDimens.marginVertical;
+
+        return _react2.default.createElement(
+          _reactNative.Animated.View,
+          { pointerEvents: 'none', style: style, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 61
+            }
+          },
+          _react2.default.createElement(_reactNative.Image, {
+            key: source.uri,
+            renderToHardwareTextureAndroid: true,
+            fadeDuration: 0,
+            source: source,
+            style: [styles.image, {
+              height: constrainedHeight,
+              width: constrainedWidth,
+              marginVertical: marginVertical,
+              marginHorizontal: marginHorizontal
+            }],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 62
+            }
+          })
+        );
+      } else {
+        return _react2.default.createElement(_ImageGalleryPlaceholder2.default, { style: style, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 80
+          }
+        });
+      }
+    }
+  }, {
+    key: '_renderAutoState',
+    value: function _renderAutoState() {
+      var _props2 = this.props,
+          animationMeasurements = _props2.animationMeasurements,
+          item = _props2.item,
+          isVisible = _props2.isVisible,
+          zoomInOutValue = _props2.zoomInOutValue;
+
+
+      var uri = item && item.get('image_url');
+      var source = uri ? { uri: uri } : null;
+
+      if (!animationMeasurements || !source) {
+        return _react2.default.createElement(_reactNative.View, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 91
+          }
+        });
+      }
+
+      var _calculateImageDimens2 = (0, _calculateImageDimensions2.default)(item, _Layout2.default.window.width),
+          constrainedWidth = _calculateImageDimens2.constrainedWidth,
+          constrainedHeight = _calculateImageDimens2.constrainedHeight,
+          marginHorizontal = _calculateImageDimens2.marginHorizontal,
+          marginVertical = _calculateImageDimens2.marginVertical;
+
+      var x = animationMeasurements.x,
+          y = animationMeasurements.y,
+          w = animationMeasurements.w,
+          h = animationMeasurements.h;
+
+      var initialScaleX = void 0,
+          initialScaleY = void 0,
+          scaleX = void 0,
+          scaleY = void 0,
+          translateX = void 0,
+          translateY = void 0;
+
+      initialScaleX = parseFloat(w) / constrainedWidth;
+      initialScaleY = parseFloat(h) / constrainedHeight;
+
+      scaleX = zoomInOutValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [initialScaleX, 1.0]
+      });
+
+      scaleY = zoomInOutValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [initialScaleY, 1.0]
+      });
+
+      translateX = zoomInOutValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [(w - constrainedWidth) / 2 + x, (_Layout2.default.window.width - constrainedWidth) / 2]
+      });
+
+      translateY = zoomInOutValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [(h - constrainedHeight) / 2 + y + _Layout2.default.statusBarHeight, _Layout2.default.headerHeight + marginVertical + _Layout2.default.statusBarHeight]
+      });
+
+      return _react2.default.createElement(
+        _reactNative.Animated.View,
+        {
+          pointerEvents: 'none',
+          style: [styles.image, {
+            width: constrainedWidth,
+            height: constrainedHeight,
+            opacity: isVisible ? 1 : 0,
+            transform: [{ translateX: translateX }, { translateY: translateY }, { scaleX: scaleX }, { scaleY: scaleY }]
+          }], __source: {
+            fileName: _jsxFileName,
+            lineNumber: 134
+          }
+        },
+        _react2.default.createElement(_reactNative.Animated.Image, {
+          key: source.uri,
+          renderToHardwareTextureAndroid: true,
+          fadeDuration: 0,
+          source: source,
+          style: [styles.image, { width: constrainedWidth, height: constrainedHeight }],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 145
+          }
+        })
+      );
+    }
+  }], [{
+    key: 'getDataProps',
+    value: function getDataProps(data) {
+      var imageGallery = data.imageGallery;
+
+
+      return {
+        item: imageGallery.get('item')
+      };
+    }
+  }]);
+
+  return ImageGalleryAnimatedImage;
+}(_react2.default.PureComponent), _class.propTypes = {
+  animationMeasurements: _propTypes2.default.object,
+  isDragging: _propTypes2.default.bool,
+  isImageGalleryOpen: _propTypes2.default.bool,
+
+  isVisible: _propTypes2.default.bool,
+  item: _propTypes2.default.object,
+  panValue: _propTypes2.default.object
+}, _temp);
+exports.default = (0, _reactRedux.connect)(function (data) {
+  return ImageGalleryAnimatedImage.getDataProps(data);
+})(ImageGalleryAnimatedImage);
+
+
+var styles = _reactNative.StyleSheet.create({
+  image: {
+    top: 0,
+    left: 0,
+    position: 'absolute',
+    width: _Layout2.default.window.width,
+    height: _Layout2.default.window.width
+  }
+});

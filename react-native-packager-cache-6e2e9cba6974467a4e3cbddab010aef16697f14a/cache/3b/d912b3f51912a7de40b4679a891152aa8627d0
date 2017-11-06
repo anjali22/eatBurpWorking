@@ -1,0 +1,11 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _mirrorCreator = require('mirror-creator');
+
+var _mirrorCreator2 = _interopRequireDefault(_mirrorCreator);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _mirrorCreator2.default)(['PRELOAD_IMAGE_GALLERY', 'OPEN_IMAGE_GALLERY', 'CLOSE_IMAGE_GALLERY', 'FOCUS_IMAGE_GALLERY_ITEM', 'UPDATE_IMAGE_GALLERY_ANIMATION_MEASUREMENTS', 'UPDATE_IMAGE_GALLERY_LIFECYCLE', 'REPLACE_IMAGE_SEARCH_TEXT']);

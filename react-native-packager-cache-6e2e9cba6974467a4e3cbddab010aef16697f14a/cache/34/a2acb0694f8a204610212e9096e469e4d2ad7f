@@ -1,0 +1,91 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactNative = require('react-native');
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var Keys = {
+  User: 'User',
+  VisitedBreweries: 'Visited'
+};
+
+function getUserAsync() {
+  var results;
+  return regeneratorRuntime.async(function getUserAsync$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem(Keys.User));
+
+        case 2:
+          results = _context.sent;
+          _context.prev = 3;
+          return _context.abrupt('return', JSON.parse(results));
+
+        case 7:
+          _context.prev = 7;
+          _context.t0 = _context['catch'](3);
+          return _context.abrupt('return', null);
+
+        case 10:
+        case 'end':
+          return _context.stop();
+      }
+    }
+  }, null, this, [[3, 7]]);
+}
+
+function saveUserAsync(user) {
+  return _reactNative.AsyncStorage.setItem(Keys.User, JSON.stringify(user));
+}
+
+function removeUserAsync() {
+  return _reactNative.AsyncStorage.removeItem(Keys.User);
+}
+
+function saveVisitedBreweriesAsync(breweryIds) {
+  return _reactNative.AsyncStorage.setItem(Keys.VisitedBreweries, JSON.stringify(breweryIds));
+}
+
+function getVisitedBreweriesAsync() {
+  var results;
+  return regeneratorRuntime.async(function getVisitedBreweriesAsync$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.next = 2;
+          return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem(Keys.VisitedBreweries));
+
+        case 2:
+          results = _context2.sent;
+          _context2.prev = 3;
+          return _context2.abrupt('return', JSON.parse(results));
+
+        case 7:
+          _context2.prev = 7;
+          _context2.t0 = _context2['catch'](3);
+          return _context2.abrupt('return', null);
+
+        case 10:
+        case 'end':
+          return _context2.stop();
+      }
+    }
+  }, null, this, [[3, 7]]);
+}
+
+function clearAllAsync() {
+  return _reactNative.AsyncStorage.clear();
+}
+
+exports.default = {
+  saveUserAsync: saveUserAsync,
+  getUserAsync: getUserAsync,
+  removeUserAsync: removeUserAsync,
+  saveVisitedBreweriesAsync: saveVisitedBreweriesAsync,
+  getVisitedBreweriesAsync: getVisitedBreweriesAsync,
+  clearAllAsync: clearAllAsync
+};

@@ -1,0 +1,115 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _immutable = require('immutable');
+
+var _immutable2 = _interopRequireDefault(_immutable);
+
+var _ActionTypes = require('./ActionTypes');
+
+var _ActionTypes2 = _interopRequireDefault(_ActionTypes);
+
+var _ImageGalleryConstants = require('./ImageGalleryConstants');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Map = _immutable2.default.Map;
+
+
+function emptyState() {
+  return Map({ lifecycle: _ImageGalleryConstants.CLOSED_AND_IDLE });
+}
+
+var ImageGalleryReducer = function () {
+  function ImageGalleryReducer() {
+    _classCallCheck(this, ImageGalleryReducer);
+  }
+
+  _createClass(ImageGalleryReducer, null, [{
+    key: 'reduce',
+    value: function reduce() {
+      var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : emptyState();
+      var action = arguments[1];
+
+      if (!ImageGalleryReducer[action.type]) {
+        return state;
+      }
+      return ImageGalleryReducer[action.type](state, action);
+    }
+  }, {
+    key: _ActionTypes2.default.OPEN_IMAGE_GALLERY,
+    value: function value(state, action) {
+      var list = action.list,
+          item = action.item,
+          animationMeasurements = action.animationMeasurements;
+
+      var itemIndex = list.get('items').indexOf(item);
+
+      if (state.get('lifecycle') !== _ImageGalleryConstants.CLOSED_AND_IDLE) {
+        return state;
+      }
+
+      return state.withMutations(function (map) {
+        return map.set('list', list).set('item', item).set('initialItem', item).set('itemIndex', itemIndex).set('lifecycle', _ImageGalleryConstants.OPENING_ANIMATION_IN_PROGRESS).set('animationMeasurements', animationMeasurements).set('userWantsOpen', true);
+      });
+    }
+  }, {
+    key: _ActionTypes2.default.PRELOAD_IMAGE_GALLERY,
+    value: function value(state, action) {
+      var list = action.list;
+
+      var item = list.get(0);
+
+      return state.withMutations(function (map) {
+        return map.set('list', list).set('item', item).set('initialItem', item).set('itemIndex', 0).set('lifecycle', _ImageGalleryConstants.CLOSED_AND_IDLE).set('userWantsOpen', false);
+      });
+    }
+  }, {
+    key: _ActionTypes2.default.UPDATE_IMAGE_GALLERY_LIFECYCLE,
+    value: function value(state, action) {
+      return state.withMutations(function (map) {
+        return map.set('lifecycle', action.lifecycle).set('userWantsOpen', action.lifecycle === _ImageGalleryConstants.CLOSED_AND_IDLE ? false : state.get('userWantsOpen'));
+      });
+    }
+  }, {
+    key: _ActionTypes2.default.CLOSE_IMAGE_GALLERY,
+    value: function value(state, action) {
+      if (state.get('lifecycle') === _ImageGalleryConstants.CLOSED_AND_IDLE) {
+        console.warn('Fired CLOSED_IMAGE_GALLERY with the gallery already closed!');
+        return state;
+      }
+
+      return state.withMutations(function (map) {
+        return map.remove('userWantsOpen').set('lifecycle', _ImageGalleryConstants.CLOSING_ANIMATION_IN_PROGRESS);
+      });
+    }
+  }, {
+    key: _ActionTypes2.default.FOCUS_IMAGE_GALLERY_ITEM,
+    value: function value(state, action) {
+      var itemIndex = state.get('list').get('items').indexOf(action.item);
+
+      return state.withMutations(function (map) {
+        return map.set('item', action.item).set('itemIndex', itemIndex);
+      });
+    }
+  }, {
+    key: _ActionTypes2.default.UPDATE_IMAGE_GALLERY_ANIMATION_MEASUREMENTS,
+    value: function value(state, action) {
+      return state.set('animationMeasurements', action.animationMeasurements);
+    }
+  }, {
+    key: _ActionTypes2.default.RESET,
+    value: function value(state, action) {
+      return emptyState();
+    }
+  }]);
+
+  return ImageGalleryReducer;
+}();
+
+exports.default = ImageGalleryReducer.reduce;

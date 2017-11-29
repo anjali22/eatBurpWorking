@@ -5,7 +5,8 @@ var tintColor = '#2f95dc';
 
 exports.default = {
   tintColor: tintColor,
-  tabIconDefault: '#ffffff',
+
+  tabIconDefault: '#878787',
   tabIconSelected: '#000',
   tabBar: '#fefefe',
   border: '#e5e5e5',
@@ -15,5 +16,6 @@ exports.default = {
   warningText: '#666804',
   noticeBackground: tintColor,
   noticeText: '#fff',
-  appThemeColor: '#ff8342'
-};
+
+  appThemeColor: '#fff',
+  headerColor: '#000' };

@@ -21,45 +21,45 @@ export default class Actions {
     }
   }
 
-  static setBreweries(breweries) {
+  static setRestaurants(restaurants) {
     return {
-      type: ActionTypes.SET_BREWERIES,
-      breweries,
+      type: ActionTypes.SET_RESTAURANTS,
+      restaurants,
     }
   }
 
-  static setNearbyBreweries(breweryIds) {
+  static setNearbyRestaurants(restaurantIds) {
     return {
       type: ActionTypes.SET_NEARBY_BREWERIES,
-      breweryIds,
+      restaurantIds,
     }
   }
 
-  static setVisitedBreweries(breweryIds) {
+  static setVisitedRestaurants(restaurantIds) {
     return {
       type: ActionTypes.SET_VISITED_BREWERIES,
-      breweryIds,
+      restaurantIds,
     }
   }
 
-  static toggleVisitedBrewery(breweryId) {
+  static toggleVisitedRestaurant(restaurantId) {
     return {
       type: ActionTypes.TOGGLE_VISITED_BREWERY,
-      breweryId,
+      restaurantId,
     }
   }
 
-  static addVisitedBrewery(breweryId) {
+  static addVisitedRestaurant(restaurantId) {
     return {
       type: ActionTypes.ADD_VISITED_BREWERY,
-      breweryId,
+      restaurantId,
     }
   }
 
-  static removeVisitedBrewery(breweryId) {
+  static removeVisitedRestaurant(restaurantId) {
     return {
       type: ActionTypes.REMOVE_VISITED_BREWERY,
-      breweryId,
+      restaurantId,
     }
   }
 

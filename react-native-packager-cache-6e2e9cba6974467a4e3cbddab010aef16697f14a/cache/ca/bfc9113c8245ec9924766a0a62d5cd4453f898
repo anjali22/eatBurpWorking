@@ -21,17 +21,17 @@ var _AuthenticationScreen = require('../screens/AuthenticationScreen');
 
 var _AuthenticationScreen2 = _interopRequireDefault(_AuthenticationScreen);
 
-var _BreweryDetailsScreen = require('../screens/BreweryDetailsScreen');
+var _RestaurantDetailsScreen = require('../screens/RestaurantDetailsScreen');
 
-var _BreweryDetailsScreen2 = _interopRequireDefault(_BreweryDetailsScreen);
+var _RestaurantDetailsScreen2 = _interopRequireDefault(_RestaurantDetailsScreen);
 
-var _BreweryListScreen = require('../screens/BreweryListScreen');
+var _RestaurantListScreen = require('../screens/RestaurantListScreen');
 
-var _BreweryListScreen2 = _interopRequireDefault(_BreweryListScreen);
+var _RestaurantListScreen2 = _interopRequireDefault(_RestaurantListScreen);
 
-var _BreweryMapScreen = require('../screens/BreweryMapScreen');
+var _RestaurantMapScreen = require('../screens/RestaurantMapScreen');
 
-var _BreweryMapScreen2 = _interopRequireDefault(_BreweryMapScreen);
+var _RestaurantMapScreen2 = _interopRequireDefault(_RestaurantMapScreen);
 
 var _Colors = require('../constants/Colors');
 
@@ -49,14 +49,21 @@ var _AddRatingScreen = require('../screens/AddRatingScreen');
 
 var _AddRatingScreen2 = _interopRequireDefault(_AddRatingScreen);
 
+var _SearchScreen = require('../screens/SearchScreen');
+
+var _SearchScreen2 = _interopRequireDefault(_SearchScreen);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ListStack = (0, _reactNavigation.StackNavigator)({
   list: {
-    screen: _BreweryListScreen2.default
+    screen: _RestaurantListScreen2.default
   },
   details: {
-    screen: _BreweryDetailsScreen2.default
+    screen: _RestaurantDetailsScreen2.default
+  },
+  search: {
+    screen: _SearchScreen2.default
   }
 }, {
   headerMode: 'none',
@@ -89,7 +96,7 @@ var TabLayout = (0, _reactNavigation.TabNavigator)({
     screen: ListStack
   },
   map: {
-    screen: _BreweryMapScreen2.default
+    screen: _RestaurantMapScreen2.default
   },
   addRating: {
     screen: _AddRatingScreen2.default
@@ -138,7 +145,7 @@ var TabLayout = (0, _reactNavigation.TabNavigator)({
           color: focused ? _Colors2.default.tabIconSelected : _Colors2.default.tabIconDefault,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 101
+            lineNumber: 105
           }
         });
       }

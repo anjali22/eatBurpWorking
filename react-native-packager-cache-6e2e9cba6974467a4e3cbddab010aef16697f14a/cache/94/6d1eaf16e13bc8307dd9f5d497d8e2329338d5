@@ -112,7 +112,7 @@ var BoldText = exports.BoldText = _wrapComponent('BoldText')(function (_React$Co
   _createClass(BoldText, [{
     key: 'render',
     value: function render() {
-      return _react3.default.createElement(_reactNative.Text, _extends({}, this.props, { style: [this.props.style, styles.bold], __source: {
+      return _react3.default.createElement(_reactNative.Text, _extends({}, this.props, { style: [this.props.style, styles.gloria], __source: {
           fileName: _jsxFileName,
           lineNumber: 29
         }
@@ -132,5 +132,11 @@ var styles = _reactNative.StyleSheet.create({
   },
   bold: {
     fontFamily: 'OpenSans-Bold'
+  },
+  pacifico: {
+    fontFamily: 'Pacifico'
+  },
+  gloria: {
+    fontFamily: 'Gloria'
   }
 });

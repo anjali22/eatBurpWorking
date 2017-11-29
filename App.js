@@ -11,8 +11,8 @@ import ImageGalleryPortal from './components/ImageGalleryPortal';
 import LocalStorage from './state/LocalStorage';
 import RootNavigation from './navigation/RootNavigation';
 import Store from './state/Store';
-import { Brewery, User } from './state/Records';
-import AllBreweries from './data';
+import { Restaurant, User } from './state/Records';
+import AllRestaurants from './data';
 
 export default class AppContainer extends React.Component {
   render() {
@@ -42,18 +42,20 @@ class App extends React.Component {
       'OpenSans-Light': require('./assets/fonts/OpenSans-Light.ttf'),
       'OpenSans': require('./assets/fonts/OpenSans-Regular.ttf'),
       'OpenSans-Bold': require('./assets/fonts/OpenSans-Semibold.ttf'),
+      'Pacifico': require('./assets/fonts/Pacifico-Regular.ttf'),
+      'Gloria': require('./assets/fonts/GloriaHallelujah.ttf')
     });
   };
 
   _loadCacheAsync = async () => {
     let user = new User(await LocalStorage.getUserAsync());
-    let breweries = new List(AllBreweries.map(data => new Brewery(data)));
-    let visitedBreweries = new List(
-      await LocalStorage.getVisitedBreweriesAsync()
+    let restaurants = new List(AllRestaurants.map(data => new Restaurant(data)));
+    let visitedRestaurants = new List(
+      await LocalStorage.getVisitedRestaurantsAsync()
     );
     this.props.dispatch(Actions.setCurrentUser(user));
-    this.props.dispatch(Actions.setBreweries(breweries));
-    this.props.dispatch(Actions.setVisitedBreweries(visitedBreweries));
+    this.props.dispatch(Actions.setRestaurants(restaurants));
+    this.props.dispatch(Actions.setVisitedRestaurants(visitedRestaurants));
   };
 
   _loadDataAndAssetsAsync = async () => {

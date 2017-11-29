@@ -42,51 +42,51 @@ var Actions = function () {
       };
     }
   }, {
-    key: 'setBreweries',
-    value: function setBreweries(breweries) {
+    key: 'setRestaurants',
+    value: function setRestaurants(restaurants) {
       return {
-        type: _ActionTypes2.default.SET_BREWERIES,
-        breweries: breweries
+        type: _ActionTypes2.default.SET_RESTAURANTS,
+        restaurants: restaurants
       };
     }
   }, {
-    key: 'setNearbyBreweries',
-    value: function setNearbyBreweries(breweryIds) {
+    key: 'setNearbyRestaurants',
+    value: function setNearbyRestaurants(restaurantIds) {
       return {
         type: _ActionTypes2.default.SET_NEARBY_BREWERIES,
-        breweryIds: breweryIds
+        restaurantIds: restaurantIds
       };
     }
   }, {
-    key: 'setVisitedBreweries',
-    value: function setVisitedBreweries(breweryIds) {
+    key: 'setVisitedRestaurants',
+    value: function setVisitedRestaurants(restaurantIds) {
       return {
         type: _ActionTypes2.default.SET_VISITED_BREWERIES,
-        breweryIds: breweryIds
+        restaurantIds: restaurantIds
       };
     }
   }, {
-    key: 'toggleVisitedBrewery',
-    value: function toggleVisitedBrewery(breweryId) {
+    key: 'toggleVisitedRestaurant',
+    value: function toggleVisitedRestaurant(restaurantId) {
       return {
         type: _ActionTypes2.default.TOGGLE_VISITED_BREWERY,
-        breweryId: breweryId
+        restaurantId: restaurantId
       };
     }
   }, {
-    key: 'addVisitedBrewery',
-    value: function addVisitedBrewery(breweryId) {
+    key: 'addVisitedRestaurant',
+    value: function addVisitedRestaurant(restaurantId) {
       return {
         type: _ActionTypes2.default.ADD_VISITED_BREWERY,
-        breweryId: breweryId
+        restaurantId: restaurantId
       };
     }
   }, {
-    key: 'removeVisitedBrewery',
-    value: function removeVisitedBrewery(breweryId) {
+    key: 'removeVisitedRestaurant',
+    value: function removeVisitedRestaurant(restaurantId) {
       return {
         type: _ActionTypes2.default.REMOVE_VISITED_BREWERY,
-        breweryId: breweryId
+        restaurantId: restaurantId
       };
     }
   }, {

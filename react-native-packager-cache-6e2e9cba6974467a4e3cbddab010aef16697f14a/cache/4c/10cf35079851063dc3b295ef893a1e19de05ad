@@ -1,0 +1,191 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/anjali/growler-prowler-master/node_modules/react-native-star-rating/star-rating.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _starButton = require('./star-button');
+
+var _starButton2 = _interopRequireDefault(_starButton);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  StarRating: {
+    displayName: 'StarRating'
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/node_modules/react-native-star-rating/star-rating.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var StarRating = _wrapComponent('StarRating')(function (_Component) {
+  _inherits(StarRating, _Component);
+
+  function StarRating(props) {
+    _classCallCheck(this, StarRating);
+
+    var _this = _possibleConstructorReturn(this, (StarRating.__proto__ || Object.getPrototypeOf(StarRating)).call(this, props));
+
+    _this.onStarButtonPress = _this.onStarButtonPress.bind(_this);
+    return _this;
+  }
+
+  _createClass(StarRating, [{
+    key: 'onStarButtonPress',
+    value: function onStarButtonPress(rating) {
+      var selectedStar = this.props.selectedStar;
+
+
+      selectedStar(rating);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          maxStars = _props.maxStars,
+          rating = _props.rating,
+          emptyStar = _props.emptyStar,
+          emptyStarColor = _props.emptyStarColor,
+          fullStar = _props.fullStar,
+          halfStar = _props.halfStar,
+          starColor = _props.starColor,
+          disabled = _props.disabled,
+          iconSet = _props.iconSet,
+          starSize = _props.starSize,
+          starStyle = _props.starStyle,
+          buttonStyle = _props.buttonStyle,
+          halfStarEnabled = _props.halfStarEnabled,
+          reversed = _props.reversed;
+
+
+      var starRatingStyles = {
+        flexDirection: reversed ? 'row-reverse' : 'row',
+        justifyContent: 'space-between'
+      };
+
+      var starsLeft = Math.round(rating * 2) / 2;
+      var starButtons = [];
+
+      for (var i = 0; i < maxStars; i++) {
+        var starIconName = emptyStar;
+        var finalStarColor = emptyStarColor;
+
+        if (starsLeft >= 1) {
+          starIconName = fullStar;
+          finalStarColor = starColor;
+        } else if (starsLeft === 0.5) {
+          starIconName = halfStar;
+          finalStarColor = starColor;
+        }
+
+        var starButtonElement = _react3.default.createElement(_starButton2.default, {
+          activeOpacity: 0.20,
+          disabled: disabled,
+          key: i,
+          rating: i + 1,
+          onStarButtonPress: this.onStarButtonPress,
+          iconSet: iconSet,
+          starSize: starSize,
+          starIconName: starIconName,
+          starColor: finalStarColor,
+          starStyle: starStyle,
+          buttonStyle: buttonStyle,
+          halfStarEnabled: halfStarEnabled,
+          reversed: reversed,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 70
+          }
+        });
+
+        starButtons.push(starButtonElement);
+        starsLeft -= 1;
+      }
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: starRatingStyles, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 92
+          }
+        },
+        starButtons
+      );
+    }
+  }]);
+
+  return StarRating;
+}(_react2.Component));
+
+StarRating.propTypes = {
+  disabled: _propTypes2.default.bool,
+  emptyStar: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object, _propTypes2.default.number]),
+  fullStar: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object, _propTypes2.default.number]),
+  halfStar: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object, _propTypes2.default.number]),
+  iconSet: _propTypes2.default.string,
+  maxStars: _propTypes2.default.number,
+  rating: _propTypes2.default.number,
+  selectedStar: _propTypes2.default.func,
+  starColor: _propTypes2.default.string,
+  emptyStarColor: _propTypes2.default.string,
+  starSize: _propTypes2.default.number,
+  starStyle: _reactNative.ViewPropTypes.style,
+  buttonStyle: _reactNative.ViewPropTypes.style,
+  halfStarEnabled: _propTypes2.default.bool,
+  reversed: _propTypes2.default.bool
+};
+
+StarRating.defaultProps = {
+  disabled: false,
+  emptyStar: 'star-o',
+  fullStar: 'star',
+  halfStar: 'star-half-o',
+  iconSet: 'FontAwesome',
+  maxStars: 5,
+  rating: 0,
+  selectedStar: function selectedStar() {
+    return undefined;
+  },
+  starColor: 'black',
+  emptyStarColor: 'gray',
+  starSize: 40,
+  starStyle: {},
+  buttonStyle: {},
+  halfStarEnabled: false,
+  reversed: false
+};
+
+exports.default = StarRating;

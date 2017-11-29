@@ -545,11 +545,11 @@ var MapCard = exports.MapCard = _wrapComponent('MapCard')(function (_React$Compo
   }, {
     key: 'render',
     value: function render() {
-      var _props$brewery = this.props.brewery,
-          address = _props$brewery.address,
-          city = _props$brewery.city,
-          postalCode = _props$brewery.postalCode,
-          name = _props$brewery.name;
+      var _props$restaurant = this.props.restaurant,
+          address = _props$restaurant.address,
+          city = _props$restaurant.city,
+          postalCode = _props$restaurant.postalCode,
+          name = _props$restaurant.name;
 
 
       return _react3.default.createElement(
@@ -648,10 +648,10 @@ var MapCard = exports.MapCard = _wrapComponent('MapCard')(function (_React$Compo
         return;
       }
 
-      var _props$brewery2 = this.props.brewery,
-          name = _props$brewery2.name,
-          latitude = _props$brewery2.latitude,
-          longitude = _props$brewery2.longitude;
+      var _props$restaurant2 = this.props.restaurant,
+          name = _props$restaurant2.name,
+          latitude = _props$restaurant2.latitude,
+          longitude = _props$restaurant2.longitude;
 
 
       return _react3.default.createElement(
@@ -701,9 +701,9 @@ var VisitedCard = exports.VisitedCard = _wrapComponent('VisitedCard')((_dec = (0
 
     return _ret5 = (_temp5 = (_this8 = _possibleConstructorReturn(this, (_ref5 = VisitedCard.__proto__ || Object.getPrototypeOf(VisitedCard)).call.apply(_ref5, [this].concat(args))), _this8), _this8._onToggleVisited = function () {
       if (_this8.props.isVisited) {
-        _this8.props.dispatch(_Actions2.default.removeVisitedBrewery(_this8.props.breweryId));
+        _this8.props.dispatch(_Actions2.default.removeVisitedRestaurant(_this8.props.restaurantId));
       } else {
-        _this8.props.dispatch(_Actions2.default.addVisitedBrewery(_this8.props.breweryId));
+        _this8.props.dispatch(_Actions2.default.addVisitedRestaurant(_this8.props.restaurantId));
       }
     }, _temp5), _possibleConstructorReturn(_this8, _ret5);
   }
@@ -780,9 +780,9 @@ var VisitedCard = exports.VisitedCard = _wrapComponent('VisitedCard')((_dec = (0
   }], [{
     key: 'getDataProps',
     value: function getDataProps(data, props) {
-      var breweryId = props.breweryId;
+      var restaurantId = props.restaurantId;
 
-      var isVisited = data.breweries.visited.includes(breweryId);
+      var isVisited = data.restaurants.visited.includes(restaurantId);
 
       return {
         isVisited: isVisited

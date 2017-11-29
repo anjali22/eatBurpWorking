@@ -1,0 +1,564 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _jsxFileName = '/home/anjali/growler-prowler-master/components/RestaurantDetails.js';
+
+var _reactNative = require('react-native');
+
+var _vectorIcons = require('@expo/vector-icons');
+
+var _expo = require('expo');
+
+var _reactNativeTouchableNativeFeedbackSafe = require('@expo/react-native-touchable-native-feedback-safe');
+
+var _reactNativeTouchableNativeFeedbackSafe2 = _interopRequireDefault(_reactNativeTouchableNativeFeedbackSafe);
+
+var _reactNavigation = require('react-navigation');
+
+var _StyledText = require('./StyledText');
+
+var _DetailCards = require('./DetailCards');
+
+var _formatTime = require('../util/formatTime');
+
+var _formatTime2 = _interopRequireDefault(_formatTime);
+
+var _Layout = require('../constants/Layout');
+
+var _Layout2 = _interopRequireDefault(_Layout);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  RestaurantDetails: {
+    displayName: 'RestaurantDetails'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/components/RestaurantDetails.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var RestaurantDetails = _wrapComponent('RestaurantDetails')((0, _reactNavigation.withNavigation)(_class = function (_React$Component) {
+  _inherits(RestaurantDetails, _React$Component);
+
+  function RestaurantDetails() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, RestaurantDetails);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = RestaurantDetails.__proto__ || Object.getPrototypeOf(RestaurantDetails)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      scrollY: new _reactNative.Animated.Value(0)
+    }, _this._handlePressDirections = function () {
+      var _this$props$restauran = _this.props.restaurant,
+          address = _this$props$restauran.address,
+          postalCode = _this$props$restauran.postalCode,
+          city = _this$props$restauran.city;
+
+
+      var daddr = encodeURIComponent(address + ' ' + postalCode + ', ' + city);
+
+      if (_reactNative.Platform.OS === 'ios') {
+        _reactNative.Linking.openURL('http://maps.apple.com/?daddr=' + daddr);
+      } else {
+        _reactNative.Linking.openURL('http://maps.google.com/?daddr=' + daddr);
+      }
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(RestaurantDetails, [{
+    key: 'render',
+    value: function render() {
+      var restaurant = this.props.restaurant;
+      var scrollY = this.state.scrollY;
+
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 39
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: { flex: 1, marginTop: -50 }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 40
+            }
+          },
+          this._renderHeroHeader(),
+          _react3.default.createElement(
+            _reactNative.Animated.ScrollView,
+            {
+              scrollEventThrottle: 16,
+              style: _reactNative.StyleSheet.absoluteFill,
+              onScroll: _reactNative.Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: true }), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 43
+              }
+            },
+            _react3.default.createElement(_reactNative.View, { style: styles.heroSpacer, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 50
+              }
+            }),
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: styles.contentContainerStyle, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 52
+                }
+              },
+              _react3.default.createElement(_DetailCards.MapCard, {
+                restaurant: restaurant,
+                onPress: this._handlePressDirections,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 53
+                }
+              }),
+              _react3.default.createElement(_DetailCards.SummaryCard, { text: restaurant.summary, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 57
+                }
+              }),
+              _react3.default.createElement(_DetailCards.DescriptionCard, { text: restaurant.description, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 58
+                }
+              }),
+              _react3.default.createElement(_DetailCards.InstagramPhotosCard, { profile: restaurant.instagram, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 59
+                }
+              }),
+              _react3.default.createElement(_DetailCards.VisitedCard, { restaurantId: this.props.restaurant.id, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 60
+                }
+              })
+            )
+          )
+        ),
+        this._renderNavigationBarShadow(),
+        this._renderNavigationBar(),
+        _react3.default.createElement(_reactNative.StatusBar, { barStyle: getBarStyle(restaurant.color), __source: {
+            fileName: _jsxFileName,
+            lineNumber: 68
+          }
+        })
+      );
+    }
+  }, {
+    key: '_renderHeroHeader',
+    value: function _renderHeroHeader() {
+      var restaurant = this.props.restaurant;
+      var scrollY = this.state.scrollY;
+
+
+      var logoScale = scrollY.interpolate({
+        inputRange: [-150, 0, 150],
+        outputRange: [1.5, 1, 1]
+      });
+
+      var logoTranslateY = scrollY.interpolate({
+        inputRange: [-150, 0, 150],
+        outputRange: [40, 0, -40]
+      });
+
+      var logoOpacity = scrollY.interpolate({
+        inputRange: [-150, 0, 200, 400],
+        outputRange: [1, 1, 0.2, 0.2]
+      });
+
+      var heroBackgroundTranslateY = scrollY.interpolate({
+        inputRange: [-1, 0, 200, 201],
+        outputRange: [0, 0, -400, -400]
+      });
+
+      var gradientTranslateY = scrollY.interpolate({
+        inputRange: [-1, 0, 1],
+        outputRange: [1, 0, -1]
+      });
+      return _react3.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 102
+          }
+        },
+        _react3.default.createElement(_reactNative.Animated.View, {
+          style: [styles.heroBackground, {
+            backgroundColor: restaurant.color,
+            transform: [{ translateY: heroBackgroundTranslateY }]
+          }],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 103
+          }
+        }),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.hero, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 113
+            }
+          },
+          _react3.default.createElement(_reactNative.Animated.Image, {
+            source: { uri: restaurant.logo },
+            style: [styles.heroImage, {
+              opacity: logoOpacity,
+              transform: [{ scale: logoScale }, { translateY: logoTranslateY }]
+            }],
+            resizeMode: 'contain',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 114
+            }
+          }),
+          _react3.default.createElement(
+            _reactNative.Animated.View,
+            {
+              style: [styles.heroBottomGradientContainer, { transform: [{ translateY: gradientTranslateY }] }], __source: {
+                fileName: _jsxFileName,
+                lineNumber: 128
+              }
+            },
+            _react3.default.createElement(_expo.LinearGradient, {
+              colors: ['transparent', 'rgba(0,0,0,0.07)'],
+              style: { width: _Layout2.default.window.width, height: 30 },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 133
+              }
+            })
+          )
+        )
+      );
+    }
+  }, {
+    key: '_renderNavigationBar',
+    value: function _renderNavigationBar() {
+      var _this2 = this;
+
+      var _props$restaurant = this.props.restaurant,
+          color = _props$restaurant.color,
+          accentColor = _props$restaurant.accentColor;
+      var scrollY = this.state.scrollY;
+
+
+      return _react3.default.createElement(
+        _reactNative.Animated.View,
+        { style: [styles.navigationBar, { backgroundColor: color }], __source: {
+            fileName: _jsxFileName,
+            lineNumber: 149
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: [styles.navigationBarAction, { marginLeft: -5 }], __source: {
+              fileName: _jsxFileName,
+              lineNumber: 150
+            }
+          },
+          _react3.default.createElement(_reactNavigation.HeaderBackButton, {
+            onPress: function onPress() {
+              return _this2.props.navigation.goBack();
+            },
+            tintColor: accentColor,
+            title: null,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 151
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.navigationBarTitle, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 158
+            }
+          },
+          this._renderNavigationBarTitle()
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.navigationBarAction, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 162
+            }
+          },
+          _react3.default.createElement(
+            _reactNativeTouchableNativeFeedbackSafe2.default,
+            { onPress: this._handlePressDirections, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 163
+              }
+            },
+            _react3.default.createElement(_vectorIcons.MaterialIcons, { name: 'directions', size: 25, color: accentColor, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 164
+              }
+            })
+          )
+        )
+      );
+    }
+  }, {
+    key: '_renderNavigationBarShadow',
+    value: function _renderNavigationBarShadow() {
+      var scrollY = this.state.scrollY;
+
+
+      var opacity = scrollY.interpolate({
+        inputRange: [0, 50, 300, 301],
+        outputRange: [0, 0, 1, 1]
+      });
+
+      return _react3.default.createElement(
+        _reactNative.Animated.View,
+        { style: [styles.navigationBarShadowContainer, { opacity: opacity }], __source: {
+            fileName: _jsxFileName,
+            lineNumber: 183
+          }
+        },
+        _react3.default.createElement(_expo.LinearGradient, {
+          colors: ['rgba(0,0,0,0.08)', 'transparent'],
+          style: styles.navigationBarShadow,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 184
+          }
+        })
+      );
+    }
+  }, {
+    key: '_renderNavigationBarTitle',
+    value: function _renderNavigationBarTitle() {
+      var _props$restaurant2 = this.props.restaurant,
+          accentColor = _props$restaurant2.accentColor,
+          closingTimeToday = _props$restaurant2.closingTimeToday,
+          isOpen = _props$restaurant2.isOpen,
+          isOpeningLater = _props$restaurant2.isOpeningLater,
+          name = _props$restaurant2.name,
+          openingTimeToday = _props$restaurant2.openingTimeToday;
+      var scrollY = this.state.scrollY;
+
+
+      var titleOpacity = scrollY.interpolate({
+        inputRange: [-1, 0, 150, 300, 301],
+        outputRange: [0, 0, 0.1, 1, 1]
+      });
+
+      var titleTranslateY = scrollY.interpolate({
+        inputRange: [-1, 0, 300, 301],
+        outputRange: [0, 0, 3, 3]
+      });
+
+      var subtitleScale = scrollY.interpolate({
+        inputRange: [-1, 0, 300, 301],
+        outputRange: [1, 1, 0.75, 0.75]
+      });
+
+      var subtitleTranslateY = scrollY.interpolate({
+        inputRange: [-1, 0, 300, 301],
+        outputRange: [-10, -10, -1, -1]
+      });
+
+      if (!openingTimeToday || !closingTimeToday) {
+        text = 'Hours not available';
+      } else if (isOpen) {
+        text = 'Open until ' + (0, _formatTime2.default)(closingTimeToday);
+      } else if (isOpeningLater) {
+        containerStyle = styles.barIsOpeningLaterContainer;
+        text = 'Opening at ' + (0, _formatTime2.default)(openingTimeToday);
+      } else {
+        containerStyle = styles.barIsClosedContainer;
+        text = 'Closed since ' + (0, _formatTime2.default)(closingTimeToday);
+      }
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 237
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.Animated.View,
+          {
+            style: {
+              opacity: titleOpacity,
+              transform: [{ translateY: titleTranslateY }]
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 238
+            }
+          },
+          _react3.default.createElement(
+            _StyledText.BoldText,
+            {
+              style: [styles.navigationBarTitleText, { color: accentColor }], __source: {
+                fileName: _jsxFileName,
+                lineNumber: 243
+              }
+            },
+            name
+          )
+        ),
+        _react3.default.createElement(
+          _reactNative.Animated.View,
+          {
+            style: {
+              backgroundColor: 'transparent',
+              transform: [{ scale: subtitleScale }, { translateY: subtitleTranslateY }]
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 248
+            }
+          },
+          _react3.default.createElement(
+            _StyledText.BoldText,
+            {
+              style: [styles.navigationBarTitleText, { color: accentColor }], __source: {
+                fileName: _jsxFileName,
+                lineNumber: 256
+              }
+            },
+            text
+          )
+        )
+      );
+    }
+  }]);
+
+  return RestaurantDetails;
+}(_react3.default.Component)) || _class);
+
+exports.default = RestaurantDetails;
+
+
+function getBarStyle(color) {
+  if (color === '#fff' || color === '#f8fcf7' || color === '#fab234') {
+    return 'default';
+  } else {
+    return 'light-content';
+  }
+}
+
+var HeroHeight = 370;
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FAFAFA'
+  },
+  contentContainerStyle: {
+    paddingBottom: 20,
+    backgroundColor: '#FAFAFA',
+    minHeight: _Layout2.default.window.height - HeroHeight
+  },
+  heroSpacer: {
+    width: _Layout2.default.window.width,
+    height: HeroHeight,
+    backgroundColor: 'transparent'
+  },
+  heroImage: {
+    width: 210,
+    height: 190,
+    marginTop: 80
+  },
+  heroBackground: {
+    height: HeroHeight + 250
+  },
+  hero: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: HeroHeight,
+    paddingTop: 30,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  heroBottomGradientContainer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0
+  },
+  navigationBarTitleText: {
+    color: '#fff',
+    textAlign: 'center'
+  },
+  navigationBarAction: {
+    width: 40,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  navigationBarTitle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  navigationBarShadowContainer: {
+    position: 'absolute',
+    top: _Layout2.default.HEADER_HEIGHT,
+    left: 0,
+    right: 0,
+    height: 15,
+    bottom: 0
+  },
+  navigationBarShadow: {
+    height: 15,
+    width: _Layout2.default.window.width
+  },
+  navigationBar: {
+    flexDirection: 'row',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: _Layout2.default.HEADER_HEIGHT,
+    alignItems: 'center',
+    paddingTop: _expo.Constants.statusBarHeight,
+    paddingHorizontal: 5
+  }
+});

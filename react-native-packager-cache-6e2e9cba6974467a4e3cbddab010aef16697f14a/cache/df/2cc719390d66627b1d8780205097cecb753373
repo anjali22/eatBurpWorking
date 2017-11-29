@@ -1,0 +1,535 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec,
+    _class,
+    _class2,
+    _temp2,
+    _jsxFileName = '/home/anjali/growler-prowler-master/screens/RestaurantListScreen.js';
+
+var _expo = require('expo');
+
+var _reactNative = require('react-native');
+
+var _vectorIcons = require('@expo/vector-icons');
+
+var _reactRedux = require('react-redux');
+
+var _reactNativeTouchableNativeFeedbackSafe = require('@expo/react-native-touchable-native-feedback-safe');
+
+var _reactNativeTouchableNativeFeedbackSafe2 = _interopRequireDefault(_reactNativeTouchableNativeFeedbackSafe);
+
+var _reactNativeRootModal = require('react-native-root-modal');
+
+var _reactNativeRootModal2 = _interopRequireDefault(_reactNativeRootModal);
+
+var _reactNavigation = require('react-navigation');
+
+var _Actions = require('../state/Actions');
+
+var _Actions2 = _interopRequireDefault(_Actions);
+
+var _RestaurantList = require('../components/RestaurantList');
+
+var _RestaurantList2 = _interopRequireDefault(_RestaurantList);
+
+var _Layout = require('../constants/Layout');
+
+var _Layout2 = _interopRequireDefault(_Layout);
+
+var _StyledText = require('../components/StyledText');
+
+var _Colors = require('../constants/Colors');
+
+var _Colors2 = _interopRequireDefault(_Colors);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  RestaurantListScreen: {
+    displayName: 'RestaurantListScreen'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/screens/RestaurantListScreen.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var MenuOptions = ['All', 'Nearby', 'Visited', 'Unvisited'];
+
+var RestaurantListScreen = _wrapComponent('RestaurantListScreen')((_dec = (0, _reactRedux.connect)(), _dec(_class = (_temp2 = _class2 = function (_React$Component) {
+  _inherits(RestaurantListScreen, _React$Component);
+
+  function RestaurantListScreen() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, RestaurantListScreen);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = RestaurantListScreen.__proto__ || Object.getPrototypeOf(RestaurantListScreen)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      menuIsVisible: false,
+      menuValue: new _reactNative.Animated.Value(0),
+      selectedOption: MenuOptions[0]
+    }, _this._renderMenuOption = function (title) {
+      return _react3.default.createElement(
+        _reactNativeTouchableNativeFeedbackSafe2.default,
+        {
+          fallback: _reactNative.TouchableHighlight,
+          underlayColor: '#eee',
+          key: title,
+          onPress: function onPress() {
+            return _this._handleSelectOption(title);
+          }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 133
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.menuOption, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 138
+            }
+          },
+          _react3.default.createElement(
+            _StyledText.RegularText,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 139
+              }
+            },
+            title
+          )
+        )
+      );
+    }, _this._navigationBarAnimatedStyles = {}, _this._handleSelectOption = function (option) {
+      _this.setState({ selectedOption: option });
+      _this._handleToggleMenu();
+    }, _this._handleToggleMenu = function () {
+      var menuIsVisible = _this.state.menuIsVisible;
+
+      var onCompleteAnimation = function onCompleteAnimation() {};
+
+      if (_this.state.menuIsVisible) {
+        onCompleteAnimation = function onCompleteAnimation(_ref2) {
+          var finished = _ref2.finished;
+
+          _this.setState({ menuIsVisible: false });
+        };
+      } else {
+        _this.setState({ menuIsVisible: true });
+      }
+
+      _reactNative.Animated.spring(_this.state.menuValue, {
+        toValue: menuIsVisible ? 0 : 1,
+        overshootClamping: true
+      }).start(onCompleteAnimation);
+    }, _this._handlePressUpdateLocation = function () {
+      _this.props.dispatch(_Actions2.default.computeDistances());
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(RestaurantListScreen, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      requestAnimationFrame(function () {
+        _this2.props.dispatch(_Actions2.default.computeDistances());
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      var selectedOption = this.state.selectedOption;
+
+      var defaultListProps = {
+        key: 'list',
+        setRef: function setRef(view) {
+          _this3._list = view;
+        },
+        contentContainerStyle: { paddingTop: _Layout2.default.HEADER_HEIGHT }
+      };
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 64
+          }
+        },
+        selectedOption === 'All' && _react3.default.createElement(_RestaurantList2.default, _extends({}, defaultListProps, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 66
+          }
+        })),
+        selectedOption === 'Nearby' && _react3.default.createElement(_RestaurantList2.default, _extends({}, defaultListProps, { nearby: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 68
+          }
+        })),
+        selectedOption === 'Visited' && _react3.default.createElement(_RestaurantList2.default, _extends({}, defaultListProps, { visited: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 71
+          }
+        })),
+        selectedOption === 'Unvisited' && _react3.default.createElement(_RestaurantList2.default, _extends({}, defaultListProps, { notVisited: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 74
+          }
+        })),
+        this._renderNavigationBar(),
+        _react3.default.createElement(
+          _reactNativeRootModal2.default,
+          {
+            style: styles.menuModal,
+            visible: this.state.menuIsVisible,
+            collapsible: false, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 84
+            }
+          },
+          this._renderMenuOverlay(),
+          this._renderMenu()
+        )
+      );
+    }
+  }, {
+    key: '_renderMenuOverlay',
+    value: function _renderMenuOverlay() {
+      var opacity = this.state.menuValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 0.4]
+      });
+
+      return _react3.default.createElement(
+        _reactNative.TouchableWithoutFeedback,
+        { onPress: this._handleToggleMenu, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 106
+          }
+        },
+        _react3.default.createElement(_reactNative.Animated.View, {
+          pointerEvents: this.state.menuIsVisible ? 'auto' : 'none',
+          style: [_reactNative.StyleSheet.absoluteFill, { backgroundColor: '#000', opacity: opacity }],
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 107
+          }
+        })
+      );
+    }
+  }, {
+    key: '_renderMenu',
+    value: function _renderMenu() {
+      var translateY = this.state.menuValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [-300, 0]
+      });
+
+      return _react3.default.createElement(
+        _reactNative.Animated.View,
+        { style: [styles.menu, { transform: [{ translateY: translateY }] }], __source: {
+            fileName: _jsxFileName,
+            lineNumber: 125
+          }
+        },
+        MenuOptions.map(this._renderMenuOption)
+      );
+    }
+  }, {
+    key: '_renderSearchBar',
+    value: function _renderSearchBar() {
+      var _this4 = this;
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: { flex: 1,
+            flexDirection: 'row',
+            backgroundColor: '#f7f7f7'
+
+          }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 153
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: { flex: 1,
+              paddingLeft: 20,
+              justifyContent: 'center',
+              marginRight: 40,
+              marginTop: 10,
+              marginLeft: 10,
+              marginBottom: 10,
+              backgroundColor: '#fff',
+              height: 40,
+              width: 280,
+              borderTopLeftRadius: 30,
+              borderBottomLeftRadius: 30,
+              borderWidth: 1.5,
+              borderColor: '#ff8342'
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 159
+            }
+          },
+          _react3.default.createElement(_reactNative.TextInput, { style: {
+              fontSize: 15,
+              textAlign: 'auto',
+              color: '#878787'
+            },
+
+            onChangeText: function onChangeText(text) {
+              return _this4.setState({ text: text });
+            },
+            value: this.state.text,
+
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 174
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: {
+              backgroundColor: '#fff',
+              marginRight: 10,
+              marginTop: 5,
+              height: 50, width: 50,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 30,
+              position: 'absolute',
+              left: 300,
+              borderWidth: 1.5,
+
+              borderColor: '#ff8342'
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 186
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 203
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              { style: { color: '#ff8342', fontWeight: 'bold', fontSize: 20 }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 205
+                }
+              },
+              'Go!'
+            )
+          )
+        )
+      );
+    }
+  }, {
+    key: '_renderNavigationBar',
+    value: function _renderNavigationBar() {
+      var _state = this.state,
+          contentHeight = _state.contentHeight,
+          menuValue = _state.menuValue;
+
+
+      var arrowRotation = menuValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: ['90deg', '-90deg']
+      });
+      return _react3.default.createElement(
+        _reactNative.View,
+        { key: 'navbar', style: styles.navigationBarContainer, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 225
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.navigationBarTitleContainer, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 226
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.TouchableWithoutFeedback,
+            {
+              hitSlop: { left: 40, top: 30, right: 40, bottom: 10 },
+              onPress: this._handleToggleMenu, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 227
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: { flexDirection: 'row' }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 230
+                }
+              },
+              _react3.default.createElement(
+                _StyledText.BoldText,
+                { style: styles.navigationBarTitle, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 231
+                  }
+                },
+                'Eatburp!'
+              ),
+              _react3.default.createElement(
+                _reactNative.Animated.View,
+                {
+                  style: {
+                    marginLeft: 2,
+                    marginTop: 2,
+                    transform: [{ rotate: arrowRotation }]
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 235
+                  }
+                },
+                _react3.default.createElement(_vectorIcons.MaterialIcons, { name: 'chevron-right', size: 22, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 241
+                  }
+                })
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.navigationBarRightButton, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 247
+            }
+          },
+          _react3.default.createElement(
+            _reactNativeTouchableNativeFeedbackSafe2.default,
+            { onPress: this._handlePressUpdateLocation, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 248
+              }
+            },
+            _react3.default.createElement(_vectorIcons.MaterialIcons, { name: 'my-location', size: 20, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 249
+              }
+            })
+          )
+        )
+      );
+    }
+  }]);
+
+  return RestaurantListScreen;
+}(_react3.default.Component), _class2.route = {
+  navigationBar: {
+    visible: false
+  }
+}, _temp2)) || _class));
+
+exports.default = RestaurantListScreen;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  navigationBarContainer: {
+    backgroundColor: '#ff8342',
+    height: _Layout2.default.HEADER_HEIGHT,
+
+    position: 'absolute',
+    overflow: 'hidden',
+    paddingTop: _expo.Constants.statusBarHeight,
+    top: 0,
+    left: 0,
+    right: 0
+  },
+  navigationBarTitleContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  navigationBarTitle: {
+
+    color: '#fff',
+
+    fontSize: 20
+  },
+  navigationBarRightButton: {
+    position: 'absolute',
+    top: 0,
+    right: 15,
+    bottom: 0,
+    top: _expo.Constants.statusBarHeight,
+    justifyContent: 'center'
+  },
+  menu: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0
+  },
+  menuModal: _extends({}, _reactNative.StyleSheet.absoluteFillObject, {
+    top: _Layout2.default.HEADER_HEIGHT,
+    backgroundColor: 'transparent',
+    overflow: 'hidden'
+  }),
+  menuOption: {
+    borderBottomWidth: _reactNative.StyleSheet.hairlineWidth,
+    borderBottomColor: '#eee',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: _Layout2.default.window.width,
+    paddingVertical: 15,
+    backgroundColor: '#fff'
+  }
+});

@@ -1,7 +1,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = defineActionConstants(['SET_CURRENT_USER', 'SIGN_IN', 'SIGN_OUT', 'SET_BREWERIES', 'COMPUTE_DISTANCES', 'SET_NEARBY_BREWERIES', 'SET_VISITED_BREWERIES', 'ADD_VISITED_BREWERY', 'REMOVE_VISITED_BREWERY', 'TOGGLE_VISITED_BREWERY']);
+exports.default = defineActionConstants(['SET_CURRENT_USER', 'SIGN_IN', 'SIGN_OUT', 'SET_RESTAURANTS', 'COMPUTE_DISTANCES', 'SET_NEARBY_BREWERIES', 'SET_VISITED_BREWERIES', 'ADD_VISITED_BREWERY', 'REMOVE_VISITED_BREWERY', 'TOGGLE_VISITED_BREWERY']);
 
 
 function defineActionConstants(names) {

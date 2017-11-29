@@ -1,0 +1,47 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = transformRestaurant;
+
+var _days = require('days');
+
+var _days2 = _interopRequireDefault(_days);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function transformRestaurant(restaurant) {
+  var currentDate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : new Date();
+  var hours = restaurant.hours;
+
+  var day = _days2.default[currentDate.getDay()];
+  var currentTime = currentDate.getHours() + ':' + currentDate.getMinutes() + ':00';
+  var openingTimeToday = hours[day.toLowerCase() + '_open'];
+  var closingTimeToday = hours[day.toLowerCase() + '_close'];
+
+  var isOpeningLater = currentTime < openingTimeToday;
+
+  var isOpen = currentTime > openingTimeToday && (currentTime < closingTimeToday || closingTimeToday === '00:00:00') || closingTimeToday < openingTimeToday && currentTime > openingTimeToday;
+
+  return {
+    accentColor: restaurant.accentColor || '#000',
+    address: restaurant.address,
+    city: restaurant.city,
+    closingTimeToday: closingTimeToday,
+    color: restaurant.color || '#fff',
+    description: restaurant.description,
+    hours: restaurant.hours,
+    id: restaurant.id,
+    instagram: restaurant.social_instagram,
+    isOpen: isOpen,
+    isOpeningLater: isOpeningLater,
+    latitude: parseFloat(restaurant.latitude),
+    logo: restaurant.logo,
+    longitude: parseFloat(restaurant.longitude),
+    name: restaurant.title,
+    openingTimeToday: openingTimeToday,
+    postalCode: restaurant.postal_code.split(' ').join('').toUpperCase(),
+    smallLogo: restaurant.logo_small,
+    summary: restaurant.summary,
+    ratings: restaurant.ratings
+  };
+}

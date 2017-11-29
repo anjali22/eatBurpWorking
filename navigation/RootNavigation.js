@@ -6,22 +6,26 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import { capitalize } from 'lodash';
 
 import AuthenticationScreen from '../screens/AuthenticationScreen';
-import BreweryDetailsScreen from '../screens/BreweryDetailsScreen';
-import BreweryListScreen from '../screens/BreweryListScreen';
-import BreweryMapScreen from '../screens/BreweryMapScreen';
+import RestaurantDetailsScreen from '../screens/RestaurantDetailsScreen';
+import RestaurantListScreen from '../screens/RestaurantListScreen';
+import RestaurantMapScreen from '../screens/RestaurantMapScreen';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import SettingsScreen from '../screens/SettingsScreen';
-import AddRatingScreen from '../screens/AddRatingScreen'
+import AddRatingScreen from '../screens/AddRatingScreen';
+import SearchScreen from '../screens/SearchScreen';
 
 const ListStack = StackNavigator(
   {
     list: {
-      screen: BreweryListScreen,
+      screen: RestaurantListScreen,
     },
     details: {
-      screen: BreweryDetailsScreen,
+      screen: RestaurantDetailsScreen,
     },
+    search: {
+      screen: SearchScreen,
+    }
   },
   {
     headerMode: 'none',
@@ -59,7 +63,7 @@ const TabLayout = TabNavigator(
       screen: ListStack,
     },
     map: {
-      screen: BreweryMapScreen,
+      screen: RestaurantMapScreen,
     },
     addRating: {
       screen: AddRatingScreen,

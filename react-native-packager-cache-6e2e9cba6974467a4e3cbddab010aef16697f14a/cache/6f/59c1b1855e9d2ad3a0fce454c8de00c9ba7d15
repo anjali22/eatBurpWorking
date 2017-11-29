@@ -1,0 +1,11 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _starRating = require('./star-rating');
+
+var _starRating2 = _interopRequireDefault(_starRating);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _starRating2.default;

@@ -153,7 +153,9 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (data)
               return _context.abrupt('return', _expo.Font.loadAsync(_extends({}, _vectorIcons.Ionicons.font, {
                 'OpenSans-Light': require('./assets/fonts/OpenSans-Light.ttf'),
                 'OpenSans': require('./assets/fonts/OpenSans-Regular.ttf'),
-                'OpenSans-Bold': require('./assets/fonts/OpenSans-Semibold.ttf')
+                'OpenSans-Bold': require('./assets/fonts/OpenSans-Semibold.ttf'),
+                'Pacifico': require('./assets/fonts/Pacifico-Regular.ttf'),
+                'Gloria': require('./assets/fonts/GloriaHallelujah.ttf')
               })));
 
             case 1:
@@ -163,7 +165,7 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (data)
         }
       }, null, _this3);
     }, _this2._loadCacheAsync = function _callee2() {
-      var user, breweries, visitedBreweries;
+      var user, restaurants, visitedRestaurants;
       return regeneratorRuntime.async(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -175,20 +177,20 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (data)
             case 3:
               _context2.t1 = _context2.sent;
               user = new _context2.t0(_context2.t1);
-              breweries = new _immutable.List(_data2.default.map(function (data) {
-                return new _Records.Brewery(data);
+              restaurants = new _immutable.List(_data2.default.map(function (data) {
+                return new _Records.Restaurant(data);
               }));
               _context2.t2 = _immutable.List;
               _context2.next = 9;
-              return regeneratorRuntime.awrap(_LocalStorage2.default.getVisitedBreweriesAsync());
+              return regeneratorRuntime.awrap(_LocalStorage2.default.getVisitedRestaurantsAsync());
 
             case 9:
               _context2.t3 = _context2.sent;
-              visitedBreweries = new _context2.t2(_context2.t3);
+              visitedRestaurants = new _context2.t2(_context2.t3);
 
               _this2.props.dispatch(_Actions2.default.setCurrentUser(user));
-              _this2.props.dispatch(_Actions2.default.setBreweries(breweries));
-              _this2.props.dispatch(_Actions2.default.setVisitedBreweries(visitedBreweries));
+              _this2.props.dispatch(_Actions2.default.setRestaurants(restaurants));
+              _this2.props.dispatch(_Actions2.default.setVisitedRestaurants(visitedRestaurants));
 
             case 14:
             case 'end':
@@ -230,7 +232,7 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (data)
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66
+            lineNumber: 68
           }
         });
       }
@@ -239,24 +241,24 @@ var App = _wrapComponent('App')((_dec = (0, _reactRedux.connect)(function (data)
         _reactNative.View,
         { style: styles.container, __source: {
             fileName: _jsxFileName,
-            lineNumber: 79
+            lineNumber: 81
           }
         },
         isSignedIn(this.props.currentUser) ? _react3.default.createElement(_RootNavigation2.default, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 81
+            lineNumber: 83
           }
         }) : _react3.default.createElement(_AuthenticationScreen2.default, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83
+            lineNumber: 85
           }
         }),
         _react3.default.createElement(_ImageGalleryPortal2.default, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 87
           }
         })
       );

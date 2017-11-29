@@ -1,17 +1,17 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.User = exports.Brewery = exports.BreweriesState = undefined;
+exports.User = exports.Restaurant = exports.RestaurantsState = undefined;
 
 var _immutable = require('immutable');
 
-var BreweriesState = exports.BreweriesState = (0, _immutable.Record)({
+var RestaurantsState = exports.RestaurantsState = (0, _immutable.Record)({
   all: new _immutable.List(),
   nearby: new _immutable.List(),
   visited: new _immutable.List()
 });
 
-var Brewery = exports.Brewery = (0, _immutable.Record)({
+var Restaurant = exports.Restaurant = (0, _immutable.Record)({
   id: '',
   accentColor: '#000',
   address: '',
@@ -32,7 +32,8 @@ var Brewery = exports.Brewery = (0, _immutable.Record)({
   smallLogo: '',
   summary: '',
   distance: null,
-  direction: null
+  direction: null,
+  ratings: []
 });
 
 var User = exports.User = (0, _immutable.Record)({

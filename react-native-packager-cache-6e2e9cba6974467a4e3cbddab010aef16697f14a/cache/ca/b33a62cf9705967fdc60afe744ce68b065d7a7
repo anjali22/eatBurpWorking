@@ -1,0 +1,174 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class,
+    _temp,
+    _jsxFileName = '/home/anjali/growler-prowler-master/node_modules/react-native-button/Button.js';
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactNative = require('react-native');
+
+var _coalesceNonElementChildren = require('./coalesceNonElementChildren');
+
+var _coalesceNonElementChildren2 = _interopRequireDefault(_coalesceNonElementChildren);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  Button: {
+    displayName: 'Button'
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/node_modules/react-native-button/Button.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var systemButtonOpacity = 0.2;
+
+var Button = _wrapComponent('Button')((_temp = _class = function (_Component) {
+  _inherits(Button, _Component);
+
+  function Button() {
+    _classCallCheck(this, Button);
+
+    return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+  }
+
+  _createClass(Button, [{
+    key: 'render',
+    value: function render() {
+      var touchableProps = {
+        activeOpacity: this._computeActiveOpacity()
+      };
+      if (!this.props.disabled) {
+        touchableProps.onPress = this.props.onPress;
+        touchableProps.onPressIn = this.props.onPressIn;
+        touchableProps.onPressOut = this.props.onPressOut;
+        touchableProps.onLongPress = this.props.onLongPress;
+        touchableProps.delayPressIn = this.props.delayPressIn;
+        touchableProps.delayPressOut = this.props.delayPressOut;
+        touchableProps.delayLongPress = this.props.delayLongPress;
+      }
+
+      return _react3.default.createElement(
+        _reactNative.TouchableOpacity,
+        _extends({}, touchableProps, {
+          testID: this.props.testID,
+          style: this.props.containerStyle,
+          accessibilityTraits: 'button',
+          accessibilityComponentType: 'button', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 40
+          }
+        }),
+        this._renderGroupedChildren()
+      );
+    }
+  }, {
+    key: '_renderGroupedChildren',
+    value: function _renderGroupedChildren() {
+      var _this2 = this;
+
+      var disabled = this.props.disabled;
+
+      var style = [styles.text, disabled ? styles.disabledText : null, this.props.style, disabled ? this.props.styleDisabled : null];
+
+      var children = (0, _coalesceNonElementChildren2.default)(this.props.children, function (children, index) {
+        return _react3.default.createElement(
+          _reactNative.Text,
+          { key: index, style: style, allowFontScaling: _this2.props.allowFontScaling, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 62
+            }
+          },
+          children
+        );
+      });
+
+      switch (children.length) {
+        case 0:
+          return null;
+        case 1:
+          return children[0];
+        default:
+          return _react3.default.createElement(
+            _reactNative.View,
+            { style: styles.group, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 74
+              }
+            },
+            children
+          );
+      }
+    }
+  }, {
+    key: '_computeActiveOpacity',
+    value: function _computeActiveOpacity() {
+      if (this.props.disabled) {
+        return 1;
+      }
+      return this.props.activeOpacity != null ? this.props.activeOpacity : systemButtonOpacity;
+    }
+  }]);
+
+  return Button;
+}(_react2.Component), _class.propTypes = _extends({}, _reactNative.TouchableOpacity.propTypes, {
+  allowFontScaling: _reactNative.Text.propTypes.allowFontScaling,
+  containerStyle: _reactNative.ViewPropTypes.style,
+  disabled: _propTypes2.default.bool,
+  style: _reactNative.Text.propTypes.style,
+  styleDisabled: _reactNative.Text.propTypes.style
+}), _temp));
+
+exports.default = Button;
+;
+
+var styles = _reactNative.StyleSheet.create({
+  text: {
+    color: '#007aff',
+    fontSize: 17,
+    fontWeight: '500',
+    textAlign: 'center'
+  },
+  disabledText: {
+    color: '#dcdcdc'
+  },
+  group: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }
+});

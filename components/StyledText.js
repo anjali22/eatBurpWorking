@@ -26,7 +26,7 @@ export class LightText extends React.Component {
 export class BoldText extends React.Component {
   render() {
     return (
-      <Text {...this.props} style={[this.props.style, styles.bold]} />
+      <Text {...this.props} style={[this.props.style, styles.gloria]} />
     );
   }
 }
@@ -41,4 +41,10 @@ const styles = StyleSheet.create({
   bold: {
     fontFamily: 'OpenSans-Bold',
   },
+  pacifico: {
+    fontFamily: 'Pacifico',
+  },
+  gloria: {
+    fontFamily: 'Gloria',
+  }
 });

@@ -10,7 +10,7 @@ import geolib from 'geolib';
 import Actions from '../state/Actions';
 
 export default async function computeDistancesAsync({dispatch, getState}) {
-  let { breweries } = getState();
+  let { restaurants } = getState();
   let { status } = await Permissions.askAsync(Permissions.LOCATION);
   if (status !== 'granted') { return; }
 
@@ -18,10 +18,10 @@ export default async function computeDistancesAsync({dispatch, getState}) {
     enableHighAccuracy: Platform.OS === 'ios',
   });
 
-  let breweriesWithDistances = breweries.all.map(brewery => {
+  let restaurantsWithDistances = restaurants.all.map(restaurant => {
     let distanceM = geolib.getDistance(
       {latitude: coords.latitude, longitude: coords.longitude},
-      {latitude: brewery.latitude, longitude: brewery.longitude},
+      {latitude: restaurant.latitude, longitude: restaurant.longitude},
     );
 
     let distanceKm = (distanceM / 1000.0).toFixed(2);
@@ -29,19 +29,19 @@ export default async function computeDistancesAsync({dispatch, getState}) {
 
     let direction = geolib.getCompassDirection(
       {latitude: coords.latitude, longitude: coords.longitude},
-      {latitude: brewery.latitude, longitude: brewery.longitude},
+      {latitude: restaurant.latitude, longitude: restaurant.longitude},
     );
 
-    return brewery.
+    return restaurant.
       set('distance', formattedDistance).
       set('direction', direction);
   });
 
 
-  let nearbyBreweries = breweriesWithDistances.
-    sortBy(brewery => brewery.distance).
-    map(brewery => brewery.id);
+  let nearbyRestaurants = restaurantsWithDistances.
+    sortBy(restaurant => restaurant.distance).
+    map(restaurant => restaurant.id);
 
-  dispatch(Actions.setBreweries(breweriesWithDistances));
-  dispatch(Actions.setNearbyBreweries(nearbyBreweries));
+  dispatch(Actions.setRestaurants(restaurantsWithDistances));
+  dispatch(Actions.setNearbyRestaurants(nearbyRestaurants));
 }

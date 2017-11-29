@@ -1,0 +1,74 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _ActionTypes = require('./ActionTypes');
+
+var _ActionTypes2 = _interopRequireDefault(_ActionTypes);
+
+var _Records = require('./Records');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RestaurantsReducer = function () {
+  function RestaurantsReducer() {
+    _classCallCheck(this, RestaurantsReducer);
+  }
+
+  _createClass(RestaurantsReducer, null, [{
+    key: 'reduce',
+    value: function reduce() {
+      var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new _Records.RestaurantsState();
+      var action = arguments[1];
+
+      if (RestaurantsReducer[action.type]) {
+        return RestaurantsReducer[action.type](state, action);
+      } else {
+        return state;
+      }
+    }
+  }, {
+    key: _ActionTypes2.default.SET_RESTAURANTS,
+    value: function value(state, action) {
+      var restaurants = action.restaurants.sortBy(function (restaurant) {
+        return restaurant.name;
+      });
+      return state.set('all', restaurants);
+    }
+  }, {
+    key: _ActionTypes2.default.SET_NEARBY_BREWERIES,
+    value: function value(state, action) {
+      return state.set('nearby', action.restaurantIds);
+    }
+  }, {
+    key: _ActionTypes2.default.SET_VISITED_BREWERIES,
+    value: function value(state, action) {
+      return state.set('visited', action.restaurantIds);
+    }
+  }, {
+    key: _ActionTypes2.default.ADD_VISITED_BREWERY,
+    value: function value(state, action) {
+      var visited = state.visited.push(action.restaurantId);
+      return state.set('visited', visited);
+    }
+  }, {
+    key: _ActionTypes2.default.REMOVE_VISITED_BREWERY,
+    value: function value(state, action) {
+      var index = state.visited.indexOf(action.restaurantId);
+
+      if (index === -1) {
+        return state;
+      }
+
+      return state.set('visited', state.visited.delete(index));
+    }
+  }]);
+
+  return RestaurantsReducer;
+}();
+
+exports.default = RestaurantsReducer.reduce;

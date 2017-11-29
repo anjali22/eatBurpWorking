@@ -2,7 +2,7 @@ export default defineActionConstants([
   'SET_CURRENT_USER',
   'SIGN_IN',
   'SIGN_OUT',
-  'SET_BREWERIES',
+  'SET_RESTAURANTS',
   'COMPUTE_DISTANCES',
   'SET_NEARBY_BREWERIES',
   'SET_VISITED_BREWERIES',

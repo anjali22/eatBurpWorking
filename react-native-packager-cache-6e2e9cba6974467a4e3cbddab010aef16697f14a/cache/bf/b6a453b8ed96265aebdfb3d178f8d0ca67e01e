@@ -1,0 +1,342 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec,
+    _class,
+    _jsxFileName = '/home/anjali/growler-prowler-master/components/RestaurantList.js';
+
+var _reactNative = require('react-native');
+
+var _reactRedux = require('react-redux');
+
+var _reactNavigation = require('react-navigation');
+
+var _reactNativeElements = require('react-native-elements');
+
+var _RestaurantListItem = require('./RestaurantListItem');
+
+var _RestaurantListItem2 = _interopRequireDefault(_RestaurantListItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  RestaurantList: {
+    displayName: 'RestaurantList'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/components/RestaurantList.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+function restaurantsFromIds(all, ids) {
+  return ids.map(function (id) {
+    return all.find(function (restaurant) {
+      return restaurant.id === id;
+    });
+  });
+}
+
+var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.connect)(function (data, props) {
+  return RestaurantList.getDataProps(data, props);
+}), (0, _reactNavigation.withNavigation)(_class = _dec(_class = function (_React$Component) {
+  _inherits(RestaurantList, _React$Component);
+
+  function RestaurantList(props) {
+    _classCallCheck(this, RestaurantList);
+
+    var _this = _possibleConstructorReturn(this, (RestaurantList.__proto__ || Object.getPrototypeOf(RestaurantList)).call(this, props));
+
+    _this.search = function (searchValue) {
+
+      _this.setState({ searchValue: searchValue }, function () {
+        return console.log(_this.state.searchValue);
+      });
+
+      return _react3.default.createElement(_reactNative.View, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50
+        }
+      });
+    };
+
+    _this._onPressGoButton = function (searchValue) {
+      _this.props.navigation.navigate('search', { searchValue: searchValue });
+      console.log('onbuttonpress', _this.state.searchValue);
+    };
+
+    _this.state = {
+      renderContents: false
+    };
+
+    _this.renderHeader = function () {
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: { flex: 1,
+            flexDirection: 'row',
+            backgroundColor: '#f7f7f7'
+
+          }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 117
+          }
+        },
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: { flex: 1,
+              paddingLeft: 20,
+              justifyContent: 'center',
+              marginRight: 40,
+              marginTop: 10,
+              marginLeft: 10,
+              marginBottom: 10,
+              backgroundColor: '#fff',
+              height: 40,
+              width: 280,
+              borderTopLeftRadius: 30,
+              borderBottomLeftRadius: 30,
+              borderWidth: 1,
+              borderColor: '#ff8342'
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 123
+            }
+          },
+          _react3.default.createElement(_reactNative.TextInput, { style: {
+              fontSize: 15,
+              textAlign: 'auto',
+              color: '#878787'
+            },
+            placeholder: 'What do you wanna eat??',
+            onChangeText: _this.search,
+            onFocus: function onFocus() {
+              return _this.setState({ text: '' });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 139
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: {
+              backgroundColor: '#fff',
+              marginRight: 10,
+              marginTop: 5,
+              height: 50, width: 50,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 30,
+              position: 'absolute',
+              left: 300,
+              borderWidth: 1,
+
+              borderColor: '#ff8342'
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 151
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              onPress: function onPress() {
+                return _this._onPressGoButton(_this.state.searchValue);
+              }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 168
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              { style: { color: '#ff8342', fontWeight: 'bold', fontSize: 20 }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 171
+                }
+              },
+              'Go!'
+            )
+          )
+        )
+      );
+    };
+
+    _this._renderItem = function (_ref) {
+      var item = _ref.item;
+
+      return _react3.default.createElement(_RestaurantListItem2.default, {
+        onPress: function onPress() {
+          return _this._handlePressRestaurant(item);
+        },
+        restaurant: item,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 221
+        }
+      });
+    };
+
+    _this._handlePressRestaurant = function (restaurant) {
+      _this.props.navigation.navigate('details', { restaurantId: restaurant.id });
+    };
+
+    _this.state = {
+      text: 'What do you wanna eat?',
+      searchValue: ''
+    };
+
+    return _this;
+  }
+
+  _createClass(RestaurantList, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.props.setRef && this.props.setRef(this);
+      setTimeout(function () {
+        _this2.setState({ renderContents: true });
+      }, 100);
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      this.props.setRef && this.props.setRef(this);
+    }
+  }, {
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps, nextState) {
+      return nextProps.restaurants !== this.props.restaurants || nextState.renderContents !== this.state.renderContents;
+    }
+  }, {
+    key: 'scrollTo',
+    value: function scrollTo(opts) {
+      this._scrollView._component.scrollTo(opts);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { onLayout: this.props.onLayout, style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 187
+          }
+        },
+        this.state.renderContents ? _react3.default.createElement(_reactNative.FlatList, {
+          ref: function ref(view) {
+            _this3._scrollView = view;
+          },
+          contentContainerStyle: this.props.contentContainerStyle,
+          renderItem: this._renderItem,
+          style: styles.container,
+          data: this.props.restaurants.toJS(),
+          keyExtractor: function keyExtractor(item) {
+            return item.name;
+          },
+          ListHeaderComponent: this.renderHeader,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 190
+          }
+        }) : _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: {
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: 75
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 202
+            }
+          },
+          _react3.default.createElement(_reactNative.ActivityIndicator, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 209
+            }
+          })
+        ),
+        _react3.default.createElement(_reactNative.StatusBar, { barStyle: 'default', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 213
+          }
+        })
+      );
+    }
+  }], [{
+    key: 'getDataProps',
+    value: function getDataProps(data, props) {
+      var restaurants = data.restaurants;
+      var _restaurants = restaurants,
+          all = _restaurants.all,
+          nearby = _restaurants.nearby,
+          visited = _restaurants.visited;
+
+
+      if (props.nearby) {
+        restaurants = restaurantsFromIds(all, nearby);
+      } else if (props.visited) {
+        restaurants = restaurantsFromIds(all, visited);
+      } else if (props.notVisited) {
+        var allRestaurantIds = all.map(function (restaurant) {
+          return restaurant.id;
+        });
+        var notVisited = allRestaurantIds.filter(function (id) {
+          return !visited.includes(id);
+        });
+        restaurants = restaurantsFromIds(all, notVisited);
+      } else {
+        restaurants = all;
+      }
+
+      return {
+        restaurants: restaurants
+      };
+    }
+  }]);
+
+  return RestaurantList;
+}(_react3.default.Component)) || _class) || _class));
+
+exports.default = RestaurantList;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FBFBFB'
+  }
+});

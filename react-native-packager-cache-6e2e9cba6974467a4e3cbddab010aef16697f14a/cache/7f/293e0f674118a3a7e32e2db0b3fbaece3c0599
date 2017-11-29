@@ -2,15 +2,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _transformBrewery = require("./transformBrewery");
+var _transformRestaurant = require("./transformRestaurant");
 
-var _transformBrewery2 = _interopRequireDefault(_transformBrewery);
+var _transformRestaurant2 = _interopRequireDefault(_transformRestaurant);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var breweries = [{
+var restaurants = [{
   "id": 1,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Main Street Brewing",
   "color": "#fff",
   "accentColor": "#000",
@@ -22,7 +22,7 @@ var breweries = [{
   "latitude": "49.26467860",
   "longitude": "-123.09920430",
   "summary": "Nice ambiance, good selection of beers, food menu has expanded with some tasty snacks, overall a great place to sit down for a flight or pick up a growler to go.",
-  "description": "Created by Main Street locals who believe in beer that tastes like... Beer.  Main Street Brewing resides in one of Vancouver\u2019s few surviving industrial heritage buildings. The \u201CVancouver Breweries Garage\u201D dates back to 1913 and sits in the historic Brewery Creek district, an area once dominated by tanneries & breweries and which we now proudly call home.  The Main Thing Is The Beer!",
+  "description": "Created by Main Street locals who believe in beer that tastes like... Beer.  Main Street Brewing resides in one of Vancouver\u2019s few surviving industrial heritage buildings. The \u201CVancouver Restaurants Garage\u201D dates back to 1913 and sits in the historic Restaurant Creek district, an area once dominated by tanneries & restaurants and which we now proudly call home.  The Main Thing Is The Beer!",
   "phone": 16043367711,
   "email": "info@mainstreetbeer.ca",
   "website": "http://mainstreetbeer.ca/",
@@ -47,7 +47,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/148/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 2,
+    "restaurant_id": 2,
     "monday_open": "13:00:00",
     "monday_close": "23:00:00",
     "tuesday_open": "13:00:00",
@@ -67,11 +67,12 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
+
 }, {
   "id": 2,
-  "type": "brewery",
-  "title": "Brassneck Brewery",
+  "type": "restaurant",
+  "title": "Brassneck Restaurant",
   "address": "2148 Main St",
   "city": "Vancouver",
   "province": "BC",
@@ -80,7 +81,7 @@ var breweries = [{
   "latitude": "49.26578910",
   "longitude": "-123.10057460",
   "summary": "Taps change frequently, best beer selection in the city. A little dark inside and snacks are lacking, often very busy, but worth it for the beer tasting.",
-  "description": "First & foremost, we are a manufacturer. We make beer. That\u2019s it. The public space at Brassneck, i.e. the Growler Shop & Tasting Room are designed to have you, our customers feel as though you are part of our process. The brew house & cellar wrap around the tasting room & growler shop putting you in the very heart of the Brewery. We have a special type of liquor license. A Brewery Lounge. Patrons do not have to be seated as in many other Food Primary locations. This combined with our communal tables makes for a pleasant social environment. For now, though we are on the verge of expanding our production capabilities, we have a really tiny 10 Hec system, with an even smaller Nano system for batches of around 4 Hecs. Even though our system is small, we have lots of different fermenters. 10 in total. This allows us to brew lots of different beers on a constantly rotating basis. We are ALWAYS experimenting with different beer styles. We are only 8-9 months old & we\u2019ve already brewed over 50 different beers. From Barrel Aged Imperial Stouts to Corn Lagers, Sour beers to English Milds, Brett Primary Fermented Wheat Ales to Traditional Saisons, the scope of beer styles is endless & we intend to cover them all! Our beer comes to you direct from the conditioning tanks in our cellar & sells out quickly, so it\u2019s always fresh. We\u2019re always evolving so get ready for more great beers as time goes by & we expand production & have greater capacity for experimentation. ",
+  "description": "First & foremost, we are a manufacturer. We make beer. That\u2019s it. The public space at Brassneck, i.e. the Growler Shop & Tasting Room are designed to have you, our customers feel as though you are part of our process. The brew house & cellar wrap around the tasting room & growler shop putting you in the very heart of the Restaurant. We have a special type of liquor license. A Restaurant Lounge. Patrons do not have to be seated as in many other Food Primary locations. This combined with our communal tables makes for a pleasant social environment. For now, though we are on the verge of expanding our production capabilities, we have a really tiny 10 Hec system, with an even smaller Nano system for batches of around 4 Hecs. Even though our system is small, we have lots of different fermenters. 10 in total. This allows us to brew lots of different beers on a constantly rotating basis. We are ALWAYS experimenting with different beer styles. We are only 8-9 months old & we\u2019ve already brewed over 50 different beers. From Barrel Aged Imperial Stouts to Corn Lagers, Sour beers to English Milds, Brett Primary Fermented Wheat Ales to Traditional Saisons, the scope of beer styles is endless & we intend to cover them all! Our beer comes to you direct from the conditioning tanks in our cellar & sells out quickly, so it\u2019s always fresh. We\u2019re always evolving so get ready for more great beers as time goes by & we expand production & have greater capacity for experimentation. ",
   "phone": 16042597686,
   "email": "info@brassneck.com",
   "website": "http://brassneck.ca/",
@@ -107,7 +108,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/149/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 3,
+    "restaurant_id": 3,
     "monday_open": "14:00:00",
     "monday_close": "23:00:00",
     "tuesday_open": "14:00:00",
@@ -127,10 +128,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 1 }, { "id": 3, "value": 2 }, { "id": 4, "value": 3 }, { "id": 5, "value": 4 }]
 }, {
   "id": 3,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "33 Acres",
   "address": "15 W 8th Ave",
   "city": "Vancouver",
@@ -165,7 +166,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/147/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 1,
+    "restaurant_id": 1,
     "monday_open": "11:00:00",
     "monday_close": "23:00:00",
     "tuesday_open": "11:00:00",
@@ -185,10 +186,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 4 }, { "id": 3, "value": 3.5 }, { "id": 4, "value": 4 }, { "id": 5, "value": 2 }]
 }, {
   "id": 4,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "R & B Brewing",
   "address": "54 E 4th Ave",
   "city": "Vancouver",
@@ -198,7 +199,7 @@ var breweries = [{
   "latitude": "49.26734550",
   "longitude": "-123.10288370",
   "summary": "A 'pizza and ale house' with humorous Vancouver-inspired beer names such as 'stoken bike lager' and 'dude chilling pale ale'. One of my favourites in the city.",
-  "description": "We’ve been brewing high quality, hand crafted ales and lagers in the heart of East Vancouver’s historic Brewery Creek district since 1997. We’ve come a long way, but continue to keep things modest, unique, fun and local.",
+  "description": "We’ve been brewing high quality, hand crafted ales and lagers in the heart of East Vancouver’s historic Restaurant Creek district since 1997. We’ve come a long way, but continue to keep things modest, unique, fun and local.",
   "phone": 16048742537,
   "email": "ales@r-and-b.com",
   "website": "http://r-and-b.com/",
@@ -223,7 +224,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/200/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 54,
+    "restaurant_id": 54,
     "monday_open": null,
     "monday_close": null,
     "tuesday_open": null,
@@ -243,10 +244,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 5,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Red Truck Beer",
   "address": "295 East 1st Ave",
   "city": "Vancouver",
@@ -281,7 +282,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/288/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 143,
+    "restaurant_id": 143,
     "monday_open": "11:00:00",
     "monday_close": "22:00:00",
     "tuesday_open": "11:00:00",
@@ -301,15 +302,15 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 6,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Faculty Brewing Co.",
   "color": "#3eb768",
   "accentColor": "#fff",
   "summary": null,
-  "description": "Vancouver's craft beer scene is thriving. Plenty of new breweries open each year. Still, many people are hesitant to ask questions and learn more about how craft beer is made. Faculty Brewing Co. was created to be an inclusive and open environment for beer drinkers of any level. We believe that increasing craft beer education will increase craft beer consumption.\n\nFaculty Brewing Co. is the brainchild of husband-and-wife team Mauricio, the head brewer, and Alicia, the architect behind the brewery's design. Seeing a need to make craft beer more accessible to the masses, they found their perfect location in the former space of bicycle shop Pedal Bike Depot and began to make their idea a reality.\n\nThe Faculty name was born out of Mauricio's experience as a professor, the wish to educate and empower people with craft beer knowledge, and the idea that the brewery would share all the information behind the brewing process, including the recipes. We aim to work with other breweries and local home brewers to test new recipes and experiment with innovative ideas. Like a university or college, Faculty Brewing Co. is meant to be a place of idea-sharing and collaboration.",
+  "description": "Vancouver's craft beer scene is thriving. Plenty of new restaurants open each year. Still, many people are hesitant to ask questions and learn more about how craft beer is made. Faculty Brewing Co. was created to be an inclusive and open environment for beer drinkers of any level. We believe that increasing craft beer education will increase craft beer consumption.\n\nFaculty Brewing Co. is the brainchild of husband-and-wife team Mauricio, the head brewer, and Alicia, the architect behind the restaurant's design. Seeing a need to make craft beer more accessible to the masses, they found their perfect location in the former space of bicycle shop Pedal Bike Depot and began to make their idea a reality.\n\nThe Faculty name was born out of Mauricio's experience as a professor, the wish to educate and empower people with craft beer knowledge, and the idea that the restaurant would share all the information behind the brewing process, including the recipes. We aim to work with other restaurants and local home brewers to test new recipes and experiment with innovative ideas. Like a university or college, Faculty Brewing Co. is meant to be a place of idea-sharing and collaboration.",
   "address": "1830 Ontario Street",
   "city": "Vancouver",
   "province": "BC",
@@ -341,7 +342,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/2312/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 1283,
+    "restaurant_id": 1283,
     "monday_open": "14:00:00",
     "monday_close": "23:00:00",
     "tuesday_open": "14:00:00",
@@ -361,11 +362,11 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 7,
-  "type": "brewery",
-  "title": "Big Rock Urban Brewery",
+  "type": "restaurant",
+  "title": "Big Rock Urban Restaurant",
   "color": "#ea3429",
   "accentColor": "#fff",
   "address": "310 West 4th Ave",
@@ -376,7 +377,7 @@ var breweries = [{
   "latitude": "49.26749300",
   "longitude": "-123.11083000",
   "summary": "A tasting room attached to a restaurant/bar, with a wide variety of beers.",
-  "description": "Big Rock Urban Brewery & Eatery is a new addition to Vancouver\u2019s thriving craft beer scene, located in the heart of the Brewery Creek/Mount Pleasant district. Our full scale brewery offers brewery tours and tastings, a beer store with growler fill bar, and also features a full service restaurant & lounge serving beer-inspired dishes with live & local music many nights a week.",
+  "description": "Big Rock Urban Restaurant & Eatery is a new addition to Vancouver\u2019s thriving craft beer scene, located in the heart of the Restaurant Creek/Mount Pleasant district. Our full scale restaurant offers restaurant tours and tastings, a beer store with growler fill bar, and also features a full service restaurant & lounge serving beer-inspired dishes with live & local music many nights a week.",
   "phone": 16047088311,
   "email": "info.BRU@bigrockbeer.com",
   "website": "http://bigrockurban.com/",
@@ -401,7 +402,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/291/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 146,
+    "restaurant_id": 146,
     "monday_open": "11:00:00",
     "monday_close": "23:00:00",
     "tuesday_open": "11:00:00",
@@ -421,10 +422,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 8,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Strange Fellows",
   "address": "1345 Clark Drive",
   "city": "Vancouver",
@@ -434,7 +435,7 @@ var breweries = [{
   "latitude": "49.27236900",
   "longitude": "-123.07766900",
   "summary": "A little bit out of the way but well worth it. Makes some of the best beer in the city.",
-  "description": "We are an East Vancouver craft brewery inspired by tradition and creativity, and go beyond the ordinary to celebrate that which is strange* and extraordinary.\n\nThe beer we make is influenced both by old world traditions and West coast ingenuity as well as by seasonal ingredients. Our barrel programme promises unique aged beers, and we have a bit of a thing for sour beer.\n\nOpen daily for growler fills and gathering with friends, our Tasting Room offers an ever-changing selection of beer as well as tasty locally sourced grub to go with.",
+  "description": "We are an East Vancouver craft restaurant inspired by tradition and creativity, and go beyond the ordinary to celebrate that which is strange* and extraordinary.\n\nThe beer we make is influenced both by old world traditions and West coast ingenuity as well as by seasonal ingredients. Our barrel programme promises unique aged beers, and we have a bit of a thing for sour beer.\n\nOpen daily for growler fills and gathering with friends, our Tasting Room offers an ever-changing selection of beer as well as tasty locally sourced grub to go with.",
   "phone": 16042150092,
   "email": "aaron@strangefellowsbrewing.com",
   "website": "http://strangefellowsbrewing.com/",
@@ -461,7 +462,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/194/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 48,
+    "restaurant_id": 48,
     "monday_open": "15:00:00",
     "monday_close": "23:00:00",
     "tuesday_open": "15:00:00",
@@ -481,10 +482,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 9,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Central City Brewers - Beatty Street",
   "address": "871 Beatty Street",
   "city": "Vancouver",
@@ -494,7 +495,7 @@ var breweries = [{
   "latitude": "49.27694830",
   "longitude": "-123.11535350",
   "summary": "Stop by for a drink before or after a game at BC Place or Rogers Arena, it's one of the best places downtown to grab a beer or fill a growler. The pub food isn't half bad either.",
-  "description": "We may have started small, but we’ve always thought big. Starting as a brewpub in downtown Surrey, we saw the potential of what Canadian craft beer could be. And so from a small brewery in the Vancouver suburb, Red Racer craft beer was born. The idea was to create beer that honoured the traditions of the craft, using only the best ingredients. From there, only good things can happen.\n\nIt is this same mantra that we carried forward as we evolved into more than just a brewery and brewpub. With distilling now in our title, we approach our spiritual side with the same care and honour as we do with our beer.\n\nTo achieve this, we surround ourselves with the most passionate individuals who share our vision. This passion drives our business, guaranteeing you get the absolute best out of us. From every can we produce, to every pint we pour, you can rest assured we have your standards covered.",
+  "description": "We may have started small, but we’ve always thought big. Starting as a brewpub in downtown Surrey, we saw the potential of what Canadian craft beer could be. And so from a small restaurant in the Vancouver suburb, Red Racer craft beer was born. The idea was to create beer that honoured the traditions of the craft, using only the best ingredients. From there, only good things can happen.\n\nIt is this same mantra that we carried forward as we evolved into more than just a restaurant and brewpub. With distilling now in our title, we approach our spiritual side with the same care and honour as we do with our beer.\n\nTo achieve this, we surround ourselves with the most passionate individuals who share our vision. This passion drives our business, guaranteeing you get the absolute best out of us. From every can we produce, to every pint we pour, you can rest assured we have your standards covered.",
   "phone": 7783792489,
   "email": "info@centralcitybrewing.com",
   "website": "http://centralcitybrewing.com/brew-pubs/beatty-street/",
@@ -521,7 +522,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/2023/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 1264,
+    "restaurant_id": 1264,
     "monday_open": "11:00:00",
     "monday_close": "00:00:00",
     "tuesday_open": "11:00:00",
@@ -541,10 +542,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 10,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "MJG Yaletown",
   "address": "1111 Mainland St",
   "city": "Vancouver",
@@ -553,7 +554,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.27544490",
   "longitude": "-123.12070750",
-  "summary": "A bit more expensive than other breweries, more for sitting down and eating and watching the game.",
+  "summary": "A bit more expensive than other restaurants, more for sitting down and eating and watching the game.",
   "description": "Founded in 1994, just as the former warehouse district of Yaletown was just beginning to emerge .as a destination for businesses and residents, the YBC was built with the vision of being a true neighbourhood pub – a welcoming gathering place whether you arrived dressed in a suit or flip-flops.",
   "phone": 16046812739,
   "email": null,
@@ -581,7 +582,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/158/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 12,
+    "restaurant_id": 12,
     "monday_open": "11:30:00",
     "monday_close": "00:00:00",
     "tuesday_open": "11:30:00",
@@ -601,10 +602,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 11,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Off The Rail Brewing",
   "address": "1351 Adanac Bikeway",
   "summary": "One of my favourites! The tasting room is welcoming and the beer is exceptional (two Canadian Brewing Award gold medals).",
@@ -639,7 +640,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/286/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 141,
+    "restaurant_id": 141,
     "monday_open": "12:00:00",
     "monday_close": "20:00:00",
     "tuesday_open": "12:00:00",
@@ -659,10 +660,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 12,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Bomber Brewing",
   "address": "1488 Adanac St",
   "city": "Vancouver",
@@ -671,7 +672,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.27760150",
   "longitude": "-123.07436860",
-  "description": "I suppose you could say it's a truly Canadian story - hockey, friendship and beer. From the ice rink to the brewery, Bomber Brewing is the shared dream of three friends with a passion for playing hockey and savouring good beer.   We drafted a team, combined our skills, and in February of 2014, we launched one of the newest micro-breweries to hit the Vancouver scene.\n\nThe bench of the Bombers Hockey Club was where it all started, with Chief Operating Officer and power forward, Don Farion, Creative Director and defensive expert, Cam Andrews, and Head Brewer and blue line patrol, Blair Calibaba.\n\nFarion, a Certified Cicerone and award-winning home brewer, brought 20 years experience in the hospitality industry and the know-how to build a successful business in Vancouver's competitive craft beer market.  With him came long-time business partner and now Bomber President, Dean Mallel - a true powerhouse and veteran in the industry.\n\nAndrews brought 20 plus years experience in design and marketing, and even more time spent enjoying great beer.  Being a part of the brewery's growth has allowed Andrews the insight which has allowed Bomber to grow and connect authentically with its ever expanding and loyal fan base.\n\nHead Brewer, Calibaba, has been honing his brewing skills for over 11 years, running the Ambleside Brewing Company and as a regular member of the staff at Dan's Homebrewing.  The Bomber post-game became a place to refine his craft and develop his notably balanced and approachable style.\n\nThis style is not only the basis of our beer, but of our brand as a whole.  Accessibility and approachability have remained our goals from day one, hoping to share the beer we love with novices and connoisseurs alike.  With Operations Manager, Rachaal Steele, at the helm, Bomber has its sights set on becoming a household name, a go-to pick, and the preeminent Vancouver brewery.\n\nWe brew the beer that we want to drink, and we hope you'll want to as well!",
+  "description": "I suppose you could say it's a truly Canadian story - hockey, friendship and beer. From the ice rink to the restaurant, Bomber Brewing is the shared dream of three friends with a passion for playing hockey and savouring good beer.   We drafted a team, combined our skills, and in February of 2014, we launched one of the newest micro-restaurants to hit the Vancouver scene.\n\nThe bench of the Bombers Hockey Club was where it all started, with Chief Operating Officer and power forward, Don Farion, Creative Director and defensive expert, Cam Andrews, and Head Brewer and blue line patrol, Blair Calibaba.\n\nFarion, a Certified Cicerone and award-winning home brewer, brought 20 years experience in the hospitality industry and the know-how to build a successful business in Vancouver's competitive craft beer market.  With him came long-time business partner and now Bomber President, Dean Mallel - a true powerhouse and veteran in the industry.\n\nAndrews brought 20 plus years experience in design and marketing, and even more time spent enjoying great beer.  Being a part of the restaurant's growth has allowed Andrews the insight which has allowed Bomber to grow and connect authentically with its ever expanding and loyal fan base.\n\nHead Brewer, Calibaba, has been honing his brewing skills for over 11 years, running the Ambleside Brewing Company and as a regular member of the staff at Dan's Homebrewing.  The Bomber post-game became a place to refine his craft and develop his notably balanced and approachable style.\n\nThis style is not only the basis of our beer, but of our brand as a whole.  Accessibility and approachability have remained our goals from day one, hoping to share the beer we love with novices and connoisseurs alike.  With Operations Manager, Rachaal Steele, at the helm, Bomber has its sights set on becoming a household name, a go-to pick, and the preeminent Vancouver restaurant.\n\nWe brew the beer that we want to drink, and we hope you'll want to as well!",
   "phone": 16044287457,
   "email": "info@bomberbrewing.com",
   "website": "http://bomberbrewing.com/",
@@ -696,7 +697,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/154/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 8,
+    "restaurant_id": 8,
     "monday_open": "12:00:00",
     "monday_close": "23:00:00",
     "tuesday_open": "12:00:00",
@@ -716,10 +717,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 13,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Postmark Brewing",
   "address": "55 Dunlevy Ave",
   "city": "Vancouver",
@@ -728,7 +729,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.28431890",
   "longitude": "-123.09539330",
-  "description": "Postmark Brewing is a Vancouver, BC born and built craft brewery. Our West Coast lifestyle and love for great quality beers for every occasion led us to the design, development and brew of our favourite pints. Consistent quality is paramount as we strive to create beers that cater to not only our thirsty palate but to the active lifestyles we enjoy with our friends and colleagues. At Postmark Brewing we are inspired by more than just great tasting sessionable craft beers, we enjoy taking a collaborative approach towards our other passions in life including music, photography, travel, sport, design, events and especially those who are taking risks and making great things happen. Cheers!",
+  "description": "Postmark Brewing is a Vancouver, BC born and built craft restaurant. Our West Coast lifestyle and love for great quality beers for every occasion led us to the design, development and brew of our favourite pints. Consistent quality is paramount as we strive to create beers that cater to not only our thirsty palate but to the active lifestyles we enjoy with our friends and colleagues. At Postmark Brewing we are inspired by more than just great tasting sessionable craft beers, we enjoy taking a collaborative approach towards our other passions in life including music, photography, travel, sport, design, events and especially those who are taking risks and making great things happen. Cheers!",
   "phone": 16046991988,
   "email": "info@postmarkbrewing.com",
   "website": "http://postmarkbrewing.com/",
@@ -753,7 +754,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/151/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 5,
+    "restaurant_id": 5,
     "monday_open": "11:00:00",
     "monday_close": "23:00:00",
     "tuesday_open": "11:00:00",
@@ -773,10 +774,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 14,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Steamworks Brew Pub",
   "address": "375 Water St",
   "city": "Vancouver",
@@ -785,7 +786,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.28464120",
   "longitude": "-123.11044330",
-  "description": "In 1995, when we first took hold of our historic Gastown Brewpub location, we discovered that the building had a rare steam heat system. A remnant from forward thinkers of a century past.  Our Brewmaster had only read of steam powered brewing, but had never seen a functional steam brewery. These are very rare indeed. We ventured forth, experimented, and created a one-of-a-kind steam generated brewery. The only on in Canada.  To our pleasure we found our test brews to be distinctively fresh and flavourful.  For nearly 20 years, beer aficionados have been migrating to our Steamworks Brewpub for a taster of these unconventional beers. Now, with the advent of our bottled beers, you can take the brewpub experience home with you.",
+  "description": "In 1995, when we first took hold of our historic Gastown Brewpub location, we discovered that the building had a rare steam heat system. A remnant from forward thinkers of a century past.  Our Brewmaster had only read of steam powered brewing, but had never seen a functional steam restaurant. These are very rare indeed. We ventured forth, experimented, and created a one-of-a-kind steam generated restaurant. The only on in Canada.  To our pleasure we found our test brews to be distinctively fresh and flavourful.  For nearly 20 years, beer aficionados have been migrating to our Steamworks Brewpub for a taster of these unconventional beers. Now, with the advent of our bottled beers, you can take the brewpub experience home with you.",
   "phone": 16046207250,
   "email": "brian@steamworks.com",
   "website": "http://steamworks.com/brew-pub",
@@ -810,7 +811,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/155/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 9,
+    "restaurant_id": 9,
     "monday_open": "14:00:00",
     "monday_close": "20:00:00",
     "tuesday_open": "14:00:00",
@@ -830,10 +831,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 15,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Callister Brewing Co.",
   "address": "1338 Franklin Street",
   "city": "Vancouver",
@@ -842,7 +843,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.28226510",
   "longitude": "-123.07696080",
-  "description": "Callister Brewing Co. is one of Vancouver’s newest breweries, launched July 9, 2015, founded by Christopher Lay and Diana McKenzie. Callister Brewing is the first of its kind in Canada and operates as a co-working brewery incubator, offering a unique opportunity to support independent, talented brewers. Callister aims to provide the foundation of an existing support and peer-learning network by creating accessibility to equipment and commercial facilities that allows professional brewers and homebrewers alike to grow their business and engage the craft beer community.",
+  "description": "Callister Brewing Co. is one of Vancouver’s newest restaurants, launched July 9, 2015, founded by Christopher Lay and Diana McKenzie. Callister Brewing is the first of its kind in Canada and operates as a co-working restaurant incubator, offering a unique opportunity to support independent, talented brewers. Callister aims to provide the foundation of an existing support and peer-learning network by creating accessibility to equipment and commercial facilities that allows professional brewers and homebrewers alike to grow their business and engage the craft beer community.",
   "phone": 16045692739,
   "email": "info@callisterbrewing.com",
   "website": "http://www.callisterbrewing.com",
@@ -867,7 +868,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/545/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 1128,
+    "restaurant_id": 1128,
     "monday_open": null,
     "monday_close": null,
     "tuesday_open": null,
@@ -887,10 +888,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 16,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Granville Island Brewing",
   "address": "1441 Cartwright St",
   "city": "Vancouver",
@@ -899,7 +900,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.27051420",
   "longitude": "-123.13583120",
-  "description": "Our love of flavourful beer runs deep, and it inspired us to open as Canada’s first microbrewery back in 1984.\n\nIn a time of limited beer options, it became our mission to craft delicious, locally brewed beer that we were proud to share with our friends. Today, that mission remains the same, with every new style offered at our original small batch brewery on Granville Island.\n\nFrom our very first Island Lager, to the wide variety of flavours we craft today, our beer is as flavourful and refreshing as the moments we spend together. Some are bold and full of life, others are a little more laid back – but every one is brewed with high quality, natural ingredients – and best enjoyed with friends.\n\nGood beer + good people = It’s good to be here.",
+  "description": "Our love of flavourful beer runs deep, and it inspired us to open as Canada’s first microrestaurant back in 1984.\n\nIn a time of limited beer options, it became our mission to craft delicious, locally brewed beer that we were proud to share with our friends. Today, that mission remains the same, with every new style offered at our original small batch restaurant on Granville Island.\n\nFrom our very first Island Lager, to the wide variety of flavours we craft today, our beer is as flavourful and refreshing as the moments we spend together. Some are bold and full of life, others are a little more laid back – but every one is brewed with high quality, natural ingredients – and best enjoyed with friends.\n\nGood beer + good people = It’s good to be here.",
   "phone": 16046872739,
   "email": "info@gib.ca",
   "website": "http://gib.ca/",
@@ -924,7 +925,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/157/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 11,
+    "restaurant_id": 11,
     "monday_open": "11:00:00",
     "monday_close": "21:00:00",
     "tuesday_open": "11:00:00",
@@ -944,10 +945,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 17,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Powell Street Craft Brewing",
   "address": "1357 Powell St",
   "city": "Vancouver",
@@ -956,7 +957,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.28332850",
   "longitude": "-123.07588400",
-  "description": "Powell Street Craft Brewery is small independent microbrewery owned and operated by husband & wife team, David (Brewer) and Nicole (Operations).\n\nThe brewery opened in December 2012 on a nano scale with a focus on creating high quality, handcrafted beers for locals to enjoy. The brewery quickly gained a name for itself within the community and by May of 2013 they were humbled when receiving the prestigious award “Beer of the Year”, in Canada, from the Canadian Brewing Awards for their Old Jalopy Pale Ale. With the receipt of this award the brewery gained national attention and the small batch beers they were brewing could not nearly meet the demand, and all beers sold out fast. Needless to say, their original goal of staying small and growing slowly quickly changed\n\nIn November of 2013 they took possession of a larger space and over the next year spent day and night building into what was to become their new micro-brewery.By the end of September 2014 the doors to the tasting lounge were open!\n\nPSCB continues to grow and focus on high quality, full flavoured, handcrafted beers using all natural, and preferably, local ingredients to produce delicious tasting beers.",
+  "description": "Powell Street Craft Restaurant is small independent microrestaurant owned and operated by husband & wife team, David (Brewer) and Nicole (Operations).\n\nThe restaurant opened in December 2012 on a nano scale with a focus on creating high quality, handcrafted beers for locals to enjoy. The restaurant quickly gained a name for itself within the community and by May of 2013 they were humbled when receiving the prestigious award “Beer of the Year”, in Canada, from the Canadian Brewing Awards for their Old Jalopy Pale Ale. With the receipt of this award the restaurant gained national attention and the small batch beers they were brewing could not nearly meet the demand, and all beers sold out fast. Needless to say, their original goal of staying small and growing slowly quickly changed\n\nIn November of 2013 they took possession of a larger space and over the next year spent day and night building into what was to become their new micro-restaurant.By the end of September 2014 the doors to the tasting lounge were open!\n\nPSCB continues to grow and focus on high quality, full flavoured, handcrafted beers using all natural, and preferably, local ingredients to produce delicious tasting beers.",
   "phone": 16045582537,
   "email": "info@powellbeer.com",
   "website": "http://www.powellbeer.com/",
@@ -981,7 +982,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/152/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 6,
+    "restaurant_id": 6,
     "monday_open": "12:00:00",
     "monday_close": "20:00:00",
     "tuesday_open": "12:00:00",
@@ -1001,10 +1002,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 18,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Storm Brewing",
   "address": "310 Commercial Dr",
   "city": "Vancouver",
@@ -1038,7 +1039,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/153/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 7,
+    "restaurant_id": 7,
     "monday_open": null,
     "monday_close": null,
     "tuesday_open": "10:00:00",
@@ -1058,10 +1059,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 19,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Doan's Craft Brewing",
   "address": "1830 Powell St",
   "city": "Vancouver",
@@ -1070,7 +1071,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.28418590",
   "longitude": "-123.06727420",
-  "description": "Doan’s Craft is a family run brewery in the heart of the East Van. From home-brewing to Craft Brewing, the Doan’s family is inspired by great beer, the art and science of craft brewing and the community created by the craft beer movement.",
+  "description": "Doan’s Craft is a family run restaurant in the heart of the East Van. From home-brewing to Craft Brewing, the Doan’s family is inspired by great beer, the art and science of craft brewing and the community created by the craft beer movement.",
   "phone": 16045590414,
   "email": "mike@doanscraftbrewing.com",
   "website": "http://doanscraftbrewing.com/",
@@ -1095,7 +1096,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/287/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 142,
+    "restaurant_id": 142,
     "monday_open": "14:00:00",
     "monday_close": "21:00:00",
     "tuesday_open": "14:00:00",
@@ -1115,10 +1116,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 20,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Parallel 49 Brewing",
   "address": "1946 Triumph St",
   "city": "Vancouver",
@@ -1127,7 +1128,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.28390580",
   "longitude": "-123.06440540",
-  "description": "Three of Parallel 49’s founders grew up together in East Vancouver less than ten minutes from the spot where the brewery now stands. Mike, Nick, and Anthony had been avid home brewers and craft beer enthusiasts for years before they finally decided to turn their shared passion into a full time gig.\n\nIn 2008, the three friends quit their day jobs and opened a restaurant that quickly became known as a mecca for craft beer enthusiasts in Vancouver. As the restaurant business thrived the guys turned their attentions back to the enduring dream of opening their own brewery.\n\nThe guys decided that it was time to stop talking and start brewing. They teamed up with Graham With, a respected home brewer; and Michael Tod, a friend with a wealth of sales experience in the BC craft beer industry. The newly assembled Parallel 49 team set out to create the unique brand of Vancouver craft beer that they had been thirsting after for years.",
+  "description": "Three of Parallel 49’s founders grew up together in East Vancouver less than ten minutes from the spot where the restaurant now stands. Mike, Nick, and Anthony had been avid home brewers and craft beer enthusiasts for years before they finally decided to turn their shared passion into a full time gig.\n\nIn 2008, the three friends quit their day jobs and opened a restaurant that quickly became known as a mecca for craft beer enthusiasts in Vancouver. As the restaurant business thrived the guys turned their attentions back to the enduring dream of opening their own restaurant.\n\nThe guys decided that it was time to stop talking and start brewing. They teamed up with Graham With, a respected home brewer; and Michael Tod, a friend with a wealth of sales experience in the BC craft beer industry. The newly assembled Parallel 49 team set out to create the unique brand of Vancouver craft beer that they had been thirsting after for years.",
   "phone": 16045582739,
   "email": "info@parallel49brewing.com",
   "website": "http://parallel49brewing.com/",
@@ -1152,7 +1153,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/150/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 4,
+    "restaurant_id": 4,
     "monday_open": "12:00:00",
     "monday_close": "23:00:00",
     "tuesday_open": "12:00:00",
@@ -1172,10 +1173,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 21,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Coal Harbour Brewing",
   "address": "1967 Triumph St",
   "city": "Vancouver",
@@ -1184,7 +1185,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.28393300",
   "longitude": "-123.06418350",
-  "description": "Coal Harbour Brewing Company is a production brewery crafting a tight lineup of core and seasonal brews available in government & private liquor stores and on tap all over the Lower Mainland. Whether you’re a lager lover, a yeast beast or a hop goblin, we’ve got you covered. When we’re not brewing beer, we’re talkin’ beer, sampling beer, reading beer, dreaming beer and collecting beer awards.",
+  "description": "Coal Harbour Brewing Company is a production restaurant crafting a tight lineup of core and seasonal brews available in government & private liquor stores and on tap all over the Lower Mainland. Whether you’re a lager lover, a yeast beast or a hop goblin, we’ve got you covered. When we’re not brewing beer, we’re talkin’ beer, sampling beer, reading beer, dreaming beer and collecting beer awards.",
   "phone": 16042157471,
   "email": "sales@coalharbourbrewing.com",
   "website": "http://coalharbourbrewing.com/",
@@ -1209,7 +1210,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/191/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 45,
+    "restaurant_id": 45,
     "monday_open": "09:00:00",
     "monday_close": "17:00:00",
     "tuesday_open": "09:00:00",
@@ -1229,10 +1230,10 @@ var breweries = [{
     "status": "closed"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 22,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Green Leaf Brewing",
   "address": "123 Carrie Cates Ct",
   "city": "North Vancouver",
@@ -1241,14 +1242,14 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.31040810",
   "longitude": "-123.08112020",
-  "description": "Located in the bustling Lonsdale Quay Market, Green Leaf Brewing has been committed to great beer, community and sustainability since 2013.\n\nGreen Leaf Brewing is about top-quality, innovative beers, using our custom designed and built brewery system from Practical Fusion in Portland, Oregon. Brewhouse efficiency was and is our goal. From recovering, treating and reusing water during the brewing process, to innovative lighting system, we look to create fantastic beer with minimal impact. Our friendly staff are committed to providing the best service to our customers, and the best beer to complement any meal or event. We look forward to seeing you soon.",
+  "description": "Located in the bustling Lonsdale Quay Market, Green Leaf Brewing has been committed to great beer, community and sustainability since 2013.\n\nGreen Leaf Brewing is about top-quality, innovative beers, using our custom designed and built restaurant system from Practical Fusion in Portland, Oregon. Brewhouse efficiency was and is our goal. From recovering, treating and reusing water during the brewing process, to innovative lighting system, we look to create fantastic beer with minimal impact. Our friendly staff are committed to providing the best service to our customers, and the best beer to complement any meal or event. We look forward to seeing you soon.",
   "phone": 16049848409,
   "email": "Martin@greenleafbrew.com",
   "color": "#564c45",
   "accentColor": "#fff",
   "website": "http://www.greenleafbrew.com/",
   "social_instagram": "greenleafbrew",
-  "social_facebook": "GLbrewery",
+  "social_facebook": "GLrestaurant",
   "social_twitter": "greenleafbrew",
   "social_untappd": "97598",
   "logo": "http://storage.growlerfill.ca/14/green_leaf.png",
@@ -1268,7 +1269,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/160/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 14,
+    "restaurant_id": 14,
     "monday_open": "11:00:00",
     "monday_close": "21:00:00",
     "tuesday_open": "11:00:00",
@@ -1288,10 +1289,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 23,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Dogwood Brewing",
   "address": "8284 Sherbrooke St",
   "city": "Vancouver",
@@ -1300,7 +1301,7 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.20987980",
   "longitude": "-123.08178780",
-  "description": "Armed with an initiative to make an impact in the beer world, Claire and Brendan Wilson created Dogwood Brewing to be a brewery that is sustainable and environmentally conscience.  With years of education and brewing experience throughout the UK and British Columbia, Claire recognized a void in the beer culture of Vancouver.  This birthed the creation of Vancouver's first organic brewery: Dogwood Brewing.\n\nFor packaging we opted for cans in cardboard boxes - no dangerous landfill material here!  Cans are much lighter , requiring less material (15 grams vs. 170 grams), are more portable, can be recycled and most already contain a substantial amount of recycled material.  They also protect the beer from oxygen and light, meaning that the beer is that much closer to tap fresh.  Our beer comes in recyclable cardboard boxes so everything that goes into our beer is the result of a responsible decision for sustainability.\n\nWe compost organic materials from the brewery and tasting room to keep as much waste from ending up in a landfill and support local farming initiatives.  Most items that you see throughout our facility have been reused in some way - keg covers, tasting racks, and coasters.\n\nBring your empty coffee bags and we will recycle them! Our hop and yeast bags are made of same material.  We get our bags taken to a proper recycling facility.",
+  "description": "Armed with an initiative to make an impact in the beer world, Claire and Brendan Wilson created Dogwood Brewing to be a restaurant that is sustainable and environmentally conscience.  With years of education and brewing experience throughout the UK and British Columbia, Claire recognized a void in the beer culture of Vancouver.  This birthed the creation of Vancouver's first organic restaurant: Dogwood Brewing.\n\nFor packaging we opted for cans in cardboard boxes - no dangerous landfill material here!  Cans are much lighter , requiring less material (15 grams vs. 170 grams), are more portable, can be recycled and most already contain a substantial amount of recycled material.  They also protect the beer from oxygen and light, meaning that the beer is that much closer to tap fresh.  Our beer comes in recyclable cardboard boxes so everything that goes into our beer is the result of a responsible decision for sustainability.\n\nWe compost organic materials from the restaurant and tasting room to keep as much waste from ending up in a landfill and support local farming initiatives.  Most items that you see throughout our facility have been reused in some way - keg covers, tasting racks, and coasters.\n\nBring your empty coffee bags and we will recycle them! Our hop and yeast bags are made of same material.  We get our bags taken to a proper recycling facility.",
   "phone": 16043253693,
   "email": "dogwood@dogwoodbrew.com",
   "website": "http://www.dogwoodbrew.com/",
@@ -1327,7 +1328,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/285/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 140,
+    "restaurant_id": 140,
     "monday_open": null,
     "monday_close": null,
     "tuesday_open": null,
@@ -1347,11 +1348,11 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 24,
-  "type": "brewery",
-  "title": "Steamworks Brewery",
+  "type": "restaurant",
+  "title": "Steamworks Restaurant",
   "address": "3845 William Street",
   "city": "Burnaby",
   "province": "BC",
@@ -1359,10 +1360,10 @@ var breweries = [{
   "country": "Canada",
   "latitude": "49.27400600",
   "longitude": "-123.02009300",
-  "description": "In 1995, when we first took hold of our historic Gastown brewpub location, we discovered that the building had a rare steam heat system. A remnant from forward thinkers of a century past.\n\nOur brewmaster had only read of steam powered brewing, but had never seen a functional steam brewery. These are very rare indeed. We ventured forth, experimented, and created a one-of-a-kind steam generated brewery. The only one in Canada.\n\nTo our pleasure, we found our test brews to be distinctively fresh and flavourful.\n\nFor nearly 20 years, beer aficionados have been migrating to our Steamworks brewpub for a taste of these unconventional beers. Now, with the advent of our bottled beers, you can take the brewpub experience home with you.",
+  "description": "In 1995, when we first took hold of our historic Gastown brewpub location, we discovered that the building had a rare steam heat system. A remnant from forward thinkers of a century past.\n\nOur brewmaster had only read of steam powered brewing, but had never seen a functional steam restaurant. These are very rare indeed. We ventured forth, experimented, and created a one-of-a-kind steam generated restaurant. The only one in Canada.\n\nTo our pleasure, we found our test brews to be distinctively fresh and flavourful.\n\nFor nearly 20 years, beer aficionados have been migrating to our Steamworks brewpub for a taste of these unconventional beers. Now, with the advent of our bottled beers, you can take the brewpub experience home with you.",
   "phone": 16046207250,
   "email": "brian@steamworks.com",
-  "website": "http://steamworks.com/brewery",
+  "website": "http://steamworks.com/restaurant",
   "social_instagram": "steamworksbeer",
   "social_facebook": "SteamworksBeer",
   "social_twitter": "Steamworksbeer",
@@ -1384,7 +1385,7 @@ var breweries = [{
   "banner_medium": "http://storage.growlerfill.ca/193/conversions/medium.png",
   "hours": {
     "timezone": "America/Vancouver",
-    "brewery_id": 47,
+    "restaurant_id": 47,
     "monday_open": "14:00:00",
     "monday_close": "20:00:00",
     "tuesday_open": "14:00:00",
@@ -1404,10 +1405,10 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   "id": 25,
-  "type": "brewery",
+  "type": "restaurant",
   "title": "Black Kettle Brewing",
   "address": "720 Copping Street",
   "city": "North Vancouver",
@@ -1460,14 +1461,14 @@ var breweries = [{
     "status": "open"
   },
   "beers": [],
-  "rating": "?"
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   id: 26,
   accentColor: '#fff',
   address: '1123 Venables Street',
   city: 'Vancouver',
   color: '#000',
-  description: "Luppolo Brewing Co. is owned and operated by two couples: Eleanor Stewart and Ryan Parfitt, and Anique Ross and Federico (Fede) Stucchi. Ryan, Anique and Eleanor were born and raised in Vancouver and Anique and Eleanor have been friends for over twenty years. Eleanor and Ryan both have large, close-knit families and understand the value of community. Ryan’s mother is Italian, and almost every Sunday they can be found enjoying a traditional family meal at her home in East Vancouver. Ryan has been brewing beer for over nine years and has a passion for sharing his creations with friends and family. He is also an incredibly gifted craftsman who values the workmanship and artistry that goes into creating something with your own hands. Their love of beer and entertaining led to the dream of one day opening their own brewery and being part of BC’s craft beer revolution. Fede and Anique both spent years living and working abroad before meeting in Baku, Azerbaijan. Wherever they went good food, drinks, and company were always central to making a new place feel like home. After Fede and Anique married in 2011, they moved to Milan, Italy where Fede grew up. Their favorite place in the entire city was a local microbrewery. While the beer was exceptional, the best part about the birrificio (brewery in Italian) was the atmosphere. It was small, dark, and cozy, and in warmer months there would be hundreds of patrons spilling out onto the street chatting and enjoying the summer evening. Fede and Anique spent many memorable nights there and dreamed of opening their own brewery that recreated the atmosphere of the birrificio.  When Fede and Anique moved back to Vancouver in 2013, the two couples spent many evenings (over beers) talking and dreaming of opening a brewery. Over the last few years they began to prepare and take steps to make this dream a reality.  At Luppolo Brewing Co. we are inspired by the opportunity to share our love of quality, craft beer with our community: you.",
+  description: "Luppolo Brewing Co. is owned and operated by two couples: Eleanor Stewart and Ryan Parfitt, and Anique Ross and Federico (Fede) Stucchi. Ryan, Anique and Eleanor were born and raised in Vancouver and Anique and Eleanor have been friends for over twenty years. Eleanor and Ryan both have large, close-knit families and understand the value of community. Ryan’s mother is Italian, and almost every Sunday they can be found enjoying a traditional family meal at her home in East Vancouver. Ryan has been brewing beer for over nine years and has a passion for sharing his creations with friends and family. He is also an incredibly gifted craftsman who values the workmanship and artistry that goes into creating something with your own hands. Their love of beer and entertaining led to the dream of one day opening their own restaurant and being part of BC’s craft beer revolution. Fede and Anique both spent years living and working abroad before meeting in Baku, Azerbaijan. Wherever they went good food, drinks, and company were always central to making a new place feel like home. After Fede and Anique married in 2011, they moved to Milan, Italy where Fede grew up. Their favorite place in the entire city was a local microrestaurant. While the beer was exceptional, the best part about the birrificio (restaurant in Italian) was the atmosphere. It was small, dark, and cozy, and in warmer months there would be hundreds of patrons spilling out onto the street chatting and enjoying the summer evening. Fede and Anique spent many memorable nights there and dreamed of opening their own restaurant that recreated the atmosphere of the birrificio.  When Fede and Anique moved back to Vancouver in 2013, the two couples spent many evenings (over beers) talking and dreaming of opening a restaurant. Over the last few years they began to prepare and take steps to make this dream a reality.  At Luppolo Brewing Co. we are inspired by the opportunity to share our love of quality, craft beer with our community: you.",
   hours: {
     monday_open: '15:00:00',
     monday_close: '23:00:00',
@@ -1491,14 +1492,15 @@ var breweries = [{
   postal_code: 'V6A 2C6',
   social_instagram: 'luppolo_brewing',
   title: 'Luppolo Brewing Co.',
-  website: 'http://luppolobrewing.ca/'
+  website: 'http://luppolobrewing.ca/',
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   id: 27,
   accentColor: '#fff',
   address: '2601 Murray St',
   city: 'Port Moody',
   color: '#303130',
-  description: "At Moody Ales, we make Craft Beers for every day drinking. Beers you'll want to have more than one of. Quality, balanced, flavourful Craft Beers - brewed by hand on Brewer's Row in Port Moody, BC by our amazing team. Dan and I started Moody Ales to share our passion for Craft Beer with as many people as we could. We opened our doors in 2014 after spending the summer building our brewery with our own hands. Our passion for Craft Beer got us going, sharing that passion for Craft Beer with others keeps us going. -Adam",
+  description: "At Moody Ales, we make Craft Beers for every day drinking. Beers you'll want to have more than one of. Quality, balanced, flavourful Craft Beers - brewed by hand on Brewer's Row in Port Moody, BC by our amazing team. Dan and I started Moody Ales to share our passion for Craft Beer with as many people as we could. We opened our doors in 2014 after spending the summer building our restaurant with our own hands. Our passion for Craft Beer got us going, sharing that passion for Craft Beer with others keeps us going. -Adam",
   hours: {
     monday_open: '14:00:00',
     monday_close: '21:00:00',
@@ -1522,14 +1524,15 @@ var breweries = [{
   postal_code: 'V3H 3R5',
   social_instagram: 'moodyales',
   title: 'Moody Ales',
-  website: 'http://www.moodyales.com'
+  website: 'http://www.moodyales.com',
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   id: 28,
   accentColor: '#fff',
   address: '2731 Murray St',
   city: 'Port Moody',
   color: '#081f2c',
-  description: "A park themed brewery with food trucks in the evening.",
+  description: "A park themed restaurant with food trucks in the evening.",
   hours: {
     monday_open: '14:00:00',
     monday_close: '21:00:00',
@@ -1551,9 +1554,10 @@ var breweries = [{
   latitude: '49.2779219',
   longitude: '-122.8583514',
   postal_code: 'V3H 3R5',
-  social_instagram: 'parksidebrewery',
-  title: 'The Parkside Brewery',
-  website: 'http://www.theparksidebrewery.com'
+  social_instagram: 'parksiderestaurant',
+  title: 'The Parkside Restaurant',
+  website: 'http://www.theparksiderestaurant.com',
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   id: 29,
   accentColor: '#374049',
@@ -1584,14 +1588,15 @@ var breweries = [{
   postal_code: 'V3H 1X3',
   social_instagram: 'twinsailsbeer',
   title: 'Twin Sails Brewing',
-  website: 'http://twinsailsbrewing.com'
+  website: 'http://twinsailsbrewing.com',
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }, {
   id: 30,
   accentColor: '#000',
   address: '2817 Murray St',
   city: 'Port Moody',
   color: '#fab234',
-  description: "A park themed brewery with food trucks in the evening.",
+  description: "A park themed restaurant with food trucks in the evening.",
   hours: {
     monday_open: '12:00:00',
     monday_close: '22:00:00',
@@ -1615,9 +1620,10 @@ var breweries = [{
   postal_code: 'V3H 1X3',
   social_instagram: 'yellowdogbeer',
   title: 'Yellow Dog Brewing',
-  website: 'http://www.yellowdogbrew.com'
+  website: 'http://www.yellowdogbrew.com',
+  "ratings": [{ "id": 1, "value": 3 }, { "id": 2, "value": 3 }, { "id": 3, "value": 3 }, { "id": 4, "value": 4 }, { "id": 5, "value": 3 }]
 }];
 
-exports.default = breweries.map(function (b) {
-  return (0, _transformBrewery2.default)(b, new Date());
+exports.default = restaurants.map(function (b) {
+  return (0, _transformRestaurant2.default)(b, new Date());
 });

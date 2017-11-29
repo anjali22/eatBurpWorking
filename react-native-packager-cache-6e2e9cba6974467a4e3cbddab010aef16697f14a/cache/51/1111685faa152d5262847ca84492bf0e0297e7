@@ -10,9 +10,9 @@ var _CurrentUserReducer = require('./CurrentUserReducer');
 
 var _CurrentUserReducer2 = _interopRequireDefault(_CurrentUserReducer);
 
-var _BreweriesReducer = require('./BreweriesReducer');
+var _RestaurantsReducer = require('./RestaurantsReducer');
 
-var _BreweriesReducer2 = _interopRequireDefault(_BreweriesReducer);
+var _RestaurantsReducer2 = _interopRequireDefault(_RestaurantsReducer);
 
 var _effects = require('../effects');
 
@@ -22,5 +22,5 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = (0, _redux.createStore)((0, _redux.combineReducers)({
   currentUser: _CurrentUserReducer2.default,
-  breweries: _BreweriesReducer2.default
+  restaurants: _RestaurantsReducer2.default
 }), (0, _redux.applyMiddleware)((0, _reduxEffex.effectsMiddleware)(_effects2.default)));

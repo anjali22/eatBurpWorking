@@ -208,7 +208,7 @@ export class MapCard extends React.Component {
   }
 
   render() {
-    let { address, city, postalCode, name } = this.props.brewery;
+    let { address, city, postalCode, name } = this.props.restaurant;
 
     return (
       <View style={[styles.card, styles.mapContainer]}>
@@ -263,7 +263,7 @@ export class MapCard extends React.Component {
       return;
     }
 
-    let { name, latitude, longitude } = this.props.brewery;
+    let { name, latitude, longitude } = this.props.restaurant;
 
     return (
       <MapView
@@ -286,8 +286,8 @@ export class MapCard extends React.Component {
 @connect((data, props) => VisitedCard.getDataProps(data, props))
 export class VisitedCard extends React.Component {
   static getDataProps(data, props) {
-    let { breweryId } = props;
-    let isVisited = data.breweries.visited.includes(breweryId);
+    let { restaurantId } = props;
+    let isVisited = data.restaurants.visited.includes(restaurantId);
 
     return {
       isVisited,
@@ -296,9 +296,9 @@ export class VisitedCard extends React.Component {
 
   _onToggleVisited = () => {
     if (this.props.isVisited) {
-      this.props.dispatch(Actions.removeVisitedBrewery(this.props.breweryId));
+      this.props.dispatch(Actions.removeVisitedRestaurant(this.props.restaurantId));
     } else {
-      this.props.dispatch(Actions.addVisitedBrewery(this.props.breweryId));
+      this.props.dispatch(Actions.addVisitedRestaurant(this.props.restaurantId));
     }
   };
 

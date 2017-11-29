@@ -1,0 +1,239 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/home/anjali/growler-prowler-master/node_modules/react-native-star-rating/star-button.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactAddonsUpdate = require('react-addons-update');
+
+var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
+
+var _reactNativeButton = require('react-native-button');
+
+var _reactNativeButton2 = _interopRequireDefault(_reactNativeButton);
+
+var _Entypo = require('@expo/vector-icons/Entypo');
+
+var _Entypo2 = _interopRequireDefault(_Entypo);
+
+var _EvilIcons = require('@expo/vector-icons/EvilIcons');
+
+var _EvilIcons2 = _interopRequireDefault(_EvilIcons);
+
+var _FontAwesome = require('@expo/vector-icons/FontAwesome');
+
+var _FontAwesome2 = _interopRequireDefault(_FontAwesome);
+
+var _Foundation = require('@expo/vector-icons/Foundation');
+
+var _Foundation2 = _interopRequireDefault(_Foundation);
+
+var _Ionicons = require('@expo/vector-icons/Ionicons');
+
+var _Ionicons2 = _interopRequireDefault(_Ionicons);
+
+var _MaterialIcons = require('@expo/vector-icons/MaterialIcons');
+
+var _MaterialIcons2 = _interopRequireDefault(_MaterialIcons);
+
+var _Octicons = require('@expo/vector-icons/Octicons');
+
+var _Octicons2 = _interopRequireDefault(_Octicons);
+
+var _Zocial = require('@expo/vector-icons/Zocial');
+
+var _Zocial2 = _interopRequireDefault(_Zocial);
+
+var _MaterialCommunityIcons = require('@expo/vector-icons/MaterialCommunityIcons');
+
+var _MaterialCommunityIcons2 = _interopRequireDefault(_MaterialCommunityIcons);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  StarButton: {
+    displayName: 'StarButton'
+  }
+};
+
+var _reactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/home/anjali/growler-prowler-master/node_modules/react-native-star-rating/star-button.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var iconSets = {
+  Entypo: _Entypo2.default,
+  EvilIcons: _EvilIcons2.default,
+  FontAwesome: _FontAwesome2.default,
+  Foundation: _Foundation2.default,
+  Ionicons: _Ionicons2.default,
+  MaterialIcons: _MaterialIcons2.default,
+  Octicons: _Octicons2.default,
+  Zocial: _Zocial2.default,
+  MaterialCommunityIcons: _MaterialCommunityIcons2.default
+};
+
+var StarButton = _wrapComponent('StarButton')(function (_Component) {
+  _inherits(StarButton, _Component);
+
+  function StarButton(props) {
+    _classCallCheck(this, StarButton);
+
+    var _this = _possibleConstructorReturn(this, (StarButton.__proto__ || Object.getPrototypeOf(StarButton)).call(this, props));
+
+    _this.onButtonPress = _this.onButtonPress.bind(_this);
+    return _this;
+  }
+
+  _createClass(StarButton, [{
+    key: 'onButtonPress',
+    value: function onButtonPress(event) {
+      var _props = this.props,
+          halfStarEnabled = _props.halfStarEnabled,
+          starSize = _props.starSize,
+          rating = _props.rating,
+          onStarButtonPress = _props.onStarButtonPress;
+
+
+      var addition = 0;
+
+      if (halfStarEnabled) {
+        var isHalfSelected = event.nativeEvent.locationX < starSize / 2;
+        addition = isHalfSelected ? -0.5 : 0;
+      }
+
+      onStarButtonPress(rating + addition);
+    }
+  }, {
+    key: 'renderIcon',
+    value: function renderIcon() {
+      var _props2 = this.props,
+          iconSet = _props2.iconSet,
+          starIconName = _props2.starIconName,
+          starSize = _props2.starSize,
+          starColor = _props2.starColor,
+          starStyle = _props2.starStyle,
+          reversed = _props2.reversed;
+
+
+      var Icon = iconSets[iconSet];
+      var iconElement = void 0;
+
+      var newStarStyle = (0, _reactAddonsUpdate2.default)(starStyle, {
+        transform: {
+          $set: [{
+            scaleX: reversed ? -1 : 1
+          }]
+        }
+      });
+
+      if (typeof starIconName === 'string') {
+        iconElement = _react3.default.createElement(Icon, {
+          name: starIconName,
+          size: starSize,
+          color: starColor,
+          style: newStarStyle,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 88
+          }
+        });
+      } else {
+        var imageStyle = {
+          width: starSize,
+          height: starSize,
+          resizeMode: 'contain'
+        };
+
+        var iconStyles = [imageStyle, newStarStyle];
+
+        iconElement = _react3.default.createElement(_reactNative.Image, {
+          source: starIconName,
+          style: iconStyles,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 108
+          }
+        });
+      }
+
+      return iconElement;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props3 = this.props,
+          disabled = _props3.disabled,
+          buttonStyle = _props3.buttonStyle;
+
+
+      return _react3.default.createElement(
+        _reactNativeButton2.default,
+        {
+          activeOpacity: 0.20,
+          disabled: disabled,
+          containerStyle: buttonStyle,
+          onPress: this.onButtonPress,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 125
+          }
+        },
+        this.renderIcon()
+      );
+    }
+  }]);
+
+  return StarButton;
+}(_react2.Component));
+
+StarButton.propTypes = {
+  disabled: _propTypes2.default.bool.isRequired,
+  rating: _propTypes2.default.number.isRequired,
+  onStarButtonPress: _propTypes2.default.func.isRequired,
+  iconSet: _propTypes2.default.string.isRequired,
+  starSize: _propTypes2.default.number.isRequired,
+  starIconName: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object, _propTypes2.default.number]).isRequired,
+  starColor: _propTypes2.default.string.isRequired,
+  starStyle: _reactNative.ViewPropTypes.style,
+  buttonStyle: _reactNative.ViewPropTypes.style,
+  halfStarEnabled: _propTypes2.default.bool.isRequired,
+  reversed: _propTypes2.default.bool.isRequired
+};
+
+StarButton.defaultProps = {
+  starStyle: {},
+  buttonStyle: {}
+};
+
+exports.default = StarButton;

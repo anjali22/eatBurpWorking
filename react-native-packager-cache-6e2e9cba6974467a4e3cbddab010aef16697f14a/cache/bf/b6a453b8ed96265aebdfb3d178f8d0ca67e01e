@@ -74,15 +74,13 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
     var _this = _possibleConstructorReturn(this, (RestaurantList.__proto__ || Object.getPrototypeOf(RestaurantList)).call(this, props));
 
     _this.search = function (searchValue) {
-
-      _this.setState({ searchValue: searchValue }, function () {
-        return console.log(_this.state.searchValue);
-      });
+      _this.props.navigation.navigate('searchScreen', { searchValue: searchValue });
+      console.log('onbuttonpress', _this.state.searchValue);
 
       return _react3.default.createElement(_reactNative.View, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 51
         }
       });
     };
@@ -105,7 +103,7 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
 
           }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 117
+            lineNumber: 118
           }
         },
         _react3.default.createElement(
@@ -126,7 +124,7 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
               borderColor: '#ff8342'
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 123
+              lineNumber: 124
             }
           },
           _react3.default.createElement(_reactNative.TextInput, { style: {
@@ -135,13 +133,12 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
               color: '#878787'
             },
             placeholder: 'What do you wanna eat??',
-            onChangeText: _this.search,
             onFocus: function onFocus() {
-              return _this.setState({ text: '' });
+              return _this.search();
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 139
+              lineNumber: 140
             }
           })
         ),
@@ -162,7 +159,7 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
               borderColor: '#ff8342'
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 151
+              lineNumber: 152
             }
           },
           _react3.default.createElement(
@@ -172,14 +169,14 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
                 return _this._onPressGoButton(_this.state.searchValue);
               }, __source: {
                 fileName: _jsxFileName,
-                lineNumber: 168
+                lineNumber: 169
               }
             },
             _react3.default.createElement(
               _reactNative.Text,
               { style: { color: '#ff8342', fontWeight: 'bold', fontSize: 20 }, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 171
+                  lineNumber: 172
                 }
               },
               'Go!'
@@ -199,7 +196,7 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
         restaurant: item,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 221
+          lineNumber: 222
         }
       });
     };
@@ -250,7 +247,7 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
         _reactNative.View,
         { onLayout: this.props.onLayout, style: styles.container, __source: {
             fileName: _jsxFileName,
-            lineNumber: 187
+            lineNumber: 188
           }
         },
         this.state.renderContents ? _react3.default.createElement(_reactNative.FlatList, {
@@ -267,7 +264,7 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
           ListHeaderComponent: this.renderHeader,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 190
+            lineNumber: 191
           }
         }) : _react3.default.createElement(
           _reactNative.View,
@@ -279,19 +276,19 @@ var RestaurantList = _wrapComponent('RestaurantList')((_dec = (0, _reactRedux.co
               height: 75
             }, __source: {
               fileName: _jsxFileName,
-              lineNumber: 202
+              lineNumber: 203
             }
           },
           _react3.default.createElement(_reactNative.ActivityIndicator, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 209
+              lineNumber: 210
             }
           })
         ),
         _react3.default.createElement(_reactNative.StatusBar, { barStyle: 'default', __source: {
             fileName: _jsxFileName,
-            lineNumber: 213
+            lineNumber: 214
           }
         })
       );

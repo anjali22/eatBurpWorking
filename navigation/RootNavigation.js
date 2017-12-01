@@ -14,6 +14,20 @@ import Layout from '../constants/Layout';
 import SettingsScreen from '../screens/SettingsScreen';
 import AddRatingScreen from '../screens/AddRatingScreen';
 import SearchScreen from '../screens/SearchScreen';
+import SearchItemDetailScreen from '../screens/SearchItemDetailScreen';
+
+
+
+const SearchStack = StackNavigator(
+  {
+    searchItemDetails: {
+      screen: SearchItemDetailScreen,
+    },
+    searchScreen: {
+      screen: SearchScreen,
+    },
+  }
+);
 
 const ListStack = StackNavigator(
   {
@@ -24,7 +38,7 @@ const ListStack = StackNavigator(
       screen: RestaurantDetailsScreen,
     },
     search: {
-      screen: SearchScreen,
+      screen: SearchStack,
     }
   },
   {

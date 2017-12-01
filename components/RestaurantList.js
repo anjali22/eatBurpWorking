@@ -40,8 +40,9 @@ export default class RestaurantList extends React.Component {
   //suggestion as user types
   search = searchValue =>{
 
-      this.setState({searchValue}, () => console.log(this.state.searchValue))
-
+      //this.setState({searchValue}, () => console.log(this.state.searchValue))
+      this.props.navigation.navigate('searchScreen', { searchValue: searchValue });
+      console.log('onbuttonpress', this.state.searchValue);
 
       //this.props.navigation.navigate('search', { searchValue: searchValue });
     
@@ -142,8 +143,8 @@ export default class RestaurantList extends React.Component {
     color: '#878787',
   }}
        placeholder="What do you wanna eat??"
-        onChangeText={this.search}
-        onFocus= {() => this.setState({text : ''})}
+        onFocus={ () => this.search() }
+        //onFocus= {() => this.setState({text : ''})}
         //value={this.state.searchValue}
       />
 </View>

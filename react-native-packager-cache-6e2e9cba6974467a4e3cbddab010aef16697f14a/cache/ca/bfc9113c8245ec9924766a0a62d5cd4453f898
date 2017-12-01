@@ -53,7 +53,20 @@ var _SearchScreen = require('../screens/SearchScreen');
 
 var _SearchScreen2 = _interopRequireDefault(_SearchScreen);
 
+var _SearchItemDetailScreen = require('../screens/SearchItemDetailScreen');
+
+var _SearchItemDetailScreen2 = _interopRequireDefault(_SearchItemDetailScreen);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SearchStack = (0, _reactNavigation.StackNavigator)({
+  searchItemDetails: {
+    screen: _SearchItemDetailScreen2.default
+  },
+  searchScreen: {
+    screen: _SearchScreen2.default
+  }
+});
 
 var ListStack = (0, _reactNavigation.StackNavigator)({
   list: {
@@ -63,7 +76,7 @@ var ListStack = (0, _reactNavigation.StackNavigator)({
     screen: _RestaurantDetailsScreen2.default
   },
   search: {
-    screen: _SearchScreen2.default
+    screen: SearchStack
   }
 }, {
   headerMode: 'none',
@@ -145,7 +158,7 @@ var TabLayout = (0, _reactNavigation.TabNavigator)({
           color: focused ? _Colors2.default.tabIconSelected : _Colors2.default.tabIconDefault,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 105
+            lineNumber: 119
           }
         });
       }

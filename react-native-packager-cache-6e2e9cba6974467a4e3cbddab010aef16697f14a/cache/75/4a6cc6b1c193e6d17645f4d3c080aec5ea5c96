@@ -62,7 +62,23 @@ var adresses = [{
   city: "Sydney",
   country: "Australia"
 }, {
-  street: "1 Martin Street",
+  street: "vijaynagar",
+  city: "Sydney",
+  country: "Australia"
+}, {
+  street: "geetabhavan",
+  city: "Sydney",
+  country: "Australia"
+}, {
+  street: "palasia",
+  city: "Sydney",
+  country: "Australia"
+}, {
+  street: "rajendra nagar",
+  city: "Sydney",
+  country: "Australia"
+}, {
+  street: "sukhliya",
   city: "Sydney",
   country: "Australia"
 }];
@@ -92,17 +108,21 @@ var SearchScreen = _wrapComponent('SearchScreen')((_dec = (0, _reactRedux.connec
       return _react3.default.createElement(
         _reactNative.View,
         {
-          __source: {
+          style: styles.listItem, __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 79
           }
         },
         _react3.default.createElement(
           _reactNative.Text,
           {
+            style: styles.listItemText,
+            onPress: function onPress() {
+              return _this._handlePressListItem(adress);
+            },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 57
+              lineNumber: 81
             }
           },
           adress.street,
@@ -114,37 +134,224 @@ var SearchScreen = _wrapComponent('SearchScreen')((_dec = (0, _reactRedux.connec
       );
     };
 
+    _this._handlePressListItem = function (listItem) {
+      console.log(listItem);
+      _this.props.navigation.navigate('searchItemDetails', { listItem: listItem });
+    };
+
+    _this._onPressFoodButton = function () {
+      console.log('food button clicked');
+    };
+
+    _this._onPressPlacesButton = function () {
+      console.log('places button clicked');
+    };
+
+    _this._onPressPeopleButton = function () {
+      console.log('people button clicked');
+    };
+
     _this.state = {
+
+      defaultButton: 'Food',
       searchedAdresses: []
     };
+
     return _this;
   }
 
   _createClass(SearchScreen, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react3.default.createElement(
         _reactNative.View,
-        { style: styles.container, __source: {
+        { style: { flex: 1, marginTop: 25 }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 128
           }
         },
-        _react3.default.createElement(_reactNative.TextInput, {
-          style: styles.textinput,
-          onChangeText: this.searchedAdresses,
-          placeholder: 'Type your adress here', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 83
-          }
-        }),
-        _react3.default.createElement(_reactNative.ListView, {
-          dataSource: ds.cloneWithRows(this.state.searchedAdresses),
-          renderRow: this.renderAdress, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 87
-          }
-        })
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: styles.searchBar, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 129
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: {
+                flexDirection: 'row',
+                backgroundColor: '#f7f7f7' }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 130
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: styles.searchInputContainer, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 134
+                }
+              },
+              _react3.default.createElement(_reactNative.TextInput, { style: styles.searchInput,
+                placeholder: 'What do you wanna eat??',
+                onChangeText: this.searchedAdresses,
+                onFocus: function onFocus() {
+                  return _this2.setState({ text: '' });
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 136
+                }
+              })
+            ),
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: styles.searchButtonContainer, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 144
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.TouchableOpacity,
+                {
+                  onPress: function onPress() {
+                    return _this2._onPressGoButton(_this2.state.searchValue);
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 145
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.searchButtonText, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 148
+                    }
+                  },
+                  'Go!'
+                )
+              )
+            )
+          ),
+          _react3.default.createElement(
+            _reactNative.View,
+            { style: {
+                flexDirection: 'row',
+                justifyContent: 'space-around'
+              }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 154
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: styles.searchFilterButton, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 158
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.TouchableOpacity,
+                {
+                  onPress: function onPress() {
+                    return _this2._onPressFoodButton();
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 159
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.searchFilterButtonText, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 162
+                    }
+                  },
+                  'Food'
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: styles.searchFilterButton, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 169
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.TouchableOpacity,
+                {
+                  onPress: function onPress() {
+                    return _this2._onPressPlacesButton();
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 170
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.searchFilterButtonText, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 173
+                    }
+                  },
+                  'Places'
+                )
+              )
+            ),
+            _react3.default.createElement(
+              _reactNative.View,
+              { style: styles.searchFilterButton, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 180
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.TouchableOpacity,
+                {
+                  onPress: function onPress() {
+                    return _this2._onPressPeopleButton();
+                  }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 181
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.searchFilterButtonText, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 184
+                    }
+                  },
+                  'People'
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          _reactNative.View,
+          { style: {
+              backgroundColor: '#f7f7f7',
+              marginTop: 20
+
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 193
+            }
+          },
+          _react3.default.createElement(_reactNative.ListView, {
+
+            dataSource: ds.cloneWithRows(this.state.searchedAdresses),
+            renderRow: this.renderAdress, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 199
+            }
+          })
+        )
       );
     }
   }], [{
@@ -169,16 +376,80 @@ exports.default = SearchScreen;
 
 
 var styles = _reactNative.StyleSheet.create({
+  searchBar: {
+    backgroundColor: '#f7f7f7',
+    paddingBottom: 10
+  },
+  searchFilterButton: {
+    backgroundColor: '#f7f7f7',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  searchFilterButtonText: {
+    color: '#ff8342',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#ff8342'
   },
   textinput: {
     marginTop: 30,
     backgroundColor: '#DDDDDD',
     height: 40,
-    width: 200
+    width: 150
+  },
+  searchInputContainer: {
+    flex: 1,
+    paddingLeft: 20,
+    justifyContent: 'center',
+    marginRight: 40,
+    marginTop: 10,
+    marginLeft: 10,
+    marginBottom: 10,
+    backgroundColor: '#fff',
+    height: 40,
+    width: 280,
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
+    borderWidth: 1,
+    borderColor: '#ff8342'
+  },
+  searchInput: {
+    fontSize: 15,
+    textAlign: 'auto',
+    color: '#878787'
+  },
+  searchButtonContainer: {
+    backgroundColor: '#fff',
+    marginRight: 10,
+    marginTop: 5,
+    height: 50, width: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 30,
+    position: 'absolute',
+    left: 300,
+    borderWidth: 1,
+
+    borderColor: '#ff8342'
+  },
+  searchButtonText: {
+    color: '#ff8342',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  listItem: {
+    backgroundColor: '#fff',
+    borderBottomWidth: 2,
+    borderBottomColor: '#f7f7f7',
+    justifyContent: 'flex-start',
+    padding: 5
+  },
+  listItemText: {
+    fontSize: 20
   }
 });
